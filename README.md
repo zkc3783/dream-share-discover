@@ -41,6 +41,11 @@ Here you can find the main areas of our project documentation:
 
 ### Frank (CHEN HongYuan)
 
+* I am Chen Hongyuan, or you can call me Frank.
+* Senior undergraduate student.
+* Interested in 3D vision.
+* Fascinated by philosophy, economics, and psychology.
+
 ### Jason (ZOU KunCheng)
 
 * You can call me Jason.
