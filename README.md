@@ -8,21 +8,19 @@ Stay tuned for updates, announcements, and exciting news about our projects!
 
 ### **20240305 Portuguese members WANTED!**
 
-Welcome, Portuguese Team Members!
-
 Dear potential team members from Portugal,
 
-We extend a warm welcome to you as we embark on this exciting journey together. Your expertise and perspective will enrich our team and contribute to the success of our project. Join us as we explore new horizons and create something remarkable.
+We are thrilled to invite you to join our team, Dream, Share, Discovery, as we embark on a journey not just of innovation and exploration, but of building a home together. Your unique perspectives and skills will not only drive the success of our project but also enrich our team's culture, making every day a shared adventure. As we navigate the challenges of our project, we look forward to creating a space where everyone feels at home, sharing not just tasks but also our daily lives and dreams!
 
-Welcome aboard!
+Welcome to our family!
 
-Best regards,
+Warmly,
 
 Paul, Frank, Steven, Jason.
 
 ### 20240305 Congrats on our teammate - Steven's birthday!!
 
-We have a lot of fun in T-SHOW Changchun! Click * [**here**](./DAILY.md) for more details.
+We have a lot of fun in T-SHOW Changchun! Click [**here**](./DAILY.md) for more details.
 
 ## Category
 
@@ -41,7 +39,7 @@ Here you can find the main areas of our project documentation:
 * ACM-ICPC Gold Medalist.
 * I've got Japanese-Language Proficiency Test(JLPT) N1. Talk to me if you are also interested in Japanese!
 
-### (CHEN HongYuan)
+### Frank (CHEN HongYuan)
 
 ### Jason (ZOU KunCheng)
 
@@ -56,5 +54,9 @@ Here you can find the main areas of our project documentation:
 *  I bring a unique blend of skills and experiences to our project team.
 *  ACM-ICPC Silver Medalist
 *  **First-place** winner in men's singles table tennis at Jilin University.
+
+### YOU!
+
+### YOU!
 
 For more details about our project and activities, please explore the links above!
