@@ -10,9 +10,9 @@ Stay tuned for updates, announcements, and exciting news about our projects!
 
 Here you can find the main areas of our project documentation:
 
-- [**Readme**](./README.md): Get an overview of our project and navigate to other pages.
-- [**Daily**](./DAILY.md): Share and explore daily insights, experiences, and stories.
-- [**Calendar**](./CALENDER.md): Plan and view upcoming events, milestones, and meetings.
+* [**Readme**](./README.md): Get an overview of our project and navigate to other pages.
+* [**Daily**](./DAILY.md): Share and explore daily insights, experiences, and stories.
+* [**Calendar**](./CALENDER.md): Plan and view upcoming events, milestones, and meetings.
 
 ## Team Members
 
