@@ -16,10 +16,22 @@ Here you can find the main areas of our project documentation:
 
 ## Team Members
 
+### Paul (CHEN MingHao)
 
+### (CHEN HongYuan)
 
+### Jason (ZOU KunCheng)
 
+* You can call me Jason.
+* Jilin University (JLU) Computer Science Department 
+* Good at coding. Problem solver.
+* Tech enthusiast, Gamer, Formula1 fan. 
 
+### Steven (ZHU YongQi)
 
+*  I'm Yongqi Zhu, but you can call me Steven.
+*  I bring a unique blend of skills and experiences to our project team.
+*  ICPC Silver Medalist
+*  **First-place** winner in men's singles table tennis at Jilin University.
 
 For more details about our project and activities, please explore the links above!
