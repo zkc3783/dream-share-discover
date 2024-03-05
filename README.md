@@ -6,6 +6,24 @@ Welcome to our team's GitHub page! We are a diverse team focusing on creating so
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### **20240305 Portuguese members WANTED!**
+
+Welcome, Portuguese Team Members!
+
+Dear potential team members from Portugal,
+
+We extend a warm welcome to you as we embark on this exciting journey together. Your expertise and perspective will enrich our team and contribute to the success of our project. Join us as we explore new horizons and create something remarkable.
+
+Welcome aboard!
+
+Best regards,
+
+Paul, Frank, Steven, Jason.
+
+### 20240305 Congrats on our teammate - Steven's birthday!!
+
+We have a lot of fun in T-SHOW Changchun! Click * [**here**](./DAILY.md) for more details.
+
 ## Category
 
 Here you can find the main areas of our project documentation:
@@ -17,6 +35,11 @@ Here you can find the main areas of our project documentation:
 ## Team Members
 
 ### Paul (CHEN MingHao)
+
+* My Chinese name is Chen Minhao, and you can favorably call me Paul.
+* Never run our of ideas.
+* ACM-ICPC Gold Medalist.
+* I've got Japanese-Language Proficiency Test(JLPT) N1. Talk to me if you are also interested in Japanese!
 
 ### (CHEN HongYuan)
 
@@ -31,7 +54,7 @@ Here you can find the main areas of our project documentation:
 
 *  I'm Yongqi Zhu, but you can call me Steven.
 *  I bring a unique blend of skills and experiences to our project team.
-*  ICPC Silver Medalist
+*  ACM-ICPC Silver Medalist
 *  **First-place** winner in men's singles table tennis at Jilin University.
 
 For more details about our project and activities, please explore the links above!
