@@ -2,7 +2,7 @@
 
 Welcome to our team's GitHub page! We are a diverse team focusing on creating solutions for the urban explorer, sharing our daily life, and fostering discovery. Our team consists of four Chinese members and **we are looking forward to welcoming two Portuguese members soon!**
 
-## News
+## 📢News
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
@@ -24,7 +24,7 @@ Paul, Frank, Steven, Jason.
 
 We had a lot of fun in T-SHOW Changchun! Click [**here**](./DAILY.md) for more details.
 
-## Category
+## 📑Category
 
 Here you can find the main areas of our project documentation:
 
@@ -32,7 +32,7 @@ Here you can find the main areas of our project documentation:
 * [**Daily**](./DAILY.md): Share and explore daily insights, experiences, and stories.
 * [**Calendar**](./CALENDER.md): Plan and view upcoming events, milestones, and meetings.
 
-## Team Members
+## 👨🏻‍💻Team Members
 
 ### Paul (CHEN MingHao) - Project Manager
 
