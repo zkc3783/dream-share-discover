@@ -20,7 +20,7 @@ Paul, Frank, Steven, Jason.
 
 ### 20240305 Congrats on our teammate - Steven's birthday!!
 
-We have a lot of fun in T-SHOW Changchun! Click [**here**](./DAILY.md) for more details.
+We had a lot of fun in T-SHOW Changchun! Click [**here**](./DAILY.md) for more details.
 
 ## Category
 
