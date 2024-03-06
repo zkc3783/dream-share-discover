@@ -2,7 +2,7 @@
 
 Welcome to our team's GitHub page! We are a diverse team focusing on creating solutions for the urban explorer, sharing our daily life, and fostering discovery. Our team consists of four Chinese members and **we are looking forward to welcoming two Portuguese members soon!**
 
-## 📢News
+## 📢 News
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
