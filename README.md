@@ -18,6 +18,8 @@ Warmly,
 
 Paul, Frank, Steven, Jason.
 
+(Contact me on wechat number 13587567336 if you are interested!)
+
 ### 20240305 Congrats on our teammate - Steven's birthday!!
 
 We had a lot of fun in T-SHOW Changchun! Click [**here**](./DAILY.md) for more details.
@@ -32,7 +34,7 @@ Here you can find the main areas of our project documentation:
 
 ## Team Members
 
-### Paul (CHEN MingHao)
+### Paul (CHEN MingHao) - Project Manager
 
 * My Chinese name is Chen Minghao, and you can favorably call me Paul.
 * Never run out of ideas.
