@@ -1,4 +1,4 @@
-# Team Name: Dream, Share, Discovery
+# Team Name: Dream, Share, Discover
 
 Welcome to our team's GitHub page! We are a diverse team focusing on creating solutions for the urban explorer, sharing our daily life, and fostering discovery. Our team consists of four Chinese members and **we are looking forward to welcoming two Portuguese members soon!**
 
@@ -10,7 +10,7 @@ Stay tuned for updates, announcements, and exciting news about our projects!
 
 Dear potential team members from Portugal,
 
-We are thrilled to invite you to join our team, Dream, Share, Discovery, as we embark on a journey not just of innovation and exploration, but of building a home together. Your unique perspectives and skills will not only drive the success of our project but also enrich our team's culture, making every day a shared adventure. As we navigate the challenges of our project, we look forward to creating a space where everyone feels at home, sharing not just tasks but also our daily lives and dreams!
+We are thrilled to invite you to join our team, Dream, Share, Discover, as we embark on a journey not just of innovation and exploration, but of building a home together. Your unique perspectives and skills will not only drive the success of our project but also enrich our team's culture, making every day a shared adventure. As we navigate the challenges of our project, we look forward to creating a space where everyone feels at home, sharing not just tasks but also our daily lives and dreams!
 
 Welcome to our family!
 
