@@ -2,6 +2,10 @@
 
 This is our calender page for plan and view upcoming events, milestones, and meetings.
 
+## 20240313 We finished our role division!
+
+Check out the Role Division part in [**Readme.md**](./README.md#role-division) for more details.
+
 ## 20240311 Welcome to our new members from UTAD!
 
 We were warmly wlcoming two new members from UTAD, Portugal!🍇

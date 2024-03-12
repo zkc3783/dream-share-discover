@@ -6,6 +6,10 @@ Welcome to our team's GitHub page! We are a diverse team focusing on creating so
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### 20240313 We finished our role division!
+
+Check out the Role Division part in [**Readme.md**](./README.md#role-division) for more details.
+
 ### 20240311 Welcome to our new members from UTAD!
 
 We were warmly wlcoming two new members from UTAD, Portugal!🍇
@@ -67,3 +71,16 @@ Here you can find the main areas of our project documentation:
 * Loves being around friends, meeting new people and discuss new ideias.
 
 For more details about our project and activities, please explore the links above!
+
+## 🛠️ Role Division
+
+Discover how our team is structured and each member's unique role in driving our projects forward.
+
+| Role               | Member | Duty                                                        |
+|--------------------|--------|-------------------------------------------------------------|
+| Project Manager    | Paul   | Form/run the team<br>Manage the process<br>All sites meetings<br>… |
+| Requirement Analyst| Jason  | Consolidate the required document with the users’ confirmation<br>Help to design the unit testing plan<br>… |
+| Programmer         | Frank  | Persuade the users to follow a mature technique route<br>Complete the coding<br>… |
+| Liaison            | Steven | Contact the user/teammate/other team/faculty/…<br>Help to organize all sites meetings<br>… |
+| System Architect   | Tiago  | Consolidate the system/interface design document with other teams<br>Help to design the integration testing plan… |
+| Tester             | Gabi   | Design and execute the testing plans to meet the requirements |
