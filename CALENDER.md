@@ -4,7 +4,7 @@ This is our calender page for plan and view upcoming events, milestones, and mee
 
 ## 20240313 We finished our role division!
 
-Check out the [**Role Division**](./README.md#%EF%B8%8F-role-division) part in Readme.md for more details.
+Check out the [**Role Division**](./README.md#%EF%B8%8F-role-division) part in README.md for more details.
 
 ## 20240311 Welcome to our new members from UTAD!
 
