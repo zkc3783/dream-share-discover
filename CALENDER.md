@@ -1,3 +1,19 @@
 # Calender
 
 This is our calender page for plan and view upcoming events, milestones, and meetings.
+
+### 20240311 Welcome to our new members from UTAD!
+
+We were warmly wlcoming two new members from UTAD, Portugal!🍇
+
+## 20240305 Portuguese members WANTED! (Finished)
+
+Dear potential team members from Portugal,
+
+We are thrilled to invite you to join our team, Dream, Share, Discover, as we embark on a journey not just of innovation and exploration, but of building a home together. Your unique perspectives and skills will not only drive the success of our project but also enrich our team's culture, making every day a shared adventure. As we navigate the challenges of our project, we look forward to creating a space where everyone feels at home, sharing not just tasks but also our daily lives and dreams!
+
+Welcome to our family!
+
+Warmly,
+
+Paul, Frank, Steven, Jason.

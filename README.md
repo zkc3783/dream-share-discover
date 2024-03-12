@@ -1,28 +1,18 @@
 # Team Name: Dream, Share, Discover
 
-Welcome to our team's GitHub page! We are a diverse team focusing on creating solutions for the urban explorer, sharing our daily life, and fostering discovery. Our team consists of four Chinese members and **we are looking forward to welcoming two Portuguese members soon!**
+Welcome to our team's GitHub page! We are a diverse team focusing on creating solutions for the urban explorer, sharing our daily life, and fostering discovery. Our team consists of four Chinese members from **J**i**L**in **U**niversity and two Portuguese members from The **U**niversity of **T**rás-os-Montes and **A**lto **D**ouro.
 
 ## 📢 News
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
-### 20240305 Portuguese members WANTED!
+### 20240311 Welcome to our new members from UTAD!
 
-Dear potential team members from Portugal,
-
-We are thrilled to invite you to join our team, Dream, Share, Discover, as we embark on a journey not just of innovation and exploration, but of building a home together. Your unique perspectives and skills will not only drive the success of our project but also enrich our team's culture, making every day a shared adventure. As we navigate the challenges of our project, we look forward to creating a space where everyone feels at home, sharing not just tasks but also our daily lives and dreams!
-
-Welcome to our family!
-
-Warmly,
-
-Paul, Frank, Steven, Jason.
-
-(Contact me on wechat number 13587567336 if you are interested!)
+We were warmly wlcoming two new members from UTAD, Portugal!🍇
 
 ### 20240305 Congrats on our teammate - Steven's birthday!!
 
-We had a lot of fun in T-SHOW Changchun! Click [**here**](./DAILY.md) for more details.
+We had a lot of fun in T-SHOW Changchun! Click [**here**](./DAILY.md#20240305-congrats-on-our-teammate---stevens-birthday) for more details.
 
 ## 📑 Category
 
@@ -62,8 +52,18 @@ Here you can find the main areas of our project documentation:
 *  ACM-ICPC Silver Medalist
 *  **First-place** winner in men's singles table tennis at Jilin University.
 
-### YOU!
+### Gabi (Gabriel Conceição)
 
-### YOU!
+* Currently pursuing a Master's degree in Telematics at UTAD, passionate about the convergence of telecommunications and computer science.
+* Proud president of the oldest University Tuna group in the country, showcasing that harmony extends beyond circuits.
+* A true community hero as a firefighter, always ready to face challenges with courage and determination.
+* Author of an innovative scientific paper in the field of embedded devices, exploring the impact of technology on public health.
+
+### Tiago (Pedro Tiago Guimarães)
+
+* My name is Pedro Tiago Guimarães, but you can call me Tiago.
+* Currently taking a master's degree in software engineering in UTAD.
+* Very optimistic, committed and able to adapt to any situation.
+* Loves being around friends, meeting new people and discuss new ideias.
 
 For more details about our project and activities, please explore the links above!
