@@ -2,7 +2,7 @@
 
 This is our calender page for plan and view upcoming events, milestones, and meetings.
 
-### 20240311 Welcome to our new members from UTAD!
+## 20240311 Welcome to our new members from UTAD!
 
 We were warmly wlcoming two new members from UTAD, Portugal!🍇
 
