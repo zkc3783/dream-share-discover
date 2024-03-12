@@ -1,42 +1,6 @@
 # Daily
 
 This is our page to share our daily lives^^
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
 
 ## 20240305 Congrats on our teammate - Steven's birthday!!
 
