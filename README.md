@@ -28,7 +28,7 @@ Here you can find the main areas of our project documentation:
 
 ## 👨🏻‍💻 Team Members
 
-### Paul (CHEN MingHao) - Project Manager
+### Paul (CHEN MingHao)
 
 * My Chinese name is Chen Minghao, and you can favorably call me Paul.
 * Never run out of ideas.
