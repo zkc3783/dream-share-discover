@@ -26,6 +26,8 @@ Here you can find the main areas of our project documentation:
 * [☀️ **Daily**](./DAILY.md): Share and explore daily insights, experiences, and stories.
 * [📆 **Calendar**](./CALENDER.md): Plan and view upcoming events, milestones, and meetings.
 
+For more details about our project and activities, please explore the links above!
+
 ## 👨🏻‍💻 Team Members
 
 ### Paul (CHEN MingHao)
@@ -82,5 +84,3 @@ Discover how our team is structured and each member's unique role in driving our
 | Liaison            | Steven | Contact the user/teammate/other team/faculty/…<br>Help to organize all sites meetings<br>… |
 | System Architect   | Tiago  | Consolidate the system/interface design document with other teams<br>Help to design the integration testing plan… |
 | Tester             | Gabi   | Design and execute the testing plans to meet the requirements |
-
-For more details about our project and activities, please explore the links above!
