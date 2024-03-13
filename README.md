@@ -70,8 +70,6 @@ Here you can find the main areas of our project documentation:
 * Very optimistic, committed and able to adapt to any situation.
 * Loves being around friends, meeting new people and discuss new ideias.
 
-For more details about our project and activities, please explore the links above!
-
 ## 🛠️ Role Division
 
 Discover how our team is structured and each member's unique role in driving our projects forward.
@@ -84,3 +82,5 @@ Discover how our team is structured and each member's unique role in driving our
 | Liaison            | Steven | Contact the user/teammate/other team/faculty/…<br>Help to organize all sites meetings<br>… |
 | System Architect   | Tiago  | Consolidate the system/interface design document with other teams<br>Help to design the integration testing plan… |
 | Tester             | Gabi   | Design and execute the testing plans to meet the requirements |
+
+For more details about our project and activities, please explore the links above!
