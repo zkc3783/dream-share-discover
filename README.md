@@ -2,6 +2,8 @@
 
 Welcome to our team's GitHub page! We are a diverse team focusing on creating solutions for the urban explorer, sharing our daily life, and fostering discovery. Our team consists of four Chinese members from **J**i**L**in **U**niversity and two Portuguese members from The **U**niversity of **T**rás-os-Montes and **A**lto **D**ouro.
 
+Our team's focus is on the web application, while we also have our partners work on complementary components. Together, we're creating a comprehensive ecosystem for urban explorers.
+
 ## 📢 News
 
 Stay tuned for updates, announcements, and exciting news about our projects!
@@ -84,3 +86,16 @@ Discover how our team is structured and each member's unique role in driving our
 | Liaison            | Steven | Contact the user/teammate/other team/faculty/…<br>Help to organize all sites meetings<br>… |
 | System Architect   | Tiago  | Consolidate the system/interface design document with other teams<br>Help to design the integration testing plan… |
 | Tester             | Gabi   | Design and execute the testing plans to meet the requirements |
+
+## 🤝 Friend Link
+
+Here you'll find links to teams responsible for different aspects of our project.
+
+| Team Name       | Link                                             | Project Focus                 |
+|-----------------|--------------------------------------------------|-------------------------------|
+| Brave Ones      | https://github.com/Divpeter/DSD2024.github.io | Android app                   |
+| Backrooms       | https://github.com/Irodixy/Backrooms_dsd2024 | Database                      |
+| Rock House      | https://github.com/zhouyuheng2003/DSD2024-rock-house | WeChat mini-program           |
+| Better Call Li  | https://github.com/baconjlu/better-call-Li | Algorithm                     |
+
+Explore these links to see the diverse and innovative components our friends are developing for urban explorers worldwide!
