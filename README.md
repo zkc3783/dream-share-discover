@@ -31,6 +31,7 @@ Here you can find the main areas of our project documentation:
 * [🏠 **Readme**](./README.md): Get an overview of our project and navigate to other pages.
 * [☀️ **Daily**](./DAILY.md): Share and explore daily insights, experiences, and stories.
 * [📆 **Calendar**](./CALENDER.md): Plan and view upcoming events, milestones, and meetings.
+* [📆 **Calendar**](./project): Plan and view upcoming events, milestones, and meetings.
 
 For more details about our project and activities, please explore the links above!
 
