@@ -4,8 +4,6 @@
 | ---- | ------ |
 | March 15 | Requirement Analysts of each group, Paul(Minghao Chen) |
 
-[toc]
-
 ## 1. Introduction
 
 ### 1.1 Purpose
