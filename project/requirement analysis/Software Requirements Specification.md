@@ -1,7 +1,7 @@
 # Software Requirements Specification Iteration 1, Version 1.2
 
-| Date | Author |
-| ---- | ------ |
+| Date     | Author                                                 |
+| -------- | ------------------------------------------------------ |
 | March 15 | Requirement Analysts of each group, Paul(Minghao Chen) |
 
 ## 1. Introduction
@@ -30,15 +30,15 @@ The project entails the development of an integrated digital ecosystem comprisin
 
 #### Requirements
 
-| Action | Description |
-| ----------- | ----------- |
-| Login | Users must be able to log in to access personalized features and retain their preferences. |
-| Register | Allows new users to create an account to personalize and save their preferences. |
+| Action            | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| Login             | Users must be able to log in to access personalized features and retain their preferences. |
+| Register          | Allows new users to create an account to personalize and save their preferences. |
 | Set Customer Info | Users can set and update personal details like name, interests, and password for a tailored app experience. |
-| View Map | Display a map showing store locations, facilitating easy navigation to stores of interest. |
-| View Hunted List | Provide a list or collection of items the user has interacted with or saved, known as "hunted" items. |
-| View Store | Enable users to view detailed information about stores, including items available, through the app. |
-| Feedback | Collect user feedback on items and notifications to improve the recommendation algorithm and app functionality. |
+| View Map          | Display a map showing store locations, facilitating easy navigation to stores of interest. |
+| View Hunted List  | Provide a list or collection of items the user has interacted with or saved, known as "hunted" items. |
+| View Store        | Enable users to view detailed information about stores, including items available, through the app. |
+| Feedback          | Collect user feedback on items and notifications to improve the recommendation algorithm and app functionality. |
 
 ### 3.2 Store Owner Client
 
@@ -47,10 +47,10 @@ The project entails the development of an integrated digital ecosystem comprisin
 
 #### Requirements
 
-| Action | Description |
-| ----------- | ----------- |
-| Register | Enables store owners to create an account to manage their store's information and items on the app. |
-| Login | Allows store owners to access their dashboard for managing their store's profile and items. |
+| Action         | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| Register       | Enables store owners to create an account to manage their store's information and items on the app. |
+| Login          | Allows store owners to access their dashboard for managing their store's profile and items. |
 | Set Store info | Store owners can input and update their store's details, including name, location, and item descriptions like name, price, descriptions and images. |
 | Get Statistics | Provides statistical data on customer visits and feedback, helping owners understand customer preferences and improve offerings. |
 
@@ -61,15 +61,15 @@ The project entails the development of an integrated digital ecosystem comprisin
 
 #### Requirements
 
-| Action | Description |
-| ----------- | ----------- |
-| Login | Administrators can log in to manage the application, including user accounts and store information. |
+| Action         | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| Login          | Administrators can log in to manage the application, including user accounts and store information. |
 | Get Statistics | Allows administrators to access comprehensive analytics on app usage, user engagement, and performance for strategic planning. |
-| Manage | Administrators have the ability to manage and edit user and store data, and oversee the overall functioning of the app. |
+| Manage         | Administrators have the ability to manage and edit user and store data, and oversee the overall functioning of the app. |
 
 ## 4. Use Case
 
-Please check our use case diagram [here](Use Case Diagram.pdf). The use cases are corresponding to the requirements in 3. Functional Requirements.
+Please check our use case diagram [here](./Use%20Case%20Diagram.pdf). The use cases are corresponding to the requirements in 3. Functional Requirements.
 
 
 ## 5. Software Interfaces
