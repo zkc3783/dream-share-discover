@@ -25,8 +25,8 @@ The project entails the development of an integrated digital ecosystem comprisin
 
 ### 3.1 Customer Client
 
-- **Goal:** To enhance the shopping experience by facilitating discovery and interaction with stores and items of interest.
-- **Summary:** The Customer Client module aims to provide users with a personalized and engaging way to discover unique items and stores, receive recommendations based on their preferences, navigate to these locations, and manage their discovered items. This includes support for Android app and WeChat Mini Program.
+* **Goal:** To enhance the shopping experience by facilitating discovery and interaction with stores and items of interest.
+* **Summary:** The Customer Client module aims to provide users with a personalized and engaging way to discover unique items and stores, receive recommendations based on their preferences, navigate to these locations, and manage their discovered items. This includes support for Android app and WeChat Mini Program.
 
 #### Requirements
 
@@ -42,8 +42,8 @@ The project entails the development of an integrated digital ecosystem comprisin
 
 ### 3.2 Store Owner Client
 
-- **Goal:** To provide store owners with a platform to reach potential customers by showcasing their store and items.
-- **Summary:** This module is designed for store owners to manage their store's presence, post updates about new items, and receive insights into customer preferences and store performance, using web Application platforms.
+* **Goal:** To provide store owners with a platform to reach potential customers by showcasing their store and items.
+* **Summary:** This module is designed for store owners to manage their store's presence, post updates about new items, and receive insights into customer preferences and store performance, using web Application platforms.
 
 #### Requirements
 
@@ -56,8 +56,8 @@ The project entails the development of an integrated digital ecosystem comprisin
 
 ### 3.3 Administrator Server
 
-- **Goal:** To ensure smooth operation and management of the app's backend processes.
-- **Summary:** The Administrator Server module, accessible via the Web Application, oversees user and store data management, handles violations, and compiles analytics for ongoing app enhancements, ensuring data integrity and supporting software improvement.
+* **Goal:** To ensure smooth operation and management of the app's backend processes.
+* **Summary:** The Administrator Server module, accessible via the Web Application, oversees user and store data management, handles violations, and compiles analytics for ongoing app enhancements, ensuring data integrity and supporting software improvement.
 
 #### Requirements
 
