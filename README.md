@@ -10,7 +10,7 @@ Stay tuned for updates, announcements, and exciting news about our projects!
 
 ### 20240316 We finished the first version of our requirement analysis!
 
-We're thrilled to announce the completion of the first version of our requirement analysis! This is a significant milestone in our journey to develop an exceptional web application for urban explorers. Dive into the details and understand our project's foundation by clicking [**here**](./project/Software%20Requirements%20Specification.md)! This document is crucial for guiding our development process and ensuring that we meet the needs of our users effectively.
+We're thrilled to announce the completion of the first version of our requirement analysis! This is a significant milestone in our journey to develop an exceptional web application for urban explorers. Dive into the details and understand our project's foundation by clicking [**here**](./project/requirement%20analysis/Software%20Requirements%20Specification.md)! This document is crucial for guiding our development process and ensuring that we meet the needs of our users effectively.
 
 ### 20240313 We finished our role division!
 
@@ -31,7 +31,7 @@ Here you can find the main areas of our project documentation:
 * [🏠 **Readme**](./README.md): Get an overview of our project and navigate to other pages.
 * [☀️ **Daily**](./DAILY.md): Share and explore daily insights, experiences, and stories.
 * [📆 **Calendar**](./CALENDER.md): Plan and view upcoming events, milestones, and meetings.
-* [📆 **Calendar**](./project): Plan and view upcoming events, milestones, and meetings.
+* [📝 **Project**](./project): Dive into the core of our project's development encompassing requirement analysis, system architecture and more.
 
 For more details about our project and activities, please explore the links above!
 
