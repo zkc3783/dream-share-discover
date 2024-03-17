@@ -2,7 +2,7 @@
 
 Welcome to our team's GitHub page! We are a diverse team focusing on creating solutions for the urban explorer, sharing our daily life, and fostering discovery. Our team consists of four Chinese members from **J**i**L**in **U**niversity and two Portuguese members from The **U**niversity of **T**rás-os-Montes and **A**lto **D**ouro.
 
-Our team's focus is on the web application, while we also have our partners work on complementary components. Together, we're creating a comprehensive ecosystem for urban explorers.
+Our team's focus is on the web application, while we also have our partners work on complementary components. Together, we're creating a comprehensive ecosystem for urban explorers. Check out the [**Role Division**](./README.md#-friend-link) part in README.md to see who are they!
 
 ## 📢 News
 
