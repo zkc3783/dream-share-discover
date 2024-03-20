@@ -8,6 +8,10 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### 20240320 We illustrate the system architeture by a class diagram!
+
+We tried to illustrate the classes needed for web application developing by a class diagram, clicke here for details.
+
 ### 20240319 We made a few updates to the requirement analysis!
 
 Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md)
