@@ -2,9 +2,13 @@
 
 This is our calender page for plan and view upcoming events, milestones, and meetings.
 
+## 20240320 We illustrated the system architeture by a class diagram!
+
+We tried to illustrate the classes needed for web application developing by a class diagram, clicke [**here**](./project/system-architecture/Class%20Diagram%20v1.0.jpg) for details.
+
 ## 20240319 We made a few updates to the requirement analysis!
 
-Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md)
+Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md).
 
 ## 20240316 We finished the first version of our requirement analysis!
 

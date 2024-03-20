@@ -8,7 +8,7 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
-### 20240320 We illustrate the system architeture by a class diagram!
+### 20240320 We illustrated the system architeture by a class diagram!
 
 We tried to illustrate the classes needed for web application developing by a class diagram, clicke [**here**](./project/system-architecture/Class%20Diagram%20v1.0.jpg) for details.
 
