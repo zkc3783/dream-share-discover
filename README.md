@@ -14,7 +14,7 @@ We tried to illustrate the classes needed for web application developing by a cl
 
 ### 20240319 We made a few updates to the requirement analysis!
 
-Check out the latest version [here](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md).
+Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md).
 
 ### 20240316 We finished the first version of our requirement analysis!
 
