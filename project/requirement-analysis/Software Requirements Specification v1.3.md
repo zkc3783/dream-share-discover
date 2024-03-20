@@ -4,8 +4,6 @@
 | ---- | ------ |
 | March 15 | Requirement Analysts of each group, Paul(Minghao Chen) |
 
-[toc]
-
 ## 1. Introduction
 
 ### 1.1 Purpose
@@ -71,7 +69,7 @@ The project entails the development of an integrated digital ecosystem comprisin
 
 ## 4. Use Case
 
-Please check our use case diagram [here](./Use%20Case%20Diagram.pdf). The use cases are corresponding to the requirements in 3. Functional Requirements.
+Please check our use case diagram [here](./Use%20Case%20Diagram%20v1.3.pdf). The use cases are corresponding to the requirements in 3. Functional Requirements.
 
 
 ## 5. Software Interfaces
