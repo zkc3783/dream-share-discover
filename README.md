@@ -8,9 +8,13 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### 20240319 We made a few updates to the requirement analysis!
+
+Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md)
+
 ### 20240316 We finished the first version of our requirement analysis!
 
-We're thrilled to announce the completion of the first version of our requirement analysis! This is a significant milestone in our journey to develop a software product for urban explorers. Dive into the details and understand our project's foundation by clicking [**here**](./project/requirement-analysis/Software%20Requirements%20Specification.md)! This document is crucial for guiding our development process and ensuring that we meet the needs of our users effectively.
+We're thrilled to announce the completion of the first version of our requirement analysis! This is a significant milestone in our journey to develop a software product for urban explorers. Dive into the details and understand our project's foundation by clicking [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.2.md)! This document is crucial for guiding our development process and ensuring that we meet the needs of our users effectively.
 
 ### 20240313 We finished our role division!
 
@@ -19,10 +23,6 @@ Check out the [**Role Division**](./README.md#%EF%B8%8F-role-division) part in R
 ### 20240311 Welcome to our new members from UTAD!
 
 We were warmly wlcoming two new members from UTAD, Portugal!🍇
-
-### 20240305 Congrats on our teammate - Steven's birthday!!
-
-We had a lot of fun in T-SHOW Changchun! Click [**here**](./DAILY.md#20240305-congrats-on-our-teammate---stevens-birthday) for more details.
 
 ## 📑 Category
 

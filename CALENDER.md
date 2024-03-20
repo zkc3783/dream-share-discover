@@ -2,9 +2,13 @@
 
 This is our calender page for plan and view upcoming events, milestones, and meetings.
 
+## 20240319 We made a few updates to the requirement analysis!
+
+Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md)
+
 ## 20240316 We finished the first version of our requirement analysis!
 
-We're thrilled to announce the completion of the first version of our requirement analysis! This is a significant milestone in our journey to develop a software product for urban explorers. Dive into the details and understand our project's foundation by clicking [**here**](./project/requirement-analysis/Software%20Requirements%20Specification.md)! This document is crucial for guiding our development process and ensuring that we meet the needs of our users effectively.
+We're thrilled to announce the completion of the first version of our requirement analysis! This is a significant milestone in our journey to develop a software product for urban explorers. Dive into the details and understand our project's foundation by clicking [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.2.md)! This document is crucial for guiding our development process and ensuring that we meet the needs of our users effectively.
 
 ## 20240313 We finished our role division!
 
