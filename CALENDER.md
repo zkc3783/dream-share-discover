@@ -2,9 +2,17 @@
 
 This is our calender page for plan and view upcoming events, milestones, and meetings.
 
+## 20240324 We illustrated the system architeture by a few diagrams!
+
+We tried to illustrate the classes needed for web application developing by a class diagram, a component diagram and a deployment diagram. Click [**here**](./project/system-architecture/diagrams/) for details.
+
 ## 20240320 We illustrated the system architeture by a class diagram! (Not used)
 
 We tried to illustrate the classes needed for web application developing by a class diagram.
+
+## 20240320 We started system architeturing!
+
+We planned to present our system architecture through a series of diagrams and a Software Design Specification document.
 
 ## 20240319 We made a few updates to the requirement analysis!
 

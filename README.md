@@ -12,6 +12,10 @@ Stay tuned for updates, announcements, and exciting news about our projects!
 
 We tried to illustrate the classes needed for web application developing by a class diagram, a component diagram and a deployment diagram. Click [**here**](./project/system-architecture/diagrams/) for details.
 
+### 20240320 We started system architeturing!
+
+We planned to present our system architecture through a series of diagrams and a Software Design Specification document.
+
 ### 20240319 We made a few updates to the requirement analysis!
 
 Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md).
