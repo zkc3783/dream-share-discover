@@ -14,11 +14,11 @@ We tried to illustrate the classes needed for web application developing by a cl
 
 ### 20240320 We started system architeturing!
 
-We planned to present our system architecture through a series of diagrams and a Software Design Specification document.
+We planned to present our system architecture through a series of diagrams and a software design specification document.
 
 ### 20240319 We made a few updates to the requirement analysis!
 
-Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md).
+We did a few minor updates about naming and coloring of use cases. Check out the latest version [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.3.md).
 
 ### 20240316 We finished the first version of our requirement analysis!
 
