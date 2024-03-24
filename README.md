@@ -8,9 +8,9 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
-### 20240320 We illustrated the system architeture by a class diagram!
+### 20240324 We illustrated the system architeture by a few diagrams!
 
-We tried to illustrate the classes needed for web application developing by a class diagram, click [**here**](./project/system-architecture/Class%20Diagram%20v1.0.jpg) for details.
+We tried to illustrate the classes needed for web application developing by a class diagram, a component diagram and a deployment diagram. Click [**here**](./project/system-architecture/diagrams/) for details.
 
 ### 20240319 We made a few updates to the requirement analysis!
 
@@ -35,7 +35,7 @@ Here you can find the main areas of our project documentation:
 * [🏠 **Readme**](./README.md): Get an overview of our project and navigate to other pages.
 * [☀️ **Daily**](./DAILY.md): Share and explore daily insights, experiences, and stories.
 * [📆 **Calendar**](./CALENDER.md): Plan and view upcoming events, milestones, and meetings.
-* [📝 **Project**](./project): Dive into the core of our project's development encompassing requirement analysis, system architecture and more.
+* [📝 **Project**](./project/): Dive into the core of our project's development encompassing requirement analysis, system architecture and more.
 
 For more details about our project and activities, please explore the links above!
 
