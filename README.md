@@ -8,6 +8,10 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### 20240324 We integrated a Gantt chart into our project calendar! 
+
+We integrated a Gantt chart into our project calendar to offer a comprehensive view of our current progress and upcoming tasks. Hopefully it will always be put on the top of [**CALENDER.md**](./CALENDER.md).
+
 ### 20240324 We illustrated the system architeture by a few diagrams!
 
 We tried to illustrate the classes needed for web application developing by a class diagram, a component diagram and a deployment diagram. Click [**here**](./project/system-architecture/diagrams/) for details.

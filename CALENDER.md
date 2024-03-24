@@ -2,6 +2,16 @@
 
 This is our calender page for plan and view upcoming events, milestones, and meetings.
 
+## Project Gantt Chart
+
+The Gantt Chart of our Project outlines the start and end dates of the project phases, key milestones, and deadlines, ensuring that everyone has a clear understanding of the project's progress and what is expected.
+
+![alt text](image/Gantt.png)
+
+## 20240324 We integrated a Gantt chart into our project calendar! 
+
+We integrated a Gantt chart into our project calendar to offer a comprehensive view of our current progress and upcoming tasks. Hopefully it will always be put on the top of [**CALENDER.md**](./CALENDER.md).
+
 ## 20240324 We illustrated the system architeture by a few diagrams!
 
 We tried to illustrate the classes needed for web application developing by a class diagram, a component diagram and a deployment diagram. Click [**here**](./project/system-architecture/diagrams/) for details.
