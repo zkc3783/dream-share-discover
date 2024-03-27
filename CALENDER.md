@@ -8,6 +8,10 @@ The Gantt Chart of our Project outlines the start and end dates of the project p
 
 ![alt text](image/Gantt.png)
 
+## 20240326 We have a meeting with other PMs!
+
+We have a short wehcat meeting with other PMs in which we decided to merge our result by submitting class diagrams from each group. The deadline is 1st, April. Check our schedules [**here**](./CALENDER.md).
+
 ## 20240324 We integrated a Gantt chart into our project calendar! 
 
 We integrated a Gantt chart into our project calendar to offer a comprehensive view of our current progress and upcoming tasks. Hopefully it will always be put on the top of [**CALENDER.md**](./CALENDER.md).
