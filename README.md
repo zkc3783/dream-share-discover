@@ -8,6 +8,10 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### 20240330 We finished illustrating the digram for our group!
+
+We finished illustrating the class diagram and component diagram for web application developing! Our work will then be merged with other groups. Check our state of the art by clicking [**here**](./project/system-architecture/diagrams-v1.1/).
+
 ### 20240326 We have a meeting with other PMs!
 
 We have a short wehcat meeting with other PMs in which we decided to merge our result by submitting class diagrams from each group. The deadline is 1st, April. Check our schedules [**here**](./CALENDER.md).
@@ -18,7 +22,7 @@ We integrated a Gantt chart into our project calendar to offer a comprehensive v
 
 ### 20240324 We illustrated the system architeture by a few diagrams!
 
-We tried to illustrate the classes needed for web application developing by a class diagram, a component diagram and a deployment diagram. Click [**here**](./project/system-architecture/diagrams/) for details.
+We tried to illustrate the classes needed for web application developing by a class diagram, a component diagram and a deployment diagram. Click [**here**](./project/system-architecture/diagrams-v1.0/) for details.
 
 ### 20240320 We started system architeturing!
 
