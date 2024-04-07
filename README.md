@@ -12,6 +12,10 @@ Stay tuned for updates, announcements, and exciting news about our projects!
 
 We renewed our [**Gantt chart**](./CALENDER.md) based on the provided version of [**Brave Ones**](https://github.com/Divpeter/DSD2024.github.io). Especially thanks to Peter!
 
+### 20240407 We made a few minor changes to the system architeture diagrams!
+
+We made a few minor change to the class diagram and component diagram for web application developing, mainly about the "management" component. Click [**here**](./project/system-architecture/diagrams-v1.2/) to check what is changed.
+
 ### 20240330 We finished illustrating the digram for our group!
 
 We finished illustrating the class diagram and component diagram for web application developing! Our work will then be merged with other groups. Check our state of the art by clicking [**here**](./project/system-architecture/diagrams-v1.1/).
