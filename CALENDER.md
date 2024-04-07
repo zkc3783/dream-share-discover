@@ -18,7 +18,7 @@ section RA
 Our Requirements Analysis: crit, 03-09 , 7d
 Scheduled Requirements Analysis: active, 03-09, 7d
 section System Design
-Our System design(doing): crit, 03-16, 14d
+Our System design(on progress): crit, 03-16, 14d
 Scheduled System design: active, 03-16, 28d
 ```
 
