@@ -6,7 +6,21 @@ This is our calender page for plan and view upcoming events, milestones, and mee
 
 The Gantt Chart of our Project outlines the start and end dates of the project phases, key milestones, and deadlines, ensuring that everyone has a clear understanding of the project's progress and what is expected.
 
-![alt text](image/Gantt.png)
+```mermaid
+gantt
+dateFormat MM-DD
+axisFormat %m-%d
+title PROJECT GANTT
+section Preparation
+Our Team Building: crit, a1, 03-02, 6d
+Scheduled Team Building: active, a3, 03-02, 7d
+section RA
+Our Requirements Analysis: crit, 03-09 , 7d
+Scheduled Requirements Analysis: active, 03-09, 7d
+section System Design
+Our System design(doing): crit, 03-16, 17d
+Scheduled System design: active, 03-16, 28d
+```
 
 ## 20240330 We finished illustrating the digram for our group!
 
