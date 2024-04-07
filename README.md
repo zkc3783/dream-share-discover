@@ -10,7 +10,7 @@ Stay tuned for updates, announcements, and exciting news about our projects!
 
 ### 20240407 We renewed our Gantt chart referencing Brave Ones!
 
-We renewed our Gantt chart based on the provided version of [**Brave Ones**](https://github.com/Divpeter/DSD2024.github.io). Especially thanks to Peter!
+We renewed our [**Gantt chart**](./CALENDER.md) based on the provided version of [**Brave Ones**](https://github.com/Divpeter/DSD2024.github.io). Especially thanks to Peter!
 
 ### 20240330 We finished illustrating the digram for our group!
 
