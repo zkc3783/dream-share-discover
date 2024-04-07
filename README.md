@@ -8,6 +8,10 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### 20240407 We renewed our Gantt chart referencing Brave Ones!
+
+We renewed our Gantt chart based on the provided version of [**Brave Ones**](https://github.com/Divpeter/DSD2024.github.io). Especially thanks to Peter!
+
 ### 20240330 We finished illustrating the digram for our group!
 
 We finished illustrating the class diagram and component diagram for web application developing! Our work will then be merged with other groups. Check our state of the art by clicking [**here**](./project/system-architecture/diagrams-v1.1/).

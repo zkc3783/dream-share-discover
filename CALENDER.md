@@ -18,9 +18,13 @@ section RA
 Our Requirements Analysis: crit, 03-09 , 7d
 Scheduled Requirements Analysis: active, 03-09, 7d
 section System Design
-Our System design(doing): crit, 03-16, 17d
+Our System design(doing): crit, 03-16, 14d
 Scheduled System design: active, 03-16, 28d
 ```
+
+## 20240407 We renewed our Gantt chart referencing Brave Ones!
+
+We renewed our Gantt chart based on the provided version of [**Brave Ones**](https://github.com/Divpeter/DSD2024.github.io). Especially thanks to Peter!
 
 ## 20240330 We finished illustrating the digram for our group!
 
