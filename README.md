@@ -8,6 +8,15 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### 20240412 We started to code our project!
+
+We started to coding our project! Checking our latest progress by a few screenshots [**here**](./project/). Now there are a few things due to be updated.
+
+- Add a register portal.
+- Add "location" in store info.
+- Add "comment" in feedback.
+- Make login panel selective of store owner login and admin login.
+
 ### 20240407 We renewed our Gantt chart referencing Brave Ones!
 
 We renewed our [**Gantt chart**](./CALENDER.md) based on the provided version of [**Brave Ones**](https://github.com/Divpeter/DSD2024.github.io). Especially thanks to Peter!
