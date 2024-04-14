@@ -18,9 +18,20 @@ section RA
 Our Requirements Analysis: crit, 03-09 , 7d
 Scheduled Requirements Analysis: active, 03-09, 7d
 section System Design
-Our System design(on progress): crit, 03-16, 14d
-Scheduled System design: active, 03-16, 28d
+Our System design: crit, 03-16, 14d
+Scheduled System design: active, 03-16, 21d
+section Implementation
+Scheduled Implementation: active, 04-06, 14d
 ```
+
+## 20240412 We started to code our project!
+
+We started to coding our project! Checking our latest progress by a few screenshots [**here**](./project/implementation). Codes are temporarily put [**here**](./project/mall_vue/). Now there are a few things due to be updated.
+
+- Add a register portal.
+- Add "location" in store info.
+- Add "comment" in feedback.
+- Make login panel selective of store owner login and admin login.
 
 ## 20240407 We renewed our Gantt chart referencing Brave Ones!
 
