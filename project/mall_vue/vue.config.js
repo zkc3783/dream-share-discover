@@ -1,3 +1,5 @@
+const { configure } = require("nprogress");
+
 module.exports = {
   devServer: {
     open: true,
@@ -10,6 +12,9 @@ module.exports = {
         changeOrigin: true // 是否改变源地址
       },
     }
-  }
+  },
+  configureWebpack: {
+    devtool: 'source-map'
+  },
 };
 

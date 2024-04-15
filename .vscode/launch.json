@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "firefox",
+            "request": "attach",
+            "name": "Attach"
+        },
+        {
+            "type": "node-terminal",
+            "name": "Run Script: dev",
+            "request": "launch",
+            "command": "npm run dev",
+            "cwd": "${workspaceFolder}/project/mall_vue"
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "vuejs: firefox1",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}/src",
+            "pathMappings": [{ "url": "webpack:///src/", "path": "${webRoot}/" }],
+            "profile": "default" // 浏览器的用户档案,见下文
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "vuejs: chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}/src",
+            "sourceMapPathOverrides": {
+              "webpack:///src/*": "${webRoot}/*"
+            }
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "firefox", // 项目名字,自己定义
+            "url": "http://localhost:8080", // 打开调试浏览器的首页
+            "webRoot": "${workspaceFolder}/src",
+            "pathMappings": [{ "url": "webpack:///src/", "path": "${webRoot}/" }],
+            "profile": "dev-edition-default" // 浏览器的用户档案,见下文
+        },
+    ]
+}

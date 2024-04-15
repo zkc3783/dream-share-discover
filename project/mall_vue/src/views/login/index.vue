@@ -50,13 +50,6 @@
       </el-form>
     </el-card>
     <img :src="login_center_bg" class="login-center-layout">
-    <el-dialog title="Support" :visible.sync="dialogVisible" width="30%" center>
-      <span>sign up</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogCancel">No</el-button>
-        <el-button type="primary" @click="dialogConfirm">Yes</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
@@ -117,6 +110,7 @@
         }
       },
       handleLogin() {
+        debugger
         this.$refs.loginForm.validate(valid => {
           if (valid) {
             // let isSupport = getSupport();
@@ -129,6 +123,7 @@
               this.loading = false;
               setCookie("username",this.loginForm.username,15);
               setCookie("password",this.loginForm.password,15);
+              debugger
               this.$router.push({path: '/'})
             }).catch(() => {
               this.loading = false
@@ -140,16 +135,9 @@
         })
       },
       handleTry(){
-        this.dialogVisible =true
+        debugger
+        this.$router.push({path:'/register'})
       },
-      dialogConfirm(){
-        this.dialogVisible =false;
-        setSupport(true);
-      },
-      dialogCancel(){
-        this.dialogVisible = false;
-        setSupport(false);
-      }
     }
   }
 </script>

@@ -40,12 +40,6 @@
           <el-button style="width: 25%" type="primary" :loading="loading" @click.native.prevent="handleLogin">
             login
           </el-button>
-          <el-button style="width: 40%" type="primary" @click.native.prevent="handleLogin">
-            admin login
-          </el-button>
-          <el-button style="width: 25%" type="primary" @click.native.prevent="handleTry">
-            register
-          </el-button>
         </el-form-item>
       </el-form>
     </el-card>
