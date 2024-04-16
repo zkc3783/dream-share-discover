@@ -9,7 +9,7 @@
         <div style="text-align: center">
           <svg-icon icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
         </div>
-        <h2 class="login-title color-main">Login</h2>
+        <h2 class="login-title color-main">Register</h2>
         <el-form-item prop="username">
           <el-input name="username"
                     type="text"
@@ -38,7 +38,7 @@
         </el-form-item>
         <el-form-item style="margin-bottom: 60px;text-align: center">
           <el-button style="width: 25%" type="primary" :loading="loading" @click.native.prevent="handleLogin">
-            login
+            confirm
           </el-button>
         </el-form-item>
       </el-form>
