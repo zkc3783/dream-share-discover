@@ -36,6 +36,20 @@
           </span>
           </el-input>
         </el-form-item>
+        <el-form-item prop="confirmPassword">
+          <el-input name="confirmPassword"
+                    :type="pwdType"
+                    v-model="loginForm.confirmPassword"
+                    autoComplete="on"
+                    placeholder="Confirm Password">
+            <span slot="prefix">
+              <svg-icon icon-class="password" class="color-main"></svg-icon>
+            </span>
+            <span slot="suffix" @click="showPwd">
+              <svg-icon icon-class="eye" class="color-main"></svg-icon>
+            </span>
+          </el-input>
+        </el-form-item>
         <el-form-item style="margin-bottom: 60px;text-align: center">
           <el-button style="width: 25%" type="primary" :loading="loading" @click.native.prevent="handleLogin">
             confirm
@@ -76,14 +90,25 @@
           callback()
         }
       };
+      const validateConfirmPass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('Please enter the password again!'));
+        } else if (value !== this.loginForm.password) {
+          callback(new Error('The two passwords do not match!'));
+        } else {
+          callback();
+        }
+      };
       return {
         loginForm: {
           username: '',
           password: '',
+          confirmPassword: '',
         },
         loginRules: {
           username: [{required: true, trigger: 'blur', validator: validateUsername}],
-          password: [{required: true, trigger: 'blur', validator: validatePass}]
+          password: [{required: true, trigger: 'blur', validator: validatePass}],
+          confirmPassword: [{required: true, trigger: 'blur', validator: validateConfirmPass}],
         },
         loading: false,
         pwdType: 'password',
