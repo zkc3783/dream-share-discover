@@ -93,16 +93,17 @@
         <el-table-column label="name" align="center">
           <template slot-scope="scope">
             <p>{{scope.row.name}}</p>
-            <p>brand：{{scope.row.brandName}}</p>
+            <!-- <p>brand：{{scope.row.brandName}}</p> -->
           </template>
         </el-table-column>
-        <el-table-column label="price/id" width="120" align="center">
+        <!-- <el-table-column label="price/id" width="120" align="center"></el-table-column> -->
+        <el-table-column label="price" width="120" align="center">
           <template slot-scope="scope">
             <p>price：￥{{scope.row.price}}</p>
-            <p>id：{{scope.row.productSn}}</p>
+            <!-- <p>id：{{scope.row.productSn}}</p> -->
           </template>
         </el-table-column>
-        <el-table-column label="label" width="140" align="center">
+        <!-- <el-table-column label="label" width="140" align="center">
           <template slot-scope="scope">
             <p>upload：
               <el-switch
@@ -132,8 +133,11 @@
         </el-table-column>
         <el-table-column label="sort" width="100" align="center">
           <template slot-scope="scope">{{scope.row.sort}}</template>
+        </el-table-column> -->
+        <el-table-column label="description" width="100" align="center">
+          <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column>
-        <el-table-column label="SKU_stock" width="100" align="center">
+        <!-- <el-table-column label="SKU_stock" width="100" align="center">
           <template slot-scope="scope">
             <el-button type="primary" icon="el-icon-edit" @click="handleShowSkuEditDialog(scope.$index, scope.row)" circle></el-button>
           </template>
@@ -151,7 +155,7 @@
               </el-button>
             </p>
           </template>
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column label="operate" width="160" align="center">
           <template slot-scope="scope">
             <p>
