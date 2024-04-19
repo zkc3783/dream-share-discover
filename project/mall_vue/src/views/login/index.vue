@@ -37,10 +37,10 @@
           </el-input>
         </el-form-item>
         <el-form-item style="margin-bottom: 60px;text-align: center">
-          <el-button style="width: 25%" type="primary" :loading="loading" @click.native.prevent="handleLogin">
+          <el-button style="width: 25%" type="primary" :loading="loading" @click.native.prevent="handleLogin(false)">
             login
           </el-button>
-          <el-button style="width: 40%" type="primary" @click.native.prevent="handleLogin">
+          <el-button style="width: 40%" type="primary" :loading="adminloading" @click.native.prevent="handleLogin(true)">
             admin login
           </el-button>
           <el-button style="width: 25%" type="primary" @click.native.prevent="handleTry">
@@ -85,6 +85,7 @@
           password: [{required: true, trigger: 'blur', validator: validatePass}]
         },
         loading: false,
+        adminloading: false,
         pwdType: 'password',
         login_center_bg,
         dialogVisible:false,
@@ -109,7 +110,7 @@
           this.pwdType = 'password'
         }
       },
-      handleLogin() {
+      handleLogin(admin = false) {
         debugger
         this.$refs.loginForm.validate(valid => {
           if (valid) {
@@ -118,16 +119,17 @@
             //   this.dialogVisible =true;
             //   return;
             // }
-            this.loading = true;
+            const loadingKey = admin ? 'adminloading' : 'loading';
+            this[loadingKey] = true;
             this.$store.dispatch('Login', this.loginForm).then(() => {
-              this.loading = false;
-              setCookie("username",this.loginForm.username,15);
-              setCookie("password",this.loginForm.password,15);
-              debugger
-              this.$router.push({path: '/'})
+              this[loadingKey] = false;
+              setCookie("username", this.loginForm.username, 15);
+              setCookie("password", this.loginForm.password, 15);
+              debugger;
+              this.$router.push({ path: '/' });
             }).catch(() => {
-              this.loading = false
-            })
+              this[loadingKey] = false;
+            });
           } else {
             console.log('error submit!!');
             return false
