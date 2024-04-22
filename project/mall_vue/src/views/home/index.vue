@@ -2,7 +2,7 @@
   <div class="app-container">
     <div class="total-layout">
       <el-row :gutter="20">
-        <el-col :span="6">
+        <!-- <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_order" class="total-icon">
             <div class="total-title">Total Orders Today</div>
@@ -22,7 +22,7 @@
             <div class="total-title">Total Sales Yesterday</div>
             <div class="total-value">￥5000.00</div>
           </div>
-        </el-col>
+        </el-col> -->
         <!--<el-col :span="6">-->
           <!--<div class="total-frame">-->
             <!--<svg-icon icon-class="total-week" class="total-icon">-->
@@ -33,7 +33,28 @@
         <!--</el-col>-->
       </el-row>
     </div>
-    <div class="overview-layout">
+
+    <!-- Selected Comments Section -->
+    <div class="comments-layout">
+      <div class="layout-title">Selected Comments</div>
+      <div class="content-box">
+        <!-- Example comments -->
+        <div class="content-item">"Great service and fast delivery!"</div>
+        <div class="content-item">"Product quality has improved significantly."</div>
+      </div>
+    </div>
+
+    <!-- Overall Advice Section -->
+    <div class="advice-layout">
+      <div class="layout-title">Overall Advice</div>
+      <div class="content-box">
+        <!-- Example advice -->
+        <div class="content-item">"Focus on customer service to enhance satisfaction."</div>
+        <div class="content-item">"Consider expanding the product line."</div>
+      </div>
+    </div>
+
+    <!-- <div class="overview-layout">
       <el-row :gutter="20">
         <el-col :span="12">
           <div class="out-border">
@@ -142,7 +163,7 @@ Change"
           </div>
         </el-col>
       </el-row>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -342,5 +363,19 @@ Change"
 
 
     font-size: 18px
+  }
+  .comments-layout, .advice-layout {
+    margin-top: 20px;
+    border: 1px solid #DCDFE6;
+  }
+
+  .content-box {
+    padding: 20px;
+    border-top: 1px solid #DCDFE6;
+  }
+
+  .content-item {
+    padding: 10px;
+    border-bottom: 1px solid #EBEEF5;
   }
 </style>
