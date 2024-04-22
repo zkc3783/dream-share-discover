@@ -23,9 +23,9 @@
           <el-form-item label="enter search：">
             <el-input style="width: 203px" v-model="listQuery.keyword" placeholder="Name"></el-input>
           </el-form-item>
-          <el-form-item label="">
+          <!-- <el-form-item label="">
             <el-input style="width: 203px" v-model="listQuery.productSn" placeholder="ID"></el-input>
-          </el-form-item>
+          </el-form-item> -->
           <!-- <el-form-item label="class：">
             <el-cascader
               clearable
