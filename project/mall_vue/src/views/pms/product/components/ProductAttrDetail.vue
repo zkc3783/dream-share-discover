@@ -154,8 +154,8 @@
         </el-tabs>
       </el-form-item> -->
       <el-form-item style="text-align: center">
-        <el-button size="medium" @click="handlePrev">Previous, Fill in Product attr</el-button>
-        <el-button type="primary" size="medium" @click="handleNext">Finishied,submit</el-button>
+        <el-button size="medium" @click="handlePrev">Previous, fill in Product information</el-button>
+        <el-button type="primary" size="medium" @click="handleNext">Finishied, submit</el-button>
       </el-form-item>
     </el-form>
   </div>

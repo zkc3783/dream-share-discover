@@ -105,13 +105,13 @@
       </el-pagination>
     </div>
     <el-dialog
-      :title="isEdit?'Edit Role':'Add Role'"
+      :title="isEdit?'Edit Store':'Add Store'"
       :visible.sync="dialogVisible"
       width="40%">
       <el-form :model="role"
                ref="roleForm"
                label-width="150px" size="small">
-        <el-form-item label="Role Name:">
+        <el-form-item label="Store Name:">
           <el-input v-model="role.name" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Description:">

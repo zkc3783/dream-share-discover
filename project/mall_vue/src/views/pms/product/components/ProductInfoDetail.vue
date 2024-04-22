@@ -36,7 +36,7 @@
           type="textarea"
           placeholder="Enter content"></el-input>
       </el-form-item>
-      <el-form-item label="Selling Price(¥):" prop="price">
+      <el-form-item label="Price(¥):" prop="price">
         <el-input v-model="value.price"></el-input>
       </el-form-item>
       <!-- <el-form-item label="Market Price:">
@@ -56,7 +56,7 @@
         <el-input v-model="value.sort"></el-input>
       </el-form-item> -->
       <el-form-item style="text-align: center">
-        <el-button type="primary" size="medium" @click="handleNext('productInfoForm')">Next Step, Uploading Product images</el-button>
+        <el-button type="primary" size="medium" @click="handleNext('productInfoForm')">Next Step, upload product images</el-button>
       </el-form-item>
     </el-form>
   </div>
