@@ -21,7 +21,7 @@
       <div style="margin-top: 15px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="Input Search:">
-            <el-input v-model="listQuery.keyword" class="input-width" placeholder="Name" clearable></el-input>
+            <el-input v-model="listQuery.keyword" class="input-width" placeholder="Username" clearable></el-input>
           </el-form-item>
         </el-form>
       </div>
@@ -40,15 +40,15 @@
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
         <el-table-column label="Username" align="center">
-          <template slot-scope="scope">{{scope.row.username}}</template>
+          <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
         <el-table-column label="Store Name" align="center">
-          <template slot-scope="scope">{{scope.row.name}}</template>
+          <template slot-scope="scope">{{scope.row.storename}}</template>
         </el-table-column>
         <el-table-column label="Location" width="160" align="center">
           <template slot-scope="scope">{{scope.row.location}}</template>
         </el-table-column>
-        <el-table-column label="Average Rate"  width="100" align="center">
+        <el-table-column label="Avg Rate"  width="100" align="center">
           <template slot-scope="scope">{{scope.row.adminCount}}</template>
         </el-table-column>
         <!-- <el-table-column label="Enabled" width="140" align="center">
@@ -115,10 +115,10 @@
           <el-input v-model="role.id" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Username:">
-          <el-input v-model="role.username" style="width: 250px"></el-input>
+          <el-input v-model="role.name" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Store Name:">
-          <el-input v-model="role.name" style="width: 250px"></el-input>
+          <el-input v-model="role.storename" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Location:">
           <el-input v-model="role.location" style="width: 250px"></el-input>
