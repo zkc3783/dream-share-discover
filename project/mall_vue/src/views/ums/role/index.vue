@@ -39,12 +39,12 @@
         <el-table-column label="ID" width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
+        <el-table-column label="Username" align="center">
+          <template slot-scope="scope">{{scope.row.username}}</template>
+        </el-table-column>
         <el-table-column label="Store Name" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
-        <!-- <el-table-column label="Store Name" align="center">
-          <template slot-scope="scope">{{scope.row.storename}}</template>
-        </el-table-column> -->
         <el-table-column label="Location" width="160" align="center">
           <template slot-scope="scope">{{scope.row.location}}</template>
         </el-table-column>
@@ -113,6 +113,9 @@
                label-width="150px" size="small">
         <el-form-item label="ID:">
           <el-input v-model="role.id" style="width: 250px"></el-input>
+        </el-form-item>
+        <el-form-item label="Username:">
+          <el-input v-model="role.username" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Store Name:">
           <el-input v-model="role.name" style="width: 250px"></el-input>
