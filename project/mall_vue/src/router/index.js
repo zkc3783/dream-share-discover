@@ -63,73 +63,73 @@ export const asyncRouterMap = [
         meta: {title: 'updateProduct', icon: 'product-add'},
         hidden: true
       },
-      {
-        path: 'productCate',
-        name: 'productCate',
-        component: () => import('@/views/pms/productCate/index'),
-        meta: {title: 'productCate', icon: 'product-cate'}
-      },
-      {
-        path: 'addProductCate',
-        name: 'addProductCate',
-        component: () => import('@/views/pms/productCate/add'),
-        meta: {title: 'addProductCate'},
-        hidden: true
-      },
-      {
-        path: 'updateProductCate',
-        name: 'updateProductCate',
-        component: () => import('@/views/pms/productCate/update'),
-        meta: {title: 'updateProductCate'},
-        hidden: true
-      },
-      {
-        path: 'productAttr',
-        name: 'productAttr',
-        component: () => import('@/views/pms/productAttr/index'),
-        meta: {title: 'productAttr', icon: 'product-attr'}
-      },
-      {
-        path: 'productAttrList',
-        name: 'productAttrList',
-        component: () => import('@/views/pms/productAttr/productAttrList'),
-        meta: {title: 'productAttrList'},
-        hidden: true
-      },
-      {
-        path: 'addProductAttr',
-        name: 'addProductAttr',
-        component: () => import('@/views/pms/productAttr/addProductAttr'),
-        meta: {title: 'addProductAttr'},
-        hidden: true
-      },
-      {
-        path: 'updateProductAttr',
-        name: 'updateProductAttr',
-        component: () => import('@/views/pms/productAttr/updateProductAttr'),
-        meta: {title: 'updateProductAttr'},
-        hidden: true
-      },
-      {
-        path: 'brand',
-        name: 'brand',
-        component: () => import('@/views/pms/brand/index'),
-        meta: {title: 'brand manage', icon: 'product-brand'}
-      },
-      {
-        path: 'addBrand',
-        name: 'addBrand',
-        component: () => import('@/views/pms/brand/add'),
-        meta: {title: 'addBrand'},
-        hidden: true
-      },
-      {
-        path: 'updateBrand',
-        name: 'updateBrand',
-        component: () => import('@/views/pms/brand/update'),
-        meta: {title: 'updateBrand'},
-        hidden: true
-      }
+      // {
+      //   path: 'productCate',
+      //   name: 'productCate',
+      //   component: () => import('@/views/pms/productCate/index'),
+      //   meta: {title: 'productCate', icon: 'product-cate'}
+      // },
+      // {
+      //   path: 'addProductCate',
+      //   name: 'addProductCate',
+      //   component: () => import('@/views/pms/productCate/add'),
+      //   meta: {title: 'addProductCate'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'updateProductCate',
+      //   name: 'updateProductCate',
+      //   component: () => import('@/views/pms/productCate/update'),
+      //   meta: {title: 'updateProductCate'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'productAttr',
+      //   name: 'productAttr',
+      //   component: () => import('@/views/pms/productAttr/index'),
+      //   meta: {title: 'productAttr', icon: 'product-attr'}
+      // },
+      // {
+      //   path: 'productAttrList',
+      //   name: 'productAttrList',
+      //   component: () => import('@/views/pms/productAttr/productAttrList'),
+      //   meta: {title: 'productAttrList'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'addProductAttr',
+      //   name: 'addProductAttr',
+      //   component: () => import('@/views/pms/productAttr/addProductAttr'),
+      //   meta: {title: 'addProductAttr'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'updateProductAttr',
+      //   name: 'updateProductAttr',
+      //   component: () => import('@/views/pms/productAttr/updateProductAttr'),
+      //   meta: {title: 'updateProductAttr'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'brand',
+      //   name: 'brand',
+      //   component: () => import('@/views/pms/brand/index'),
+      //   meta: {title: 'brand manage', icon: 'product-brand'}
+      // },
+      // {
+      //   path: 'addBrand',
+      //   name: 'addBrand',
+      //   component: () => import('@/views/pms/brand/add'),
+      //   meta: {title: 'addBrand'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'updateBrand',
+      //   name: 'updateBrand',
+      //   component: () => import('@/views/pms/brand/update'),
+      //   meta: {title: 'updateBrand'},
+      //   hidden: true
+      // }
     ]
   },
   {
@@ -150,54 +150,55 @@ export const asyncRouterMap = [
         name: 'role',
         component: () => import('@/views/ums/role/index'),
         meta: {title: 'role-list', icon: 'ums-role'}
-      },
-      {
-        path: 'menu',
-        name: 'menu',
-        component: () => import('@/views/ums/menu/index'),
-        meta: {title: 'menu-list', icon: 'ums-menu'}
-      },
-      {
-        path: 'allocMenu',
-        name: 'allocMenu',
-        component: () => import('@/views/ums/role/allocMenu'),
-        meta: {title: 'allocMenu'},
-        hidden: true
-      },
-      {
-        path: 'allocResource',
-        name: 'allocResource',
-        component: () => import('@/views/ums/role/allocResource'),
-        meta: {title: 'allocResource'},
-        hidden: true
-      },
-      {
-        path: 'addMenu',
-        name: 'addMenu',
-        component: () => import('@/views/ums/menu/add'),
-        meta: {title: 'addMenu'},
-        hidden: true
-      },
-      {
-        path: 'updateMenu',
-        name: 'updateMenu',
-        component: () => import('@/views/ums/menu/update'),
-        meta: {title: 'updateMenu'},
-        hidden: true
-      },
-      {
-        path: 'resource',
-        name: 'resource',
-        component: () => import('@/views/ums/resource/index'),
-        meta: {title: 'resource-list', icon: 'ums-resource'}
-      },
-      {
-        path: 'resourceCategory',
-        name: 'resourceCategory',
-        component: () => import('@/views/ums/resource/categoryList'),
-        meta: {title: 'resourceCategory-list'},
-        hidden: true
       }
+      ,
+      // {
+      //   path: 'menu',
+      //   name: 'menu',
+      //   component: () => import('@/views/ums/menu/index'),
+      //   meta: {title: 'menu-list', icon: 'ums-menu'}
+      // },
+      // {
+      //   path: 'allocMenu',
+      //   name: 'allocMenu',
+      //   component: () => import('@/views/ums/role/allocMenu'),
+      //   meta: {title: 'allocMenu'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'allocResource',
+      //   name: 'allocResource',
+      //   component: () => import('@/views/ums/role/allocResource'),
+      //   meta: {title: 'allocResource'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'addMenu',
+      //   name: 'addMenu',
+      //   component: () => import('@/views/ums/menu/add'),
+      //   meta: {title: 'addMenu'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'updateMenu',
+      //   name: 'updateMenu',
+      //   component: () => import('@/views/ums/menu/update'),
+      //   meta: {title: 'updateMenu'},
+      //   hidden: true
+      // },
+      // {
+      //   path: 'resource',
+      //   name: 'resource',
+      //   component: () => import('@/views/ums/resource/index'),
+      //   meta: {title: 'resource-list', icon: 'ums-resource'}
+      // },
+      // {
+      //   path: 'resourceCategory',
+      //   name: 'resourceCategory',
+      //   component: () => import('@/views/ums/resource/categoryList'),
+      //   meta: {title: 'resourceCategory-list'},
+      //   hidden: true
+      // }
     ]
   },
   {path: '*', redirect: '/404', hidden: true}

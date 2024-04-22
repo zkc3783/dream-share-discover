@@ -277,7 +277,7 @@
         })
       },
       handleSelectMenu(index,row){
-        this.$router.push({path:'/ums/allocMenu',query:{roleId:row.id}})
+        this.$router.push({path:'/pms/product',query:{roleId:row.id}})
       },
       handleSelectResource(index,row){
         this.$router.push({path:'/ums/allocResource',query:{roleId:row.id}})
