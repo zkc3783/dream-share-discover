@@ -31,7 +31,7 @@ export const constantRouterMap = [
       path: 'home',
       name: 'home',
       component: () => import('@/views/home/index'),
-      meta: {title: 'dashboard', icon: 'dashboard'}
+      meta: {title: 'Dashboard', icon: 'dashboard'}
     },
     ]
   }
@@ -42,25 +42,25 @@ export const asyncRouterMap = [
     path: '/pms',
     component: Layout,
     redirect: '/pms/product',
-    name: 'pms',
-    meta: {title: 'product', icon: 'product'},
+    // name: 'pms',
+    meta: {title: 'Manage Items', icon: 'product'},
     children: [{
       path: 'product',
-      name: 'product',
+      // name: 'product',
       component: () => import('@/views/pms/product/index'),
-      meta: {title: 'product list', icon: 'product-list'}
+      meta: {title: 'Check Items', icon: 'product-list'}
       },
       {
         path: 'addProduct',
-        name: 'addProduct',
+        // name: 'addProduct',
         component: () => import('@/views/pms/product/add'),
-        meta: {title: 'addProduct', icon: 'product-add'}
+        meta: {title: 'Add Items', icon: 'product-add'}
       },
       {
         path: 'updateProduct',
-        name: 'updateProduct',
+        // name: 'updateProduct',
         component: () => import('@/views/pms/product/update'),
-        meta: {title: 'updateProduct', icon: 'product-add'},
+        meta: {title: 'Update Items', icon: 'product-add'},
         hidden: true
       },
       // {
@@ -136,20 +136,20 @@ export const asyncRouterMap = [
     path:'/ums',
     component: Layout,
     redirect: '/ums/admin',
-    name: 'ums',
-    meta: {title: 'permission', icon: 'ums'},
+    // name: 'ums',
+    meta: {title: 'Manage Users', icon: 'ums'},
     children: [
       {
         path: 'admin',
-        name: 'admin',
+        // name: 'admin',
         component: () => import('@/views/ums/admin/index'),
-        meta: {title: 'admin-list', icon: 'ums-admin'}
+        meta: {title: 'Customers', icon: 'ums-admin'}
       },
       {
         path: 'role',
-        name: 'role',
+        // name: 'role',
         component: () => import('@/views/ums/role/index'),
-        meta: {title: 'role-list', icon: 'ums-role'}
+        meta: {title: 'Store Owners', icon: 'ums-role'}
       }
       ,
       // {
