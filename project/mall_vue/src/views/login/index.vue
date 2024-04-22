@@ -24,7 +24,6 @@
         <el-form-item prop="password">
           <el-input name="password"
                     :type="pwdType"
-                    @keyup.enter.native="handleLogin"
                     v-model="loginForm.password"
                     autoComplete="on"
                     placeholder="Enter password">
@@ -40,7 +39,7 @@
           <el-button style="width: 25%" type="primary" :loading="loading" @click.native.prevent="handleLogin(false)">
             login
           </el-button>
-          <el-button style="width: 40%" type="primary" :loading="adminloading" @click.native.prevent="handleLogin(true)">
+          <el-button style="width: 40%" type="primary" @click.native.prevent="handleAdminLogin">
             admin login
           </el-button>
           <el-button style="width: 25%" type="primary" @click.native.prevent="handleTry">
@@ -122,11 +121,36 @@
             const loadingKey = admin ? 'adminloading' : 'loading';
             this[loadingKey] = true;
             this.$store.dispatch('Login', this.loginForm).then(() => {
-              this[loadingKey] = false;
-              setCookie("username", this.loginForm.username, 15);
-              setCookie("password", this.loginForm.password, 15);
-              debugger;
-              this.$router.push({ path: '/' });
+              this.loading = false;
+              setCookie("username",this.loginForm.username,15);
+              setCookie("password",this.loginForm.password,15);
+              debugger
+              this.$router.push({path: '/shopper'})
+            }).catch(() => {
+              this.loading = false
+            })
+          } else {
+            console.log('error submit!!');
+            return false
+          }
+        })
+      },
+      handleAdminLogin() {
+        debugger
+        this.$refs.loginForm.validate(valid => {
+          if (valid) {
+            // let isSupport = getSupport();
+            // if(isSupport===undefined||isSupport==null){
+            //   this.dialogVisible =true;
+            //   return;
+            // }
+            this.loading = true;
+            this.$store.dispatch('Login', this.loginForm).then(() => {
+              this.loading = false;
+              setCookie("username",this.loginForm.username,15);
+              setCookie("password",this.loginForm.password,15);
+              debugger
+              this.$router.push({path: '/'})
             }).catch(() => {
               this[loadingKey] = false;
             });
