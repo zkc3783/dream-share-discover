@@ -21,7 +21,7 @@
       <div style="margin-top: 15px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="Input Search:">
-            <el-input v-model="listQuery.keyword" class="input-width" placeholder="Role Name" clearable></el-input>
+            <el-input v-model="listQuery.keyword" class="input-width" placeholder="Name" clearable></el-input>
           </el-form-item>
         </el-form>
       </div>
@@ -39,19 +39,19 @@
         <el-table-column label="ID" width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="Role Name" align="center">
+        <el-table-column label="Name" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
-        <el-table-column label="Description" align="center">
-          <template slot-scope="scope">{{scope.row.description}}</template>
+        <el-table-column label="Storename" align="center">
+          <template slot-scope="scope">{{scope.row.storename}}</template>
         </el-table-column>
-        <el-table-column label="User Count"  width="100" align="center">
+        <el-table-column label="Location" width="160" align="center">
+          <template slot-scope="scope">{{scope.row.location}}</template>
+        </el-table-column>
+        <el-table-column label="Average Rate"  width="100" align="center">
           <template slot-scope="scope">{{scope.row.adminCount}}</template>
         </el-table-column>
-        <el-table-column label="Added At" width="160" align="center">
-          <template slot-scope="scope">{{scope.row.createTime | formatDateTime}}</template>
-        </el-table-column>
-        <el-table-column label="Enabled" width="140" align="center">
+        <!-- <el-table-column label="Enabled" width="140" align="center">
           <template slot-scope="scope">
             <el-switch
               @change="handleStatusChange(scope.$index, scope.row)"
@@ -60,17 +60,21 @@
               v-model="scope.row.status">
             </el-switch>
           </template>
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column label="Action" width="160" align="center">
           <template slot-scope="scope">
             <el-row>
-              <el-button size="mini"
+              <!-- <el-button size="mini"
                          type="text"
                          @click="handleSelectMenu(scope.$index, scope.row)">Assign Menu
               </el-button>
               <el-button size="mini"
                          type="text"
                          @click="handleSelectResource(scope.$index, scope.row)">Assign Resource
+              </el-button> -->
+              <el-button size="mini"
+                         type="text"
+                         @click="handleSelectMenu(scope.$index, scope.row)">Edit Item
               </el-button>
             </el-row>
             <el-row>

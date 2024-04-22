@@ -42,6 +42,12 @@
         <el-table-column label="Username" align="center">
           <template slot-scope="scope">{{scope.row.username}}</template>
         </el-table-column>
+        <el-table-column label="Birthday" align="center">
+          <template slot-scope="scope">{{scope.row.birthday}}</template>
+        </el-table-column>
+        <el-table-column label="Interests" align="center">
+          <template slot-scope="scope">{{scope.row.interests}}</template>
+        </el-table-column>
         <!-- <el-table-column label="Account" align="center">
           <template slot-scope="scope">{{scope.row.username}}</template>
         </el-table-column>
@@ -107,6 +113,12 @@
                label-width="150px" size="small">
         <el-form-item label="Username:">
           <el-input v-model="admin.username" style="width: 250px"></el-input>
+        </el-form-item>
+        <el-form-item label="Birthday:">
+          <el-input v-model="admin.birthday" style="width: 250px"></el-input>
+        </el-form-item>
+        <el-form-item label="Interests:">
+          <el-input v-model="admin.interests" style="width: 250px"></el-input>
         </el-form-item>
         <!-- <el-form-item label="Account:">
           <el-input v-model="admin.username" style="width: 250px"></el-input>
