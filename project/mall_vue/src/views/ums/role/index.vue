@@ -42,7 +42,7 @@
         <el-table-column label="Name" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
-        <el-table-column label="Storename" align="center">
+        <el-table-column label="Store Name" align="center">
           <template slot-scope="scope">{{scope.row.storename}}</template>
         </el-table-column>
         <el-table-column label="Location" width="160" align="center">

@@ -2,7 +2,7 @@
   <el-card class="form-container" shadow="never">
     <el-steps :active="active" finish-status="success" align-center>
       <el-step title="Fill in Product Information"></el-step>
-      <el-step title="Fill in Product Attributes"></el-step>
+      <el-step title="Upload Product Images"></el-step>
     </el-steps>
     <product-info-detail
       v-show="showStatus[0]"

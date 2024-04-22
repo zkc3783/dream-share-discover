@@ -99,7 +99,7 @@
         <!-- <el-table-column label="price/id" width="120" align="center"></el-table-column> -->
         <el-table-column label="Price" width="120" align="center">
           <template slot-scope="scope">
-            <p>price：￥{{scope.row.price}}</p>
+            <p>¥{{scope.row.price}}</p>
             <!-- <p>id：{{scope.row.productSn}}</p> -->
           </template>
         </el-table-column>
@@ -135,7 +135,7 @@
           <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column> -->
         <el-table-column label="Description" width="100" align="center">
-          <template slot-scope="scope">{{scope.row.sort}}</template>
+          <template slot-scope="scope">{{scope.row.description}}</template>
         </el-table-column>
         <!-- <el-table-column label="SKU_stock" width="100" align="center">
           <template slot-scope="scope">

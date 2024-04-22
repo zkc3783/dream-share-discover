@@ -1,7 +1,7 @@
 <template>
   <div style="margin-top: 50px">
     <el-form :model="value" ref="productAttrForm" label-width="120px" class="form-inner-container" size="small">
-      <el-form-item label="Attribute Type:">
+      <!-- <el-form-item label="Attribute Type:">
         <el-select v-model="value.productAttributeCategoryId"
                    placeholder="Please select attribute type"
                    @change="handleProductAttrChange">
@@ -139,11 +139,11 @@
             <el-input v-else class="paramInput" v-model="selectProductParam[index].value"></el-input>
           </div>
         </el-card>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="Product Gallery:">
         <multi-upload v-model="selectProductPics"></multi-upload>
       </el-form-item>
-      <el-form-item label="Product Details:">
+      <!-- <el-form-item label="Product Details:">
         <el-tabs v-model="activeHtmlName" type="card">
           <el-tab-pane label="Desktop Details" name="pc">
             <tinymce :width="595" :height="300" v-model="value.detailHtml"></tinymce>
@@ -152,7 +152,7 @@
             <tinymce :width="595" :height="300" v-model="value.detailMobileHtml"></tinymce>
           </el-tab-pane>
         </el-tabs>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item style="text-align: center">
         <el-button size="medium" @click="handlePrev">Previous, Fill in Product attr</el-button>
         <el-button type="primary" size="medium" @click="handleNext">Finishied,submit</el-button>

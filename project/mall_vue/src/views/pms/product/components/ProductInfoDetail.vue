@@ -1,16 +1,19 @@
 <template>
   <div style="margin-top: 50px">
     <el-form :model="value" :rules="rules" ref="productInfoForm" label-width="120px" class="form-inner-container" size="small">
-      <el-form-item label="Product Category:" prop="productCategoryId">
+      <!-- <el-form-item label="Product Category:" prop="productCategoryId">
         <el-cascader
           v-model="selectProductCateValue"
           :options="productCateOptions">
         </el-cascader>
+      </el-form-item> -->
+      <el-form-item label="Product ID:" prop="id">
+        <el-input v-model="value.id"></el-input>
       </el-form-item>
       <el-form-item label="Product Name:" prop="name">
         <el-input v-model="value.name"></el-input>
       </el-form-item>
-      <el-form-item label="Subtitle:" prop="subTitle">
+      <!-- <el-form-item label="Subtitle:" prop="subTitle">
         <el-input v-model="value.subTitle"></el-input>
       </el-form-item>
       <el-form-item label="Brand:" prop="brandId">
@@ -25,7 +28,7 @@
             :value="item.value">
           </el-option>
         </el-select>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="Product Description:">
         <el-input
           :autoSize="true"
@@ -33,13 +36,10 @@
           type="textarea"
           placeholder="Enter content"></el-input>
       </el-form-item>
-      <el-form-item label="Product Number:">
-        <el-input v-model="value.productSn"></el-input>
-      </el-form-item>
-      <el-form-item label="Selling Price:">
+      <el-form-item label="Selling Price(¥):" prop="price">
         <el-input v-model="value.price"></el-input>
       </el-form-item>
-      <el-form-item label="Market Price:">
+      <!-- <el-form-item label="Market Price:">
         <el-input v-model="value.originalPrice"></el-input>
       </el-form-item>
       <el-form-item label="Inventory:">
@@ -54,9 +54,9 @@
       </el-form-item>
       <el-form-item label="Sorting">
         <el-input v-model="value.sort"></el-input>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item style="text-align: center">
-        <el-button type="primary" size="medium" @click="handleNext('productInfoForm')">Next Step, Fill in Product details</el-button>
+        <el-button type="primary" size="medium" @click="handleNext('productInfoForm')">Next Step, Uploading Product images</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -91,7 +91,12 @@
           productCategoryId: [{required: true, message: 'Please select product category', trigger: 'blur'}],
           brandId: [{required: true, message: 'Please select product brand', trigger: 'blur'}],
           description: [{required: true, message: 'Please enter product description', trigger: 'blur'}],
-          requiredProp: [{required: true, message: 'This field is required', trigger: 'blur'}]
+          requiredProp: [{required: true, message: 'This field is required', trigger: 'blur'}],
+          id: [{required: true, message: 'Please enter the product id', trigger: 'blur'}],
+          price: [
+            {required: true, message: 'Please enter the product price', trigger: 'blur'},
+            {validator: this.checkPositiveInteger, trigger: 'blur'}
+          ]
         }
       };
     },
@@ -190,6 +195,13 @@
           }
         }
         this.value.brandName = brandName;
+      },
+      checkPositiveInteger(rule, value, callback) {
+        if (!/^[1-9]\d*$/.test(value)) {
+          callback(new Error('Price must be an positive integer'));
+        } else {
+          callback();
+        }
       }
     }
   }
