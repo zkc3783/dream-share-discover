@@ -33,8 +33,7 @@
         <el-input
           :autoSize="true"
           v-model="value.description"
-          type="textarea"
-          placeholder="Enter content"></el-input>
+          type="textarea"></el-input>
       </el-form-item>
       <el-form-item label="Price(¥):" prop="price">
         <el-input v-model="value.price"></el-input>

@@ -53,7 +53,7 @@
     productFullReductionList: [{fullPrice: 0, reducePrice: 0}],
     productLadderList: [{count: 0,discount: 0,price: 0}],
     previewStatus: 0,
-    price: 0,
+    price: '',
     productAttributeCategoryId: null,
     productAttributeValueList: [],
     skuStockList: [],
