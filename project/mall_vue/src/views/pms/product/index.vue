@@ -21,12 +21,12 @@
       <div style="margin-top: 15px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="enter search：">
-            <el-input style="width: 203px" v-model="listQuery.keyword" placeholder="name"></el-input>
+            <el-input style="width: 203px" v-model="listQuery.keyword" placeholder="Name"></el-input>
           </el-form-item>
-          <el-form-item label="id：">
-            <el-input style="width: 203px" v-model="listQuery.productSn" placeholder="id"></el-input>
+          <el-form-item label="">
+            <el-input style="width: 203px" v-model="listQuery.productSn" placeholder="ID"></el-input>
           </el-form-item>
-          <el-form-item label="class：">
+          <!-- <el-form-item label="class：">
             <el-cascader
               clearable
               v-model="selectProductCateValue"
@@ -62,7 +62,7 @@
                 :value="item.value">
               </el-option>
             </el-select>
-          </el-form-item>
+          </el-form-item> -->
         </el-form>
       </div>
     </el-card>
@@ -83,21 +83,21 @@
                 @selection-change="handleSelectionChange"
                 v-loading="listLoading"
                 border>
-        <el-table-column type="selection" width="60" align="center"></el-table-column>
-        <el-table-column label="Uid" width="100" align="center">
+        <!-- <el-table-column type="selection" width="60" align="center"></el-table-column> -->
+        <el-table-column label="ID" width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="picture" width="120" align="center">
+        <el-table-column label="Picture" width="120" align="center">
           <template slot-scope="scope"><img style="height: 80px" :src="scope.row.pic"></template>
         </el-table-column>
-        <el-table-column label="name" align="center">
+        <el-table-column label="Name" align="center">
           <template slot-scope="scope">
             <p>{{scope.row.name}}</p>
             <!-- <p>brand：{{scope.row.brandName}}</p> -->
           </template>
         </el-table-column>
         <!-- <el-table-column label="price/id" width="120" align="center"></el-table-column> -->
-        <el-table-column label="price" width="120" align="center">
+        <el-table-column label="Price" width="120" align="center">
           <template slot-scope="scope">
             <p>price：￥{{scope.row.price}}</p>
             <!-- <p>id：{{scope.row.productSn}}</p> -->
@@ -134,7 +134,7 @@
         <el-table-column label="sort" width="100" align="center">
           <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column> -->
-        <el-table-column label="description" width="100" align="center">
+        <el-table-column label="Description" width="100" align="center">
           <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column>
         <!-- <el-table-column label="SKU_stock" width="100" align="center">
@@ -156,23 +156,23 @@
             </p>
           </template>
         </el-table-column> -->
-        <el-table-column label="operate" width="160" align="center">
+        <el-table-column label="Operate" width="160" align="center">
           <template slot-scope="scope">
             <p>
-              <el-button
+              <!-- <el-button
                 size="mini"
                 @click="handleShowProduct(scope.$index, scope.row)">view
-              </el-button>
+              </el-button> -->
               <el-button
                 size="mini"
                 @click="handleUpdateProduct(scope.$index, scope.row)">edit
               </el-button>
-            </p>
-            <p>
-              <el-button
+            <!-- </p>
+            <p> -->
+              <!-- <el-button
                 size="mini"
                 @click="handleShowLog(scope.$index, scope.row)">log
-              </el-button>
+              </el-button> -->
               <el-button
                 size="mini"
                 type="danger"
@@ -183,7 +183,7 @@
         </el-table-column>
       </el-table>
     </div>
-    <div class="batch-operate-container">
+    <!-- <div class="batch-operate-container">
       <el-select
         size="small"
         v-model="operateType" placeholder="batch operate">
@@ -202,7 +202,7 @@
         size="small">
         confirm
       </el-button>
-    </div>
+    </div> -->
     <div class="pagination-container">
       <el-pagination
         background

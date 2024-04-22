@@ -21,7 +21,7 @@
       <div style="margin-top: 15px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="Input Search:">
-            <el-input v-model="listQuery.keyword" class="input-width" placeholder="Account/Name" clearable></el-input>
+            <el-input v-model="listQuery.keyword" class="input-width" placeholder="Username" clearable></el-input>
           </el-form-item>
         </el-form>
       </div>
@@ -39,16 +39,19 @@
         <el-table-column label="ID" width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="Account" align="center">
+        <el-table-column label="Username" align="center">
+          <template slot-scope="scope">{{scope.row.username}}</template>
+        </el-table-column>
+        <!-- <el-table-column label="Account" align="center">
           <template slot-scope="scope">{{scope.row.username}}</template>
         </el-table-column>
         <el-table-column label="Name" align="center">
           <template slot-scope="scope">{{scope.row.nickName}}</template>
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column label="Email" align="center">
           <template slot-scope="scope">{{scope.row.email}}</template>
         </el-table-column>
-        <el-table-column label="Added At" width="160" align="center">
+        <!-- <el-table-column label="Added At" width="160" align="center">
           <template slot-scope="scope">{{scope.row.createTime | formatDateTime}}</template>
         </el-table-column>
         <el-table-column label="Last Login" width="160" align="center">
@@ -63,13 +66,13 @@
               v-model="scope.row.status">
             </el-switch>
           </template>
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column label="Action" width="180" align="center">
           <template slot-scope="scope">
-            <el-button size="mini"
+            <!-- <el-button size="mini"
                        type="text"
                        @click="handleSelectRole(scope.$index, scope.row)">Assign Roles
-            </el-button>
+            </el-button> -->
             <el-button size="mini"
                        type="text"
                        @click="handleUpdate(scope.$index, scope.row)">
@@ -102,19 +105,22 @@
       <el-form :model="admin"
                ref="adminForm"
                label-width="150px" size="small">
-        <el-form-item label="Account:">
+        <el-form-item label="Username:">
+          <el-input v-model="admin.username" style="width: 250px"></el-input>
+        </el-form-item>
+        <!-- <el-form-item label="Account:">
           <el-input v-model="admin.username" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Name:">
           <el-input v-model="admin.nickName" style="width: 250px"></el-input>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="Email:">
           <el-input v-model="admin.email" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Password:">
           <el-input v-model="admin.password"  type="password" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Note:">
+        <!-- <el-form-item label="Note:">
           <el-input v-model="admin.note"
                     type="textarea"
                     :rows="5"
@@ -125,7 +131,7 @@
             <el-radio :label="1">Yes</el-radio>
             <el-radio :label="0">No</el-radio>
           </el-radio-group>
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false" size="small">Cancel</el-button>
