@@ -39,12 +39,12 @@
         <el-table-column label="ID" width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="Name" align="center">
+        <el-table-column label="Store Name" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
-        <el-table-column label="Store Name" align="center">
+        <!-- <el-table-column label="Store Name" align="center">
           <template slot-scope="scope">{{scope.row.storename}}</template>
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column label="Location" width="160" align="center">
           <template slot-scope="scope">{{scope.row.location}}</template>
         </el-table-column>
@@ -74,7 +74,7 @@
               </el-button> -->
               <el-button size="mini"
                          type="text"
-                         @click="handleSelectMenu(scope.$index, scope.row)">Edit Item
+                         @click="handleSelectMenu(scope.$index, scope.row)">Edit Items
               </el-button>
             </el-row>
             <el-row>
@@ -111,10 +111,16 @@
       <el-form :model="role"
                ref="roleForm"
                label-width="150px" size="small">
+        <el-form-item label="ID:">
+          <el-input v-model="role.id" style="width: 250px"></el-input>
+        </el-form-item>
         <el-form-item label="Store Name:">
           <el-input v-model="role.name" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Description:">
+        <el-form-item label="Location:">
+          <el-input v-model="role.location" style="width: 250px"></el-input>
+        </el-form-item>
+        <!-- <el-form-item label="Description:">
           <el-input v-model="role.description"
                     type="textarea"
                     :rows="5"
@@ -125,7 +131,7 @@
             <el-radio :label="1">Yes</el-radio>
             <el-radio :label="0">No</el-radio>
           </el-radio-group>
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false" size="small">Cancel</el-button>
