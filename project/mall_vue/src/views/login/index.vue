@@ -39,7 +39,7 @@
           <el-button style="width: 25%" type="primary" :loading="loading" @click.native.prevent="handleLogin(false)">
             login
           </el-button>
-          <el-button style="width: 40%" type="primary" @click.native.prevent="handleAdminLogin">
+          <el-button style="width: 40%" type="primary" :loading="adminloading" @click.native.prevent="handleAdminLogin">
             admin login
           </el-button>
           <el-button style="width: 25%" type="primary" @click.native.prevent="handleTry">
@@ -144,15 +144,15 @@
             //   this.dialogVisible =true;
             //   return;
             // }
-            this.loading = true;
+            this.adminloading = true;
             this.$store.dispatch('Login', this.loginForm).then(() => {
-              this.loading = false;
+              this.adminloading = false;
               setCookie("username",this.loginForm.username,15);
               setCookie("password",this.loginForm.password,15);
               debugger
               this.$router.push({path: '/'})
             }).catch(() => {
-              this[loadingKey] = false;
+              this.adminloading = false;
             });
           } else {
             console.log('error submit!!');
