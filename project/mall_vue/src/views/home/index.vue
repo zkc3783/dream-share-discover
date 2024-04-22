@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div class="total-layout">
-      <el-row :gutter="20">
+      <!-- <el-row :gutter="20"> -->
         <!-- <el-col :span="6">
           <div class="total-frame">
             <img :src="img_home_order" class="total-icon">
@@ -31,7 +31,7 @@
             <!--<div class="total-value">￥50000.00</div>-->
           <!--</div>-->
         <!--</el-col>-->
-      </el-row>
+      <!-- </el-row> -->
     </div>
 
     <!-- Selected Comments Section -->
