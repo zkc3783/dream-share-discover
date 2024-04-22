@@ -28,7 +28,7 @@
     </el-card>
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>Data List</span>
+      <span>Users</span>
       <el-button size="mini" class="btn-add" @click="handleAdd()" style="margin-left: 20px">Add</el-button>
     </el-card>
     <div class="table-container">

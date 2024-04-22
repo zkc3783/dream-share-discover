@@ -3,24 +3,24 @@
     <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-search"></i>
-        <span>search</span>
+        <span>Filter and Search</span>
         <el-button
           style="float: right"
           @click="handleSearchList()"
           type="primary"
           size="small">
-          results
+          Search
         </el-button>
         <el-button
           style="float: right;margin-right: 15px"
           @click="handleResetSearch()"
           size="small">
-          reset
+          Reset
         </el-button>
       </div>
       <div style="margin-top: 15px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
-          <el-form-item label="enter search：">
+          <el-form-item label="Input Search: ">
             <el-input style="width: 203px" v-model="listQuery.keyword" placeholder="Name"></el-input>
           </el-form-item>
           <!-- <el-form-item label="">
@@ -68,12 +68,12 @@
     </el-card>
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>data_list</span>
+      <span>Items</span>
       <el-button
         class="btn-add"
         @click="handleAddProduct()"
         size="mini">
-        add
+        Add
       </el-button>
     </el-card>
     <div class="table-container">
@@ -87,7 +87,7 @@
         <el-table-column label="ID" width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="Picture" width="120" align="center">
+        <el-table-column label="Image" width="120" align="center">
           <template slot-scope="scope"><img style="height: 80px" :src="scope.row.pic"></template>
         </el-table-column>
         <el-table-column label="Name" align="center">
