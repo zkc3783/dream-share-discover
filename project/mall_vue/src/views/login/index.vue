@@ -57,6 +57,161 @@
   import {setSupport,getSupport,setCookie,getCookie} from '@/utils/support';
   import login_center_bg from '@/assets/images/login_center_bg.png'
 
+  const mall_menu = {
+      "menus":[
+      {
+          "id": 1,
+          "parentId": 0,
+          "createTime": "2020-02-02T06:50:36.000+00:00",
+          "title": "商品",
+          "level": 0,
+          "sort": 0,
+          "name": "pms",
+          "icon": "product",
+          "hidden": 0
+      },
+      {
+          "id": 2,
+          "parentId": 1,
+          "createTime": "2020-02-02T06:51:50.000+00:00",
+          "title": "商品列表",
+          "level": 1,
+          "sort": 0,
+          "name": "product",
+          "icon": "product-list",
+          "hidden": 0
+      },
+      {
+          "id": 3,
+          "parentId": 1,
+          "createTime": "2020-02-02T06:52:44.000+00:00",
+          "title": "添加商品",
+          "level": 1,
+          "sort": 0,
+          "name": "addProduct",
+          "icon": "product-add",
+          "hidden": 0
+      },
+      {
+          "id": 4,
+          "parentId": 1,
+          "createTime": "2020-02-02T06:53:51.000+00:00",
+          "title": "商品分类",
+          "level": 1,
+          "sort": 0,
+          "name": "productCate",
+          "icon": "product-cate",
+          "hidden": 0
+      },
+      {
+          "id": 5,
+          "parentId": 1,
+          "createTime": "2020-02-02T06:54:51.000+00:00",
+          "title": "商品类型",
+          "level": 1,
+          "sort": 0,
+          "name": "productAttr",
+          "icon": "product-attr",
+          "hidden": 0
+      }
+  ],
+      "username": "admin"
+  }
+
+  const admin_menu = {
+      "menus" : [
+      {
+          "id": 1,
+          "parentId": 0,
+          "createTime": "2020-02-02T06:50:36.000+00:00",
+          "title": "商品",
+          "level": 0,
+          "sort": 0,
+          "name": "pms",
+          "icon": "product",
+          "hidden": 0
+      },
+      {
+          "id": 2,
+          "parentId": 1,
+          "createTime": "2020-02-02T06:51:50.000+00:00",
+          "title": "商品列表",
+          "level": 1,
+          "sort": 0,
+          "name": "product",
+          "icon": "product-list",
+          "hidden": 0
+      },
+      {
+          "id": 3,
+          "parentId": 1,
+          "createTime": "2020-02-02T06:52:44.000+00:00",
+          "title": "添加商品",
+          "level": 1,
+          "sort": 0,
+          "name": "addProduct",
+          "icon": "product-add",
+          "hidden": 0
+      },
+      {
+          "id": 4,
+          "parentId": 1,
+          "createTime": "2020-02-02T06:53:51.000+00:00",
+          "title": "商品分类",
+          "level": 1,
+          "sort": 0,
+          "name": "productCate",
+          "icon": "product-cate",
+          "hidden": 0
+      },
+      {
+          "id": 5,
+          "parentId": 1,
+          "createTime": "2020-02-02T06:54:51.000+00:00",
+          "title": "商品类型",
+          "level": 1,
+          "sort": 0,
+          "name": "productAttr",
+          "icon": "product-attr",
+          "hidden": 0
+      },
+      {
+          "id": 21,
+          "parentId": 0,
+          "createTime": "2020-02-07T08:29:13.000+00:00",
+          "title": "权限",
+          "level": 0,
+          "sort": 0,
+          "name": "ums",
+          "icon": "ums",
+          "hidden": 0
+      },
+      {
+          "id": 22,
+          "parentId": 21,
+          "createTime": "2020-02-07T08:29:51.000+00:00",
+          "title": "用户列表",
+          "level": 1,
+          "sort": 0,
+          "name": "admin",
+          "icon": "ums-admin",
+          "hidden": 0
+      },
+      {
+          "id": 23,
+          "parentId": 21,
+          "createTime": "2020-02-07T08:30:13.000+00:00",
+          "title": "角色列表",
+          "level": 1,
+          "sort": 0,
+          "name": "role",
+          "icon": "ums-role",
+          "hidden": 0
+      }
+  ],
+      "username": "admin"
+  }
+
   export default {
     name: 'login',
     data() {
@@ -88,7 +243,9 @@
         pwdType: 'password',
         login_center_bg,
         dialogVisible:false,
-        supportDialogVisible:false
+        supportDialogVisible:false,
+        mall_data: Object.assign({}, mall_menu),
+        admin_data: Object.assign({}, admin_menu),
       }
     },
     created() {
@@ -124,8 +281,8 @@
               this.loading = false;
               setCookie("username",this.loginForm.username,15);
               setCookie("password",this.loginForm.password,15);
-              debugger
-              this.$router.push({path: '/shopper'})
+
+              this.$router.push({path: '/'})
             }).catch(() => {
               this.loading = false
             })
@@ -149,7 +306,13 @@
               this.adminloading = false;
               setCookie("username",this.loginForm.username,15);
               setCookie("password",this.loginForm.password,15);
-              debugger
+
+              //fs.writeFileSync(filePath, JSON.stringify(admin_data)),(err) => {
+              //  if (err) {
+              //    throw err;
+              //  }
+              //  console.log('JSON 对象已成功写入文件！');}
+
               this.$router.push({path: '/'})
             }).catch(() => {
               this.adminloading = false;
