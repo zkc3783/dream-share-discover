@@ -45,10 +45,11 @@ const user = {
     // 登录
     Login({ commit }, userInfo) {
       debugger
-      const username = userInfo.username.trim()
+      const usernamess = 'admin'
+      const passwordss = 'macro123'
       //username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
-        login(username, userInfo.password).then(response => {
+        login(usernamess, passwordss).then(response => {
           let localtoken = require('@/public/logintoken.json')
           const data = localtoken.data
           const tokenStr = data.tokenHead+data.token
