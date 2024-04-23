@@ -8,7 +8,7 @@
         </el-cascader>
       </el-form-item> -->
       <el-form-item label="Product ID:" prop="id">
-        <el-input v-model="value.id"></el-input>
+        <el-input v-model="value.id" :disabled="isEdit"></el-input>
       </el-form-item>
       <el-form-item label="Product Name:" prop="name">
         <el-input v-model="value.name"></el-input>

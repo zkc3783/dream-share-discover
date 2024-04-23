@@ -99,14 +99,14 @@
       if(this.isEdit){
         getProduct(this.$route.query.id).then(response=>{
           this.productParam=response.data;
-          this.productParam=this.mapData(require('@/public/xiaomi.json'), parseInt(this.$route.query.id));
+          this.productParam=this.mapInputData(require('@/public/xiaomi.json'), parseInt(this.$route.query.id));
           let tmp = this.productParam;
           debugger
         });
       }
     },
     methods: {
-      mapData(items, num) {
+      mapInputData(items, num) {
         const item = items.find(item => item.ItemId === num);
         if (item) {
           return {
@@ -138,32 +138,51 @@
           this.showStatus[this.active] = true;
         }
       },
+      mapOutputData(item) {
+        return {
+          ItemId: item.id,
+          ItemName: item.name,
+          ItemPrice: item.price,
+          ItemDescription: item.description,
+          ItemStoreId: item.storeid
+        };
+      },
       finishCommit(isEdit) {
         this.$confirm('Do you want to submit this product?', 'Tip', {
           confirmButtonText: 'Confirm',
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
-          if(isEdit){
+          // if(isEdit){
+          //   debugger
+          //   updateProduct(this.$route.query.id,this.productParam).then(response=>{
+          //     this.$message({
+          //       type: 'success',
+          //       message: 'Submitted successfully',
+          //       duration:1000
+          //     });
+          //     this.$router.back();
+          //   });
+          // }
+          // else
+          {
             debugger
-            updateProduct(this.$route.query.id,this.productParam).then(response=>{
-              this.$message({
-                type: 'success',
-                message: 'Submitted successfully',
-                duration:1000
-              });
-              this.$router.back();
-            });
-          }else{
-            debugger
-            createProduct(this.productParam).then(response=>{
-              this.$message({
-                type: 'success',
-                message: 'Submitted successfully',
-                duration:1000
-              });
-              location.reload();
-            });
+            // Convert productParam to JSON and download it
+            const blob = new Blob([JSON.stringify(this.mapOutputData(this.productParam))],
+                                  {type: 'application/json'});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'output.json';
+            a.click();
+            URL.revokeObjectURL(downloadUrl);
+            // createProduct().then(response=>{
+            //   this.$message({
+            //     type: 'success',
+            //     message: 'Submitted successfully',
+            //     duration:1000
+            //   });
+            //   location.reload();
+            // });
           }
         })
       }
