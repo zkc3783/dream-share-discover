@@ -405,7 +405,7 @@
           price: item.ItemPrice,
           description: item.ItemDescription,
           storeid: item.ItemStoreId,
-          pic: item.Image
+          pic: item.ItemImage
         }));
       },
       getList() {
