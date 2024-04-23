@@ -3,32 +3,32 @@
         "UserId":1,
         "UserName":"YongqiZhu",
         "UserPassword":"123456",
-        "UserBirth":"2003-03-05",
-        "UserInterests":"tabletennis", 
-        "UserEmail":"YongqiZhu@gmail.com"
+        "Birthday":"2003-03-05",
+        "Interests":"tabletennis", 
+        "Email":"YongqiZhu@gmail.com"
     },
     {
         "UserId":2,
         "UserName":"Miao",
         "UserPassword":"miao11",
-        "UserBirth":"2003-04-21",
-        "UserInterests":"Japanese", 
-        "UserEmail":"Miaochen@qq.com"
+        "Birthday":"2003-04-21",
+        "Interests":"Japanese", 
+        "Email":"Miaochen@qq.com"
     },
     {
         "UserId":3,
         "UserName":"xyy",
         "UserPassword":"chenh",
-        "UserBirth":"2004-01-08",
-        "UserInterests":"philosophy", 
-        "UserEmail":"huanchen@qq.com"
+        "Birthday":"2004-01-08",
+        "Interests":"philosophy", 
+        "Email":"huanchen@qq.com"
     },    
     {
         "UserId":4,
         "UserName":"Jason",
         "UserPassword":"Jason",
-        "UserBirth":"2003-01-10",
-        "UserInterests":"F1", 
-        "UserEmail":"Jason@qq.com"
+        "Birthday":"2003-01-10",
+        "Interests":"F1", 
+        "Email":"Jason@qq.com"
     }
 ]

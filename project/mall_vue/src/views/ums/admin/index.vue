@@ -377,9 +377,9 @@
           id: item.UserId,
           username: item.UserName,
           password: item.UserPassword,
-          birthday: item.UserBirth,
-          interests: item.UserInterests,
-          email: item.UserEmail
+          birthday: item.Birthday,
+          interests: item.Interests,
+          email: item.Email
         }));
       },
       getList() {
