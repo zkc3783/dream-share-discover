@@ -21,8 +21,15 @@ section System Design
 Our System design: crit, 03-16, 14d
 Scheduled System design: active, 03-16, 21d
 section Implementation
+Our Implementation: crit, 04-01, 23d
 Scheduled Implementation: active, 04-06, 14d
+Our Test: crit, 04-22, 12d
+Scheduled Test: active, 04-20, 14d
 ```
+
+## 20240422 We finished to code our front-end UI and deployed our web application for easy access!
+
+We are now fished to code the user interfaces of our web application, also deployed our web application [**here**](https://dsd.zkc1.xyz:3783), so that anyone can access our system and login.
 
 ## 20240412 We started to code our project!
 
