@@ -33,7 +33,9 @@
         <!--</el-col>-->
       <!-- </el-row> -->
     </div>
-
+  <div>
+    <h1>Welcome, {{this.$store.state.user.name }}!</h1>
+  </div>
     <!-- Selected Comments Section -->
     <div class="comments-layout">
       <div class="layout-title">Selected Comments</div>
@@ -168,34 +170,27 @@ Change"
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   import {str2Date} from '@/utils/date';
   import img_home_order from '@/assets/images/home_order.png';
   import img_home_today_amount from '@/assets/images/home_today_amount.png';
   import img_home_yesterday_amount from '@/assets/images/home_yesterday_amount.png';
+  
+  
+  
+  
   const DATA_FROM_BACKEND = {
     columns: ['date', 'orderCount','orderAmount'],
     rows: [
       {date: '2018-11-01', orderCount: 10, orderAmount: 1093},
-      {date: '2018-11-02', orderCount: 20, orderAmount: 2230},
-      {date: '2018-11-03', orderCount: 33, orderAmount: 3623},
-      {date: '2018-11-04', orderCount: 50, orderAmount: 6423},
-      {date: '2018-11-05', orderCount: 80, orderAmount: 8492},
-      {date: '2018-11-06', orderCount: 60, orderAmount: 6293},
-      {date: '2018-11-07', orderCount: 20, orderAmount: 2293},
-      {date: '2018-11-08', orderCount: 60, orderAmount: 6293},
-      {date: '2018-11-09', orderCount: 50, orderAmount: 5293},
-      {date: '2018-11-10', orderCount: 30, orderAmount: 3293},
-      {date: '2018-11-11', orderCount: 20, orderAmount: 2293},
-      {date: '2018-11-12', orderCount: 80, orderAmount: 8293},
-      {date: '2018-11-13', orderCount: 100, orderAmount: 10293},
-      {date: '2018-11-14', orderCount: 10, orderAmount: 1293},
-      {date: '2018-11-15', orderCount: 40, orderAmount: 4293}
     ]
   };
   export default {
     name: 'home',
     data() {
+      debugger
       return {
+        nameid:state => state.user.name,
         pickerOptions: {
           shortcuts: [{
             text: 'Last 7 Days',
@@ -213,21 +208,6 @@ Change"
             }
           }]
         },
-        orderCountDate: '',
-        chartSettings: {
-          xAxisType: 'time',
-          area:true,
-          axisSite: { right: ['orderAmount']},
-        labelMap: {'orderCount': 'Order Count', 'orderAmount': 'Order Amount'}},
-        chartData: {
-          columns: [],
-          rows: []
-        },
-        loading: false,
-        dataEmpty: false,
-        img_home_order,
-        img_home_today_amount,
-        img_home_yesterday_amount
       }
     },
     created(){
