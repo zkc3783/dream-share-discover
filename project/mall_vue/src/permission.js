@@ -5,27 +5,29 @@ import 'nprogress/nprogress.css'// Progress 进度条样式
 import { Message } from 'element-ui'
 import { getToken } from '@/utils/auth' // 验权
 
-let globalData = null;
+let globalData = require('@/public/mall_menu.json');
 
-const whiteList = ['/login','/register'] // 不重定向白名单 
+const whiteList = ['/login','/register','/shopper'] // 不重定向白名单 
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  if (getToken()) {
-    if (to.path=='/shopper'){
-      globalData = require('@/public/mall_menu.json');
-      next({ path: '/' })
-      NProgress.done()
-    }
-    else if (to.path === '/login') {
+  if (to.path ==='/shopper'){
+    globalData = require('@/public/mall_menu.json');
+    next({ path: '/' })
+    NProgress.done()
+  }
+  else if (to.path === '/manager') {
+    globalData = require('@/public/admin_menu.json');
+    next({ path: '/' })
+    NProgress.done()
+  }
+  else if (getToken()) {
+    if (to.path === '/login') 
+    {
       next({ path: '/' })
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
     } 
-    else if (to.path === '/manager') {
-      globalData = require('@/public/admin_menu.json');
-      next({ path: '/' })
-      NProgress.done()
-    }
-    else {
+    else 
+    {
       if (store.getters.roles.length === 0) {
         store.dispatch('GetInfo').then(res => { // 拉取用户信息
           let menus=globalData.menus;
