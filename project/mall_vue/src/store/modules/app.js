@@ -6,7 +6,8 @@ const app = {
       opened: !+Cookies.get('sidebarStatus'),
       withoutAnimation: false
     },
-    device: 'desktop'
+    device: 'desktop',
+    globalVariable:this.$globalVariable
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {

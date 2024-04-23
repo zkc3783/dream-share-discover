@@ -76,6 +76,11 @@ const permission = {
     }
   },
   actions: {
+    getGlobalVariable() {
+      debugger
+      let test = this.$globalVariable;
+      return this.$globalVariable;
+    },
     GenerateRoutes({ commit }, data) {
       return new Promise(resolve => {
         const { menus } = data;

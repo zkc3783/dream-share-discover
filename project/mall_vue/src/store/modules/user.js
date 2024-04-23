@@ -6,7 +6,8 @@ const user = {
     token: getToken(),
     name: '',
     avatar: '',
-    roles: []
+    roles: [],
+    globalVariable:this.$globalVariable
   },
 
   mutations: {
@@ -21,6 +22,9 @@ const user = {
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles
+    },
+    SET_GLOBALVARIABLE: (state) => {
+      state.globalVariable = this.$globalVariable
     }
   },
 
@@ -53,6 +57,7 @@ const user = {
           }
           commit('SET_NAME', data.username)
           commit('SET_AVATAR', data.icon)
+          commit('SET_GLOBALVARIABLE')
           resolve(response)
         }).catch(error => {
           reject(error)

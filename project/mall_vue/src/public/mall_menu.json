@@ -15,7 +15,7 @@
         "id": 2,
         "parentId": 1,
         "createTime": "2020-02-02T06:51:50.000+00:00",
-        "title": "商品列表",
+        "title": "Check Items",
         "level": 1,
         "sort": 0,
         "name": "product",
@@ -26,7 +26,7 @@
         "id": 3,
         "parentId": 1,
         "createTime": "2020-02-02T06:52:44.000+00:00",
-        "title": "添加商品",
+        "title": "Add Items",
         "level": 1,
         "sort": 0,
         "name": "addProduct",
@@ -56,5 +56,5 @@
         "hidden": 0
     }
 ],
-    "username": "admin"
+    "username": "test"
 }

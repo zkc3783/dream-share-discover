@@ -42,23 +42,23 @@ export const asyncRouterMap = [
     path: '/pms',
     component: Layout,
     redirect: '/pms/product',
-    // name: 'pms',
+    name: 'pms',
     meta: {title: 'Manage Items', icon: 'product'},
     children: [{
       path: 'product',
-      // name: 'product',
+      name: 'product',
       component: () => import('@/views/pms/product/index'),
       meta: {title: 'Check Items', icon: 'product-list'}
       },
       {
         path: 'addProduct',
-        // name: 'addProduct',
+        name: 'addProduct',
         component: () => import('@/views/pms/product/add'),
         meta: {title: 'Add Items', icon: 'product-add'}
       },
       {
         path: 'updateProduct',
-        // name: 'updateProduct',
+        name: 'updateProduct',
         component: () => import('@/views/pms/product/update'),
         meta: {title: 'Update Items', icon: 'product-add'},
         hidden: true
@@ -136,18 +136,18 @@ export const asyncRouterMap = [
     path:'/ums',
     component: Layout,
     redirect: '/ums/admin',
-    // name: 'ums',
+    name: 'ums',
     meta: {title: 'Manage Users', icon: 'ums'},
     children: [
       {
         path: 'admin',
-        // name: 'admin',
+        name: 'admin',
         component: () => import('@/views/ums/admin/index'),
         meta: {title: 'Customers', icon: 'ums-admin'}
       },
       {
         path: 'role',
-        // name: 'role',
+        name: 'role',
         component: () => import('@/views/ums/role/index'),
         meta: {title: 'Store Owners', icon: 'ums-role'}
       }
