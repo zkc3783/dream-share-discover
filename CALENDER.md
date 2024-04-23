@@ -10,7 +10,7 @@ The Gantt Chart of our Project outlines the start and end dates of the project p
 gantt
 dateFormat MM-DD
 axisFormat %m-%d
-title PROJECT GANTT
+title PROJECT GANTT (Iter1)
 section Preparation
 Our Team Building: crit, a1, 03-02, 6d
 Scheduled Team Building: active, a3, 03-02, 7d

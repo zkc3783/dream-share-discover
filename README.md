@@ -33,10 +33,6 @@ We made a few minor change to the class diagram and component diagram for web ap
 
 We finished illustrating the class diagram and component diagram for web application developing! Our work will then be merged with other groups. Check our state of the art by clicking [**here**](./project/system-architecture/diagrams-v1.1/).
 
-### 20240326 We have a meeting with other PMs!
-
-We have a short wehcat meeting with other PMs in which we decided to merge our result by submitting class diagrams from each group. The deadline is 1st, April. Check our schedules [**here**](./CALENDER.md).
-
 ### 20240324 We integrated a Gantt chart into our project calendar! 
 
 We integrated a Gantt chart into our project calendar to offer a comprehensive view of our current progress and upcoming tasks. Hopefully it will always be put on the top of [**CALENDER.md**](./CALENDER.md).
