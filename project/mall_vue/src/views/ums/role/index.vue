@@ -49,7 +49,7 @@
           <template slot-scope="scope">{{scope.row.location}}</template>
         </el-table-column>
         <el-table-column label="Avg Rate"  width="100" align="center">
-          <template slot-scope="scope">{{scope.row.adminCount}}</template>
+          <template slot-scope="scope">{{scope.row.avgrate}}</template>
         </el-table-column>
         <!-- <el-table-column label="Enabled" width="140" align="center">
           <template slot-scope="scope">
@@ -119,6 +119,9 @@
         </el-form-item>
         <el-form-item label="Store Name:">
           <el-input v-model="role.storename" style="width: 250px"></el-input>
+        </el-form-item>
+        <el-form-item label="Password:">
+          <el-input v-model="role.password" type="password" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Location:">
           <el-input v-model="role.location" style="width: 250px"></el-input>
@@ -229,28 +232,41 @@
         });
       },
       handleDelete(index, row) {
-        this.$confirm('Are you sure you want to delete this role?', 'Prompt', {
+        this.$confirm('Are you sure you want to delete this store?', 'Prompt', {
           confirmButtonText: 'Confirm',
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
-          let ids = [];
-          ids.push(row.id);
-          let params=new URLSearchParams();
-          params.append("ids",ids);
-          deleteRole(params).then(response => {
-            this.$message({
-              type: 'success',
-              message: 'Deleted successfully!'
-            });
-            this.getList();
+          //数据库
+          debugger
+          const blob = new Blob([JSON.stringify({"ItemId": row.id})],
+                                {type: 'application/json'});
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'output.json';
+          a.click();
+          URL.revokeObjectURL(a.href);
+          this.$message({
+            message: 'Deleted successfully',
+            type: 'success',
+            duration: 1000
           });
         });
       },
       handleUpdate(index, row) {
         this.dialogVisible = true;
         this.isEdit = true;
-        this.role = Object.assign({},row);
+        this.role = Object.assign({},row, { password: '' });
+      },
+      mapOutputData(item) {
+        return {
+          UserId: item.id,
+          UserName: item.name,
+          UserPassword: item.password,
+          StoreName: item.storename,
+          StoreLocation: item.location,
+          AvgRate: item.avgrate
+        };
       },
       handleDialogConfirm() {
         this.$confirm('Are you sure you want to confirm?', 'Prompt', {
@@ -258,24 +274,40 @@
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
-          if (this.isEdit) {
-            updateRole(this.role.id,this.role).then(response => {
-              this.$message({
-                message: 'Modified successfully!',
-                type: 'success'
-              });
-              this.dialogVisible =false;
-              this.getList();
-            })
-          } else {
-            createRole(this.role).then(response => {
-              this.$message({
-                message: 'Added successfully!',
-                type: 'success'
-              });
-              this.dialogVisible =false;
-              this.getList();
-            })
+          // if (this.isEdit) {
+          //   updateRole(this.role.id,this.role).then(response => {
+          //     this.$message({
+          //       message: 'Modified successfully!',
+          //       type: 'success'
+          //     });
+          //     this.dialogVisible =false;
+          //     this.getList();
+          //   })
+          // }
+          // else
+          {
+            //数据库  
+            debugger
+            const blob = new Blob([JSON.stringify(this.mapOutputData(this.role))],
+                                  {type: 'application/json'});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'output.json';
+            a.click();
+            URL.revokeObjectURL(a.href);
+            this.$message({
+              message: 'Submitted successfully',
+              type: 'success',
+              duration: 1000
+            });
+            // createRole(this.role).then(response => {
+            //   this.$message({
+            //     message: 'Added successfully!',
+            //     type: 'success'
+            //   });
+            //   this.dialogVisible =false;
+            //   this.getList();
+            // })
           }
         })
       },
@@ -285,12 +317,26 @@
       handleSelectResource(index,row){
         this.$router.push({path:'/ums/allocResource',query:{roleId:row.id}})
       },
+      mapInputData(items) {
+        return items.map(item => ({
+          id: item.UserId,
+          name: item.UserName,
+          password: item.UserPassword,
+          storename: item.StoreName,
+          location: item.StoreLocation,
+          avgrate: item.AvgRate
+        }));
+      },
       getList() {
         this.listLoading = true;
         fetchList(this.listQuery).then(response => {
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
+          //数据库
+          this.list = this.mapInputData(require('@/public/storeowner.json'));
+          this.total = this.list.length;
+          debugger
         });
       }
     }

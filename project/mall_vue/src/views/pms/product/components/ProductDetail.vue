@@ -98,6 +98,7 @@
     created(){
       if(this.isEdit){
         getProduct(this.$route.query.id).then(response=>{
+          //数据库
           this.productParam=response.data;
           this.productParam=this.mapInputData(require('@/public/xiaomi.json'), parseInt(this.$route.query.id));
           let tmp = this.productParam;
@@ -169,6 +170,7 @@
           // else
           {
             debugger
+            //数据库
             // Convert productParam to JSON and download it
             const blob = new Blob([JSON.stringify(this.mapOutputData(this.productParam))],
                                   {type: 'application/json'});
@@ -176,7 +178,12 @@
             a.href = URL.createObjectURL(blob);
             a.download = 'output.json';
             a.click();
-            URL.revokeObjectURL(downloadUrl);
+            URL.revokeObjectURL(a.href);
+            this.$message({
+              message: 'Submitted successfully',
+              type: 'success',
+              duration: 1000
+            });
             // createProduct().then(response=>{
             //   this.$message({
             //     type: 'success',

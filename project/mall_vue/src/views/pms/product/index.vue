@@ -398,14 +398,14 @@
           return null;
         }
       },
-      mapData(items) {
+      mapInputData(items) {
         return items.map(item => ({
           id: item.ItemId,
           name: item.ItemName,
           price: item.ItemPrice,
           description: item.ItemDescription,
           storeid: item.ItemStoreId,
-          pic: "https://zkres1.myzaker.com/202401/6598042e8e9f091d9b220ac9_1024.jpg"
+          pic: item.ItemImage
         }));
       },
       getList() {
@@ -415,7 +415,7 @@
           this.list = response.data.list;
           this.total = response.data.total;
           //数据库
-          this.list = this.mapData(require('@/public/xiaomi.json'));
+          this.list = this.mapInputData(require('@/public/xiaomi.json'));
           this.total = this.list.length;
           debugger
         });
@@ -588,9 +588,22 @@
           cancelButtonText: 'no',
           type: 'warning'
         }).then(() => {
-          let ids = [];
-          ids.push(row.id);
-          this.updateDeleteStatus(1,ids);
+          debugger
+          const blob = new Blob([JSON.stringify({"ItemId": row.id})],
+                                {type: 'application/json'});
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'output.json';
+          a.click();
+          URL.revokeObjectURL(a.href);
+          this.$message({
+            message: 'Deleted successfully',
+            type: 'success',
+            duration: 1000
+          });
+          // let ids = [];
+          // ids.push(row.id);
+          // this.updateDeleteStatus(1,ids);
         });
       },
       handleUpdateProduct(index,row){

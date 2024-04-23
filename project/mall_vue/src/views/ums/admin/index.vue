@@ -268,19 +268,43 @@
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
-          deleteAdmin(row.id).then(response => {
-            this.$message({
-              type: 'success',
-              message: 'Deleted successfully!'
-            });
-            this.getList();
+          //数据库
+          debugger
+          const blob = new Blob([JSON.stringify({"ItemId": row.id})],
+                                {type: 'application/json'});
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'output.json';
+          a.click();
+          URL.revokeObjectURL(a.href);
+          this.$message({
+            message: 'Deleted successfully',
+            type: 'success',
+            duration: 1000
           });
+          // deleteAdmin(row.id).then(response => {
+          //   this.$message({
+          //     type: 'success',
+          //     message: 'Deleted successfully!'
+          //   });
+          //   this.getList();
+          // });
         });
       },
       handleUpdate(index, row) {
         this.dialogVisible = true;
         this.isEdit = true;
-        this.admin = Object.assign({},row);
+        this.admin = Object.assign({},row, { password: '' });
+      },
+      mapOutputData(item) {
+        return {
+          UserId: item.id,
+          UserName: item.username,
+          UserPassword: item.password,
+          UserBirth: item.birthday,
+          UserInterests: item.interests,
+          UserEmail: item.email
+        };
       },
       handleDialogConfirm() {
         this.$confirm('Are you sure you want to confirm?', 'Prompt', {
@@ -288,24 +312,40 @@
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
-          if (this.isEdit) {
-            updateAdmin(this.admin.id,this.admin).then(response => {
-              this.$message({
-                message: 'Modified successfully!',
-                type: 'success'
-              });
-              this.dialogVisible =false;
-              this.getList();
-            })
-          } else {
-            createAdmin(this.admin).then(response => {
-              this.$message({
-                message: 'Added successfully!',
-                type: 'success'
-              });
-              this.dialogVisible =false;
-              this.getList();
-            })
+          // if (this.isEdit) {
+          //   updateAdmin(this.admin.id,this.admin).then(response => {
+          //     this.$message({
+          //       message: 'Modified successfully!',
+          //       type: 'success'
+          //     });
+          //     this.dialogVisible =false;
+          //     this.getList();
+          //   })
+          // }
+          // else
+          {
+            //数据库  
+            debugger
+            const blob = new Blob([JSON.stringify(this.mapOutputData(this.admin))],
+                                  {type: 'application/json'});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'output.json';
+            a.click();
+            URL.revokeObjectURL(a.href);
+            this.$message({
+              message: 'Submitted successfully',
+              type: 'success',
+              duration: 1000
+            });
+            // createAdmin(this.admin).then(response => {
+            //   this.$message({
+            //     message: 'Added successfully!',
+            //     type: 'success'
+            //   });
+            //   this.dialogVisible =false;
+            //   this.getList();
+            // })
           }
         })
       },
@@ -332,12 +372,27 @@
         this.allocDialogVisible = true;
         this.getRoleListByAdmin(row.id);
       },
+      mapInputData(items) {
+        return items.map(item => ({
+          id: item.UserId,
+          username: item.UserName,
+          password: item.UserPassword,
+          birthday: item.Birthday,
+          interests: item.Interests,
+          email: item.Email
+        }));
+      },
       getList() {
+        debugger
         this.listLoading = true;
         fetchList(this.listQuery).then(response => {
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
+          //数据库
+          this.list = this.mapInputData(require('@/public/customer.json'));
+          this.total = this.list.length;
+          debugger
         });
       },
       getAllRoleList() {
