@@ -1,8 +1,6 @@
-<template> 
+ <template> 
   <div>
     <el-upload
-      :action="useOss?ossUploadUrl:minioUploadUrl"
-      :data="useOss?dataObj:null"
       list-type="picture-card"
       :file-list="fileList"
       :before-upload="beforeUpload"
@@ -12,7 +10,9 @@
       :limit="maxCount"
       :on-exceed="handleExceed"
     >
+    
       <i class="el-icon-plus"></i>
+        
     </el-upload>
     <el-dialog :visible.sync="dialogVisible">
       <img width="100%" :src="dialogImageUrl" alt="">
@@ -20,85 +20,57 @@
   </div>
 </template>
 <script>
-  import {policy} from '@/api/oss'
-
+  //魔改版
   export default {
     name: 'multiUpload',
     props: {
-      //图片属性数组
+      // 图片Base64数据数组
       value: Array,
       //最大上传图片数量
       maxCount:{
         type:Number,
-        default:5
+        default:1
       }
     },
     data() {
       return {
-        dataObj: {
-          policy: '',
-          signature: '',
-          key: '',
-          ossaccessKeyId: '',
-          dir: '',
-          host: ''
-        },
         dialogVisible: false,
         dialogImageUrl:null,
-        useOss:false, //使用oss->true;使用MinIO->false
-        ossUploadUrl:'http://macro-oss.oss-cn-shenzhen.aliyuncs.com',
-        minioUploadUrl:'http://localhost:8080/minio/upload',
       };
     },
     computed: {
       fileList() {
-        let fileList=[];
-        for(let i=0;i<this.value.length;i++){
-          fileList.push({url:this.value[i]});
-        }
-        return fileList;
+        return this.value.map(imgBase64 => ({ url: imgBase64 }));
+      },
+      alreadyUploaded() {
+        return this.fileList.length >= 1; // 如果已经上传了至少一张图片，则返回 true
       }
     },
     methods: {
       emitInput(fileList) {
-        let value=[];
-        for(let i=0;i<fileList.length;i++){
-          value.push(fileList[i].url);
-        }
-        this.$emit('input', value)
+        this.$emit('input', fileList.map(file => file.url));
       },
       handleRemove(file, fileList) {
         this.emitInput(fileList);
       },
       handlePreview(file) {
         this.dialogVisible = true;
-        this.dialogImageUrl=file.url;
+        this.dialogImageUrl = file.url;
       },
       beforeUpload(file) {
-        let _self = this;
-        if(!this.useOss){
-          //不使用oss不需要获取策略
-          return true;
-        }
-        return new Promise((resolve, reject) => {
-          policy().then(response => {
-            _self.dataObj.policy = response.data.policy;
-            _self.dataObj.signature = response.data.signature;
-            _self.dataObj.ossaccessKeyId = response.data.accessKeyId;
-            _self.dataObj.key = response.data.dir + '/${filename}';
-            _self.dataObj.dir = response.data.dir;
-            _self.dataObj.host = response.data.host;
-            resolve(true)
-          }).catch(err => {
-            console.log(err)
-            reject(false)
-          })
-        })
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          // 直接使用 Base64 字符串而不是上传
+          const base64 = reader.result;
+          this.fileList.push({ name: file.name, url: base64 });
+          this.emitInput(this.fileList);
+        };
+        return false; // 阻止文件的默认上传行为
       },
       handleUploadSuccess(res, file) {
         let url = this.dataObj.host + '/' + this.dataObj.dir + '/' + file.name;
         if(!this.useOss){
-          //不使用oss直接获取图片路径
           url = res.data.url;
         }
         this.fileList.push({name: file.name,url:url});

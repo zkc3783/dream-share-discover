@@ -114,7 +114,8 @@
             name: item.ItemName,
             price: item.ItemPrice,
             description: item.ItemDescription,
-            storeid: item.ItemStoreId
+            storeid: item.ItemStoreId,
+            pic: item.pic
           };
         }
         return null;
@@ -144,7 +145,8 @@
           ItemName: item.name,
           ItemPrice: item.price,
           ItemDescription: item.description,
-          ItemStoreId: item.storeid
+          ItemStoreId: item.storeid,
+          ItemPic: item.pic
         };
       },
       finishCommit(isEdit) {

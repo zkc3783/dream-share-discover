@@ -1,162 +1,16 @@
 <template>
   <div style="margin-top: 50px">
     <el-form :model="value" ref="productAttrForm" label-width="120px" class="form-inner-container" size="small">
-      <!-- <el-form-item label="Attribute Type:">
-        <el-select v-model="value.productAttributeCategoryId"
-                   placeholder="Please select attribute type"
-                   @change="handleProductAttrChange">
-          <el-option
-            v-for="item in productAttributeCategoryOptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="Product Specifications:">
-        <el-card shadow="never" class="cardBg">
-          <div v-for="(productAttr,idx) in selectProductAttr">
-            {{productAttr.name}}:
-            <el-checkbox-group v-if="productAttr.handAddStatus===0" v-model="selectProductAttr[idx].values">
-              <el-checkbox v-for="item in getInputListArr(productAttr.inputList)" :label="item" :key="item"
-                           class="littleMarginLeft"></el-checkbox>
-            </el-checkbox-group>
-            <div v-else>
-              <el-checkbox-group v-model="selectProductAttr[idx].values">
-                <div v-for="(item,index) in selectProductAttr[idx].options" style="display: inline-block"
-                     class="littleMarginLeft">
-                  <el-checkbox :label="item" :key="item"></el-checkbox>
-                  <el-button type="text" class="littleMarginLeft" @click="handleRemoveProductAttrValue(idx,index)">Remove
-                  </el-button>
-                </div>
-              </el-checkbox-group>
-              <el-input v-model="addProductAttrValue" style="width: 160px;margin-left: 10px" clearable></el-input>
-              <el-button class="littleMarginLeft" @click="handleAddProductAttrValue(idx)">Add</el-button>
-            </div>
-          </div>
-        </el-card>
-        <el-table style="width: 100%;margin-top: 20px"
-                  :data="value.skuStockList"
-                  border>
-          <el-table-column
-            v-for="(item,index) in selectProductAttr"
-            :label="item.name"
-            :key="item.id"
-            align="center">
-            <template slot-scope="scope">
-              {{getProductSkuSp(scope.row,index)}}
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="Sale Price"
-            width="100"
-            align="center">
-            <template slot-scope="scope">
-              <el-input v-model="scope.row.price"></el-input>
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="Promotion Price"
-            width="100"
-            align="center">
-            <template slot-scope="scope">
-              <el-input v-model="scope.row.promotionPrice"></el-input>
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="Product Stock"
-            width="80"
-            align="center">
-            <template slot-scope="scope">
-              <el-input v-model="scope.row.stock"></el-input>
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="Low Stock"
-            width="80"
-            align="center">
-            <template slot-scope="scope">
-              <el-input v-model="scope.row.lowStock"></el-input>
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="SKU Code"
-            width="160"
-            align="center">
-            <template slot-scope="scope">
-              <el-input v-model="scope.row.skuCode"></el-input>
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="Operation"
-            width="80"
-            align="center">
-            <template slot-scope="scope">
-              <el-button
-                type="text"
-                @click="handleRemoveProductSku(scope.$index, scope.row)">Delete
-              </el-button>
-            </template>
-          </el-table-column>
-        </el-table>
-        <el-button
-          type="primary"
-          style="margin-top: 20px"
-          @click="handleRefreshProductSkuList">Refresh List
-        </el-button>
-        <el-button
-          type="primary"
-          style="margin-top: 20px"
-          @click="handleSyncProductSkuPrice">Sync Price
-        </el-button>
-        <el-button
-          type="primary"
-          style="margin-top: 20px"
-          @click="handleSyncProductSkuStock">Sync Stock
-        </el-button>
-      </el-form-item>
-      <el-form-item label="Attribute Image:" v-if="hasAttrPic">
-        <el-card shadow="never" class="cardBg">
-          <div v-for="(item,index) in selectProductAttrPics">
-            <span>{{item.name}}:</span>
-            <single-upload v-model="item.pic"
-                           style="width: 300px;display: inline-block;margin-left: 10px"></single-upload>
-          </div>
-        </el-card>
-      </el-form-item>
-      <el-form-item label="Product Parameters:">
-        <el-card shadow="never" class="cardBg">
-          <div v-for="(item,index) in selectProductParam" :class="{littleMarginTop:index!==0}">
-            <div class="paramInputLabel">{{item.name}}:</div>
-            <el-select v-if="item.inputType===1" class="paramInput" v-model="selectProductParam[index].value">
-              <el-option
-                v-for="item in getParamInputList(item.inputList)"
-                :key="item"
-                :label="item"
-                :value="item">
-              </el-option>
-            </el-select>
-            <el-input v-else class="paramInput" v-model="selectProductParam[index].value"></el-input>
-          </div>
-        </el-card>
-      </el-form-item> -->
+      
       <el-form-item label="Product Gallery:">
         <multi-upload v-model="selectProductPics"></multi-upload>
       </el-form-item>
-      <!-- <el-form-item label="Product Details:">
-        <el-tabs v-model="activeHtmlName" type="card">
-          <el-tab-pane label="Desktop Details" name="pc">
-            <tinymce :width="595" :height="300" v-model="value.detailHtml"></tinymce>
-          </el-tab-pane>
-          <el-tab-pane label="Mobile Details" name="mobile">
-            <tinymce :width="595" :height="300" v-model="value.detailMobileHtml"></tinymce>
-          </el-tab-pane>
-        </el-tabs>
-      </el-form-item> -->
+    
       <el-form-item style="text-align: center">
         <el-button size="medium" @click="handlePrev">Previous, fill in Product information</el-button>
         <el-button type="primary" size="medium" @click="handleNext">Finished, submit</el-button>
       </el-form-item>
+
     </el-form>
   </div>
 </template>
