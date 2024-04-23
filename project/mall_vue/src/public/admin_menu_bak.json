@@ -9,7 +9,7 @@
         "sort": 0,
         "name": "pms",
         "icon": "product",
-        "hidden": 1
+        "hidden": 0
     },
     {
         "id": 2,
@@ -20,7 +20,7 @@
         "sort": 0,
         "name": "product",
         "icon": "product-list",
-        "hidden": 1
+        "hidden": 0
     },
     {
         "id": 3,
@@ -31,7 +31,7 @@
         "sort": 0,
         "name": "addProduct",
         "icon": "product-add",
-        "hidden": 1
+        "hidden": 0
     },
     {
         "id": 4,
@@ -42,7 +42,7 @@
         "sort": 0,
         "name": "productCate",
         "icon": "product-cate",
-        "hidden": 1
+        "hidden": 0
     },
     {
         "id": 5,
@@ -53,7 +53,7 @@
         "sort": 0,
         "name": "productAttr",
         "icon": "product-attr",
-        "hidden": 1
+        "hidden": 0
     },
     {
         "id": 21,

@@ -7,7 +7,7 @@ import { getToken } from '@/utils/auth' // 验权
 
 let globalData = require('@/public/mall_menu.json');
 
-const whiteList = ['/login','/register','/shopper'] // 不重定向白名单 
+const whiteList = ['/login','/register'] // 不重定向白名单 
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (to.path ==='/shopper'){

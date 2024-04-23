@@ -98,7 +98,8 @@
           price: [
             {required: true, message: 'Please enter the product price', trigger: 'blur'},
             {validator: this.checkPositiveInteger, trigger: 'blur'}
-          ]
+          ],
+          storeid: [{required: true, message: 'Please enter the store id', trigger: 'blur'}],
         }
       };
     },

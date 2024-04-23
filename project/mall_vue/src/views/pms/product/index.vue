@@ -404,7 +404,8 @@
           name: item.ItemName,
           price: item.ItemPrice,
           description: item.ItemDescription,
-          storeid: item.ItemStoreId
+          storeid: item.ItemStoreId,
+          pic: "https://zkres1.myzaker.com/202401/6598042e8e9f091d9b220ac9_1024.jpg"
         }));
       },
       getList() {
