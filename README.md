@@ -8,13 +8,13 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
-### 20240422 We finished to code our front-end UI and deployed our web application for easy access!
+### 20240422 We finished coding our front-end UI and deployed our web application for easy access!
 
-We are now fished to code the user interfaces of our web application, also deployed our web application [**here**](https://dsd.zkc1.xyz:3783), so that anyone can access our system and login.
+We are now finished coding the user interfaces of our web application, also deployed our web application [**here**](https://dsd.zkc1.xyz:3783), so that anyone can access our system and login.
 
-### 20240412 We started to code our project!
+### 20240412 We started coding our project!
 
-We started to coding our project! Checking our latest progress by a few screenshots [**here**](./project/implementation). Codes are temporarily put [**here**](./project/mall_vue/). Now there are a few things due to be updated.
+We started coding our project! Checking our latest progress by a few screenshots [**here**](./project/implementation). Codes are temporarily put [**here**](./project/mall_vue/). Now there are a few things due to be updated.
 
 - Add a register portal.
 - Add "location" in store info.
