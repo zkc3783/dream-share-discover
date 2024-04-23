@@ -395,13 +395,24 @@
           return null;
         }
       },
+      mapData(items) {
+        return items.map(item => ({
+          id: item.ItemId,
+          name: item.ItemName,
+          price: item.ItemPrice,
+          description: item.ItemDescription,
+        }));
+      },
       getList() {
         this.listLoading = true;
         fetchList(this.listQuery).then(response => {
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
+          this.list = this.mapData(require('@/public/xiaomi.json'));
+          debugger
         });
+
       },
       getBrandList() {
         fetchBrandList({pageNum: 1, pageSize: 100}).then(response => {

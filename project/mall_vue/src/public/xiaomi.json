@@ -1,0 +1,22 @@
+[
+    {
+    "ItemId": 666,
+    "ItemName": "XIAOMI SU7",
+	"ItemPrice": 199999,
+	"ItemDescription": "YAOYAO LINGXIAN",
+	"ItemImage": "Not ready yet",  
+	"ItemStoreId": 10,
+    "ItemStoreName": "XIAOMI",
+    "customerVisits": 10
+    },
+    {
+        "ItemId": 666,
+        "ItemName": "XIAOMI SU7",
+        "ItemPrice": 199999,
+        "ItemDescription": "YAOYAO LINGXIAN",
+        "ItemImage": "Not ready yet",  
+        "ItemStoreId": 10,
+        "ItemStoreName": "XIAOMI",
+        "customerVisits": 10
+    }
+]
