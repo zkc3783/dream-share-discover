@@ -78,7 +78,8 @@
       },
       handleExceed(files, fileList) {
         this.$message({
-          message: '最多只能上传'+this.maxCount+'张图片',
+          // message: '最多只能上传'+this.maxCount+'张图片',
+          message: 'You can only submit one image!',
           type: 'warning',
           duration:1000
         });
