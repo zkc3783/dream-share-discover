@@ -177,6 +177,11 @@
             a.download = 'output.json';
             a.click();
             URL.revokeObjectURL(a.href);
+            this.$message({
+              message: 'Submitted successfully',
+              type: 'success',
+              duration: 1000
+            });
             // createProduct().then(response=>{
             //   this.$message({
             //     type: 'success',

@@ -1,0 +1,34 @@
+[
+    {
+        "UserId":1,
+        "UserName":"YongqiZhu",
+        "UserPassword":"123456",
+        "UserBirth":"2003-03-05",
+        "UserInterests":"tabletennis", 
+        "UserEmail":"YongqiZhu@gmail.com"
+    },
+    {
+        "UserId":2,
+        "UserName":"Miao",
+        "UserPassword":"miao11",
+        "UserBirth":"2003-04-21",
+        "UserInterests":"Japanese", 
+        "UserEmail":"Miaochen@qq.com"
+    },
+    {
+        "UserId":3,
+        "UserName":"xyy",
+        "UserPassword":"chenh",
+        "UserBirth":"2004-01-08",
+        "UserInterests":"philosophy", 
+        "UserEmail":"huanchen@qq.com"
+    },    
+    {
+        "UserId":4,
+        "UserName":"Jason",
+        "UserPassword":"Jason",
+        "UserBirth":"2003-01-10",
+        "UserInterests":"F1", 
+        "UserEmail":"Jason@qq.com"
+    }
+]

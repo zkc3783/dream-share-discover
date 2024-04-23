@@ -596,6 +596,11 @@
           a.download = 'output.json';
           a.click();
           URL.revokeObjectURL(a.href);
+          this.$message({
+            message: 'Deleted successfully',
+            type: 'success',
+            duration: 1000
+          });
           // let ids = [];
           // ids.push(row.id);
           // this.updateDeleteStatus(1,ids);
