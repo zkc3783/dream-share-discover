@@ -265,7 +265,6 @@
           UserPassword: item.password,
           StoreName: item.storename,
           StoreLocation: item.location,
-          AvgRate: item.avgrate
         };
       },
       handleDialogConfirm() {
