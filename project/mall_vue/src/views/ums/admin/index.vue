@@ -1,6 +1,6 @@
 <template> 
   <div class="app-container">
-    <el-card class="filter-container" shadow="never">
+    <!-- <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-search"></i>
         <span>Filter and Search</span>
@@ -25,7 +25,7 @@
           </el-form-item>
         </el-form>
       </div>
-    </el-card>
+    </el-card> -->
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets"></i>
       <span>Customers</span>

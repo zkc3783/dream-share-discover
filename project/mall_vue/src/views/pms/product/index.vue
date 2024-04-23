@@ -1,6 +1,6 @@
-<template> 
+<template>
   <div class="app-container">
-    <el-card class="filter-container" shadow="never">
+    <!-- <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-search"></i>
         <span>Filter and Search</span>
@@ -22,7 +22,7 @@
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="Input Search: ">
             <el-input style="width: 203px" v-model="listQuery.keyword" placeholder="Name"></el-input>
-          </el-form-item>
+          </el-form-item> -->
           <!-- <el-form-item label="">
             <el-input style="width: 203px" v-model="listQuery.productSn" placeholder="ID"></el-input>
           </el-form-item> -->
@@ -63,9 +63,9 @@
               </el-option>
             </el-select>
           </el-form-item> -->
-        </el-form>
+        <!-- </el-form>
       </div>
-    </el-card>
+    </el-card> -->
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets"></i>
       <span>Items</span>
@@ -395,8 +395,9 @@
           return null;
         }
       },
-      mapData(items) {
+      mapItem(items, template) {
         return items.map(item => ({
+          ...template,
           id: item.ItemId,
           name: item.ItemName,
           price: item.ItemPrice,
@@ -409,10 +410,12 @@
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
-          this.list = this.mapData(require('@/public/xiaomi.json'));
+          //数据库
+          this.list = this.mapItem(require('@/public/xiaomi.json'), response.data.list[0]);
+          this.total = this.list.length;
+          let tmp = this.list;
           debugger
         });
-
       },
       getBrandList() {
         fetchBrandList({pageNum: 1, pageSize: 100}).then(response => {
