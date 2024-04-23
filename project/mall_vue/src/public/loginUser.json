@@ -1,0 +1,24 @@
+{
+    "code": 200,
+    "message": "操作成功",
+    "data": {
+        "roles": [
+            "超级管理员"
+        ],
+        "icon": "https://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/icon/github_icon_01.png",
+        "menus": [
+            {
+                "id": 1,
+                "parentId": 0,
+                "createTime": "2020-02-02T06:50:36.000+00:00",
+                "title": "商品",
+                "level": 0,
+                "sort": 0,
+                "name": "pms",
+                "icon": "product",
+                "hidden": 0
+            }
+        ],
+        "username": "admin"
+    }
+}

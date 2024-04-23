@@ -1,0 +1,8 @@
+{
+    "code": 200,
+    "message": "操作成功",
+    "data": {
+        "tokenHead": "Bearer ",
+        "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE3MTM4OTE5ODQ5MDUsImV4cCI6MTcxNDQ5Njc4NH0.juEKtV97mwokEPOCEll9oSeCHbRqQq7Z7uMftxcpfGe-0oP-5uNfVWh0vhlsUsCA6gBCJBno0lHVyjLa0DSvBQ"
+    }
+}

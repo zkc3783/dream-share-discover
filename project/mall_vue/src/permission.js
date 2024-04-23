@@ -5,18 +5,18 @@ import 'nprogress/nprogress.css'// Progress 进度条样式
 import { Message } from 'element-ui'
 import { getToken } from '@/utils/auth' // 验权
 
-let globalData = require('@/public/mall_menu.json');
+let globalData = null;
 
 const whiteList = ['/login','/register'] // 不重定向白名单 
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (to.path ==='/shopper'){
-    globalData = require('@/public/mall_menu.json');
+    store.commit('SET_GLOBALVARIABLE', 0)
     next({ path: '/' })
     NProgress.done()
   }
   else if (to.path === '/manager') {
-    globalData = require('@/public/admin_menu.json');
+    store.commit('SET_GLOBALVARIABLE', 1)
     next({ path: '/' })
     NProgress.done()
   }
@@ -30,8 +30,19 @@ router.beforeEach((to, from, next) => {
     {
       if (store.getters.roles.length === 0) {
         store.dispatch('GetInfo').then(res => { // 拉取用户信息
+          let test=store.getters.globalVariable
+          debugger
+          if (store.getters.globalVariable === 1)
+            {
+              globalData = require('@/public/admin_menu.json');
+            }
+          else
+            {
+              globalData = require('@/public/mall_menu.json');
+            }
           let menus=globalData.menus;
           let username=globalData.username;
+          store.commit('SET_NAME', username)
           store.dispatch('GenerateRoutes', { menus,username }).then(() => { // 生成可访问的路由表
             router.addRoutes(store.getters.addRouters); // 动态添加可访问路由表
             next({ ...to, replace: true })

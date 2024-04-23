@@ -7,6 +7,6 @@ const getters = {
   roles: state => state.user.roles,
   addRouters: state => state.permission.addRouters,
   routers: state => state.permission.routers,
-  getGlobalVariable: state => state.user.globalVariable,
+  globalVariable: state => state.user.globalVariable,
 }
 export default getters

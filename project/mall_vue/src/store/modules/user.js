@@ -1,13 +1,25 @@
 import { login, logout, getInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
+// 定义一个函数用来从localStorage中获取globalVariable的值
+function getGlobalVariableFromLocalStorage() {
+  // 检查localStorage中是否有globalVariable
+  if (localStorage.getItem('globalVariable')) {
+      // 如果有，返回localStorage中的值
+      return parseInt(localStorage.getItem('globalVariable'));
+  } else {
+      // 如果没有，返回默认值2
+      return 0;
+  }
+}
+
 const user = {
   state: {
     token: getToken(),
     name: '',
     avatar: '',
     roles: [],
-    globalVariable:this.$globalVariable
+    globalVariable:getGlobalVariableFromLocalStorage()
   },
 
   mutations: {
@@ -23,18 +35,22 @@ const user = {
     SET_ROLES: (state, roles) => {
       state.roles = roles
     },
-    SET_GLOBALVARIABLE: (state) => {
-      state.globalVariable = this.$globalVariable
+    SET_GLOBALVARIABLE: (state,someValue) => {
+      state.globalVariable = someValue
+      localStorage.setItem('globalVariable',someValue);
     }
   },
 
   actions: {
     // 登录
     Login({ commit }, userInfo) {
+      debugger
       const username = userInfo.username.trim()
+      //username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
-          const data = response.data
+          let localtoken = require('@/public/logintoken.json')
+          const data = localtoken.data
           const tokenStr = data.tokenHead+data.token
           setToken(tokenStr)
           commit('SET_TOKEN', tokenStr)
@@ -49,6 +65,8 @@ const user = {
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getInfo().then(response => {
+          let globalData = state.globalVariable
+          debugger
           const data = response.data
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
@@ -57,8 +75,8 @@ const user = {
           }
           commit('SET_NAME', data.username)
           commit('SET_AVATAR', data.icon)
-          commit('SET_GLOBALVARIABLE')
-          resolve(response)
+          debugger
+          resolve(response)//then can get the response
         }).catch(error => {
           reject(error)
         })
