@@ -99,10 +99,26 @@
       if(this.isEdit){
         getProduct(this.$route.query.id).then(response=>{
           this.productParam=response.data;
+          this.productParam=this.mapData(require('@/public/xiaomi.json'), parseInt(this.$route.query.id));
+          let tmp = this.productParam;
+          debugger
         });
       }
     },
     methods: {
+      mapData(items, num) {
+        const item = items.find(item => item.ItemId === num);
+        if (item) {
+          return {
+            id: item.ItemId,
+            name: item.ItemName,
+            price: item.ItemPrice,
+            description: item.ItemDescription,
+            storeid: item.ItemStoreId
+          };
+        }
+        return null;
+      },
       hideAll() {
         for (let i = 0; i < this.showStatus.length; i++) {
           this.showStatus[i] = false;
@@ -129,6 +145,7 @@
           type: 'warning'
         }).then(() => {
           if(isEdit){
+            debugger
             updateProduct(this.$route.query.id,this.productParam).then(response=>{
               this.$message({
                 type: 'success',
@@ -138,6 +155,7 @@
               this.$router.back();
             });
           }else{
+            debugger
             createProduct(this.productParam).then(response=>{
               this.$message({
                 type: 'success',

@@ -90,7 +90,7 @@
         <el-table-column label="Image" width="120" align="center">
           <template slot-scope="scope"><img style="height: 80px" :src="scope.row.pic"></template>
         </el-table-column>
-        <el-table-column label="Name" align="center">
+        <el-table-column label="Name" width="120" align="center">
           <template slot-scope="scope">
             <p>{{scope.row.name}}</p>
             <!-- <p>brand：{{scope.row.brandName}}</p> -->
@@ -102,6 +102,12 @@
             <p>¥{{scope.row.price}}</p>
             <!-- <p>id：{{scope.row.productSn}}</p> -->
           </template>
+        </el-table-column>
+        <el-table-column label="Description" align="center">
+          <template slot-scope="scope">{{scope.row.description}}</template>
+        </el-table-column>
+        <el-table-column label="Store ID" width="100" align="center">
+          <template slot-scope="scope">{{scope.row.storeid}}</template>
         </el-table-column>
         <!-- <el-table-column label="label" width="140" align="center">
           <template slot-scope="scope">
@@ -134,9 +140,6 @@
         <el-table-column label="sort" width="100" align="center">
           <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column> -->
-        <el-table-column label="Description" width="100" align="center">
-          <template slot-scope="scope">{{scope.row.description}}</template>
-        </el-table-column>
         <!-- <el-table-column label="SKU_stock" width="100" align="center">
           <template slot-scope="scope">
             <el-button type="primary" icon="el-icon-edit" @click="handleShowSkuEditDialog(scope.$index, scope.row)" circle></el-button>
@@ -395,13 +398,13 @@
           return null;
         }
       },
-      mapItem(items, template) {
+      mapData(items) {
         return items.map(item => ({
-          ...template,
           id: item.ItemId,
           name: item.ItemName,
           price: item.ItemPrice,
           description: item.ItemDescription,
+          storeid: item.ItemStoreId
         }));
       },
       getList() {
@@ -411,9 +414,8 @@
           this.list = response.data.list;
           this.total = response.data.total;
           //数据库
-          this.list = this.mapItem(require('@/public/xiaomi.json'), response.data.list[0]);
+          this.list = this.mapData(require('@/public/xiaomi.json'));
           this.total = this.list.length;
-          let tmp = this.list;
           debugger
         });
       },

@@ -29,14 +29,17 @@
           </el-option>
         </el-select>
       </el-form-item> -->
+      <el-form-item label="Price(¥):" prop="price">
+        <el-input v-model="value.price"></el-input>
+      </el-form-item>
       <el-form-item label="Product Description:">
         <el-input
           :autoSize="true"
           v-model="value.description"
           type="textarea"></el-input>
       </el-form-item>
-      <el-form-item label="Price(¥):" prop="price">
-        <el-input v-model="value.price"></el-input>
+      <el-form-item label="Store ID:" prop="storeid">
+        <el-input v-model="value.storeid"></el-input>
       </el-form-item>
       <!-- <el-form-item label="Market Price:">
         <el-input v-model="value.originalPrice"></el-input>

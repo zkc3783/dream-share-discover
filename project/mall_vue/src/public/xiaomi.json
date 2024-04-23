@@ -1,22 +1,18 @@
 [
     {
-    "ItemId": 666,
-    "ItemName": "XIAOMI SU7",
-	"ItemPrice": 199999,
-	"ItemDescription": "YAOYAO LINGXIAN",
-	"ItemImage": "Not ready yet",  
-	"ItemStoreId": 10,
-    "ItemStoreName": "XIAOMI",
-    "customerVisits": 10
-    },
-    {
-        "ItemId": 666,
-        "ItemName": "XIAOMI SU8",
+        "ItemId": 30,
+        "ItemName": "XIAOMI SU7",
         "ItemPrice": 199999,
         "ItemDescription": "YAOYAO LINGXIAN",
         "ItemImage": "Not ready yet",  
-        "ItemStoreId": 10,
-        "ItemStoreName": "XIAOMI",
-        "customerVisits": 10
+        "ItemStoreId": 10
+    },
+    {
+        "ItemId": 31,
+        "ItemName": "XIAOMI SU8",
+        "ItemPrice": 299999,
+        "ItemDescription": "YAOYAO LINGXIAN",
+        "ItemImage": "Not ready yet",  
+        "ItemStoreId": 11
     }
 ]
