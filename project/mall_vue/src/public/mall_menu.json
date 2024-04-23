@@ -1,0 +1,60 @@
+{
+    "menus":[
+    {
+        "id": 1,
+        "parentId": 0,
+        "createTime": "2020-02-02T06:50:36.000+00:00",
+        "title": "商品",
+        "level": 0,
+        "sort": 0,
+        "name": "pms",
+        "icon": "product",
+        "hidden": 0
+    },
+    {
+        "id": 2,
+        "parentId": 1,
+        "createTime": "2020-02-02T06:51:50.000+00:00",
+        "title": "商品列表",
+        "level": 1,
+        "sort": 0,
+        "name": "product",
+        "icon": "product-list",
+        "hidden": 0
+    },
+    {
+        "id": 3,
+        "parentId": 1,
+        "createTime": "2020-02-02T06:52:44.000+00:00",
+        "title": "添加商品",
+        "level": 1,
+        "sort": 0,
+        "name": "addProduct",
+        "icon": "product-add",
+        "hidden": 0
+    },
+    {
+        "id": 4,
+        "parentId": 1,
+        "createTime": "2020-02-02T06:53:51.000+00:00",
+        "title": "商品分类",
+        "level": 1,
+        "sort": 0,
+        "name": "productCate",
+        "icon": "product-cate",
+        "hidden": 0
+    },
+    {
+        "id": 5,
+        "parentId": 1,
+        "createTime": "2020-02-02T06:54:51.000+00:00",
+        "title": "商品类型",
+        "level": 1,
+        "sort": 0,
+        "name": "productAttr",
+        "icon": "product-attr",
+        "hidden": 0
+    }
+],
+    "username": "admin"
+}
