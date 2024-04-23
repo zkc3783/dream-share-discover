@@ -176,7 +176,7 @@
             a.href = URL.createObjectURL(blob);
             a.download = 'output.json';
             a.click();
-            URL.revokeObjectURL(downloadUrl);
+            URL.revokeObjectURL(a.href);
             // createProduct().then(response=>{
             //   this.$message({
             //     type: 'success',
