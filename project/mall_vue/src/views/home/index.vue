@@ -128,6 +128,7 @@
         this.orderCountDate=[start,end];
       },
       getData(){
+        this.storeName = require('@/public/1/storeinfo.json')["StoreName"];
         setTimeout(() => {
           this.chartData = {
             columns: ['date', 'orderCount','orderAmount'],
@@ -145,7 +146,12 @@
           this.dataEmpty = false;
           this.loading = false
         }, 1000)
-      }
+      },
+      editStoreName() {
+        const blob = new Blob([JSON.stringify({"UserName":this.$store.state.user.name, "StoreName":this.storeName})],
+                              {type: 'application/json'});
+        window.open(URL.createObjectURL(blob));
+      },
     }
   }
 </script>
