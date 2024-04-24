@@ -5,7 +5,7 @@
         "UserPassword": "123456",
         "StoreName":"XIAOMI",
         "StoreLocation": "100,200",
-        "AvgRate": 0.5
+        "AvgRate": 9.0
     },
     {
         "UserId": 110,
@@ -13,6 +13,6 @@
         "UserPassword": "654321",
         "StoreName":"TENGXUN",
         "StoreLocation": "50,100",
-        "AvgRate": 0.4
+        "AvgRate": 8.0
     }
 ]
