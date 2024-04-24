@@ -28,24 +28,24 @@
                     v-model="loginForm.password"
                     autoComplete="on"
                     placeholder="Enter password">
-          <span slot="prefix">
-            <svg-icon icon-class="password" class="color-main"></svg-icon>
-          </span>
+            <span slot="prefix">
+              <svg-icon icon-class="password" class="color-main"></svg-icon>
+            </span>
             <span slot="suffix" @click="showPwd">
-            <svg-icon icon-class="eye" class="color-main"></svg-icon>
-          </span>
+              <svg-icon icon-class="eye" class="color-main"></svg-icon>
+            </span>
           </el-input>
         </el-form-item>
         <el-form-item prop="confirmPassword">
           <el-input name="confirmPassword"
-                    :type="pwdType"
+                    :type="confirmPwdType"
                     v-model="loginForm.confirmPassword"
                     autoComplete="on"
                     placeholder="Confirm Password">
             <span slot="prefix">
               <svg-icon icon-class="password" class="color-main"></svg-icon>
             </span>
-            <span slot="suffix" @click="showPwd">
+            <span slot="suffix" @click="showConfirmPwd">
               <svg-icon icon-class="eye" class="color-main"></svg-icon>
             </span>
           </el-input>
@@ -112,6 +112,7 @@
         },
         loading: false,
         pwdType: 'password',
+        confirmPwdType: 'password',
         login_center_bg,
         dialogVisible:false,
         supportDialogVisible:false
@@ -136,6 +137,9 @@
         } else {
           this.pwdType = 'password'
         }
+      },
+      showConfirmPwd() {
+        this.confirmPwdType = this.confirmPwdType === 'password' ? 'text' : 'password';
       },
       mapOutputData(item) {
         return {
