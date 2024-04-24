@@ -24,13 +24,25 @@ function getNameFromLocalStorage() {
   }
 }
 
+function geteditUserFromLocalStorage() {
+  // 检查localStorage中是否有name
+  if (localStorage.getItem('editUser')) {
+    // 如果有，返回localStorage中的值
+    return localStorage.getItem('editUser');
+  } else {
+    // 如果没有，返回默认值
+    return '';
+  }
+}
+
 const user = {
   state: {
     token: getToken(),
     name: getNameFromLocalStorage(),
     avatar: '',
     roles: [],
-    globalVariable:getGlobalVariableFromLocalStorage()
+    globalVariable:getGlobalVariableFromLocalStorage(),
+    editUser:  geteditUserFromLocalStorage(),  
   },
 
   mutations: {
@@ -50,6 +62,10 @@ const user = {
     SET_GLOBALVARIABLE: (state,someValue) => {
       state.globalVariable = someValue
       localStorage.setItem('globalVariable',someValue);
+    },
+    SET_EDIT_USER: (state, editUser) => {
+      state.editUser = editUser
+      localStorage.setItem('editUser', editUser);
     }
   },
 

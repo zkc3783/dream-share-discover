@@ -311,6 +311,9 @@
         })
       },
       handleSelectMenu(index,row){
+        this.$store.commit('SET_EDIT_USER',row.name)
+        let test = this.$store.state.user.editUser
+        debugger
         this.$router.push({path:'/pms/product',query:{roleId:row.id}})
       },
       handleSelectResource(index,row){
