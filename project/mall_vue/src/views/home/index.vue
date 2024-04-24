@@ -18,7 +18,7 @@
                 </el-col>
                 <el-col :span="9">
                   <div style="display: flex; align-items: center;">
-                  <label for="storeName" style="margin-right: 8px;">Location</label>
+                  <label for="storeName" style="margin-right: 8px;"></label>
                   <el-input v-model="storeLocation" placeholder="Enter location"></el-input>
                   </div>
                 </el-col>
@@ -43,11 +43,9 @@
     <!-- Feedbacks Section -->
     <div class="advice-layout">
       <div class="layout-title">Feedbacks</div>
-        <!-- Example -->
-        <div class="content-box">
-        <!-- 动态生成每条反馈的 div -->
+      <div class="content-box">
         <div class="content-item" v-for="item in this.feedback" :key="item">
-          "{{ item }}"
+            "{{ item }}"
         </div>
       </div>
     </div>
@@ -57,20 +55,20 @@
     <div class="advice-layout">
       <div class="layout-title">Selected Comments</div>
       <div class="content-box">
-        <!-- Example -->
-        <div class="content-item">"Poor service and slow delivery!"</div>
-        <div class="content-item">"Product quality has decreased significantly."</div>
+        <div class="content-item" v-for="item in this.selectedComments" :key="item">
+            "{{ item }}"
+        </div>
       </div>
     </div>
   </div>
   <div v-if = "this.$store.state.user.globalVariable === 1"> 
     <!-- Overall Advice Section -->
     <div class="advice-layout">
-      <div class="layout-title">Overall Advice</div>
+      <div class="layout-title">Overall Advices</div>
       <div class="content-box">
-        <!-- Example -->
-        <div class="content-item">"Focus on customer service to enhance satisfaction."</div>
-        <div class="content-item">"Consider expanding the product line."</div>
+        <div class="content-item" v-for="item in this.overallAdvices" :key="item">
+            "{{ item }}"
+        </div>
       </div>
     </div>
   </div>
@@ -139,6 +137,7 @@
         this.orderCountDate=[start,end];
       },
       getData(){
+        //数据库
         if(this.$store.state.user.globalVariable === 0) {
           const blob = new Blob([JSON.stringify({"UserName": this.$store.state.user.name})],
                                 {type: 'application/json'});
@@ -148,6 +147,10 @@
           this.storeLocation = res["StoreLocation"];
           this.avgRate = res["AvgRate"];
           this.feedback = res["Feedback"];
+        } else {
+          let res = require('@/public/1/analytics.json')
+          this.selectedComments = res["SelectedComments"];
+          this.overallAdvices = res["OverallAdvices"];
         }
         setTimeout(() => {
           this.chartData = {

@@ -4,7 +4,7 @@
         "UserName":"LEIJUN",
         "UserPassword": "123456",
         "StoreName":"XIAOMI",
-        "StoreLocation": "100, 200",
+        "StoreLocation": "100,200",
         "AvgRate": 0.5
     },
     {
@@ -12,7 +12,7 @@
         "UserName":"MAHUATENG",
         "UserPassword": "654321",
         "StoreName":"TENGXUN",
-        "StoreLocation": "50, 100",
+        "StoreLocation": "50,100",
         "AvgRate": 0.4
     }
 ]
