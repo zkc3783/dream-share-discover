@@ -408,9 +408,25 @@
           pic: item.ItemImage
         }));
       },
+      mapOutputData() {
+        return {
+          StoreName: this.$store.state.user.name == "admin" ? 
+                        this.$store.state.user.editUser : this.$store.state.user.name
+        };
+      },
       getList() {
         this.listLoading = true;
         fetchList(this.listQuery).then(response => {
+          //数据库
+            // Convert productParam to JSON and download it
+            const blob = new Blob([JSON.stringify(this.mapOutputData())],
+                                  {type: 'application/json'});
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'output.json';
+            a.click();
+            URL.revokeObjectURL(a.href);
+
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
