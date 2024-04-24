@@ -1,41 +1,9 @@
 <template>
   <div class="app-container">
-    <div class="total-layout">
-      <!-- <el-row :gutter="20"> -->
-        <!-- <el-col :span="6">
-          <div class="total-frame">
-            <img :src="img_home_order" class="total-icon">
-            <div class="total-title">Total Orders Today</div>
-            <div class="total-value">200</div>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="total-frame">
-            <img :src="img_home_today_amount" class="total-icon">
-            <div class="total-title">Total Sales Today</div>
-            <div class="total-value">￥5000.00</div>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="total-frame">
-            <img :src="img_home_yesterday_amount" class="total-icon">
-            <div class="total-title">Total Sales Yesterday</div>
-            <div class="total-value">￥5000.00</div>
-          </div>
-        </el-col> -->
-        <!--<el-col :span="6">-->
-          <!--<div class="total-frame">-->
-            <!--<svg-icon icon-class="total-week" class="total-icon">-->
-            <!--</svg-icon>-->
-            <!--<div class="total-title">Total Sales in Last 7 Days</div>-->
-            <!--<div class="total-value">￥50000.00</div>-->
-          <!--</div>-->
-        <!--</el-col>-->
-      <!-- </el-row> -->
-    </div>
   <div>
     <h1>Welcome, {{this.$store.state.user.name }}!</h1>
-  </div>
+  </div >
+  <div v-if="this.$store.state.user.globalVariable === 0">
     <!-- Selected Comments Section -->
     <div class="comments-layout">
       <div class="layout-title">Selected Comments</div>
@@ -45,7 +13,8 @@
         <div class="content-item">"Product quality has improved significantly."</div>
       </div>
     </div>
-
+  </div>
+  <div v-else-if = "this.$store.state.user.globalVariable === 1"> 
     <!-- Overall Advice Section -->
     <div class="advice-layout">
       <div class="layout-title">Overall Advice</div>
@@ -55,115 +24,12 @@
         <div class="content-item">"Consider expanding the product line."</div>
       </div>
     </div>
-
+  </div>
     <!-- <div class="overview-layout">
-      <el-row :gutter="20">
-        <el-col :span="12">
-          <div class="out-border">
-            <div class="layout-title">Product Overview</div>
-            <div style="padding: 40px">
-              <el-row>
-                <el-col :span="6" class="color-danger overview-item-value">100</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">400</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">50</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">500</el-col>
-              </el-row>
-              <el-row class="font-medium">
-                <el-col :span="6" class="overview-item-title">Off-shelf</el-col>
-                <el-col :span="6" class="overview-item-title">On-shelf</el-col>
-                <el-col :span="6" class="overview-item-title">Low Stock</el-col>
-                <el-col :span="6" class="overview-item-title">All Products</el-col>
-              </el-row>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="out-border">
-            <div class="layout-title">User Overview</div>
-            <div style="padding: 40px">
-              <el-row>
-                <el-col :span="6" class="color-danger overview-item-value">100</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">200</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">1000</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">5000</el-col>
-              </el-row>
-              <el-row class="font-medium">
-                <el-col :span="6" class="overview-item-title">New Users Today</el-col>
-                <el-col :span="6" class="overview-item-title">New Users Yesterday</el-col>
-                <el-col :span="6" class="overview-item-title">New Users This Month</el-col>
-                <el-col :span="6" class="overview-item-title">Total Members</el-col>
-              </el-row>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
     </div>
     <div class="statistics-layout">
       <div class="layout-title">Order Statistics</div>
       <el-row>
-        <el-col :span="4">
-          <div style="padding: 20px">
-            <div>
-              <div style="color: #909399;font-size: 14px">Total Orders This Month</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">10000</div>
-              <div>
-                <span class="color-success" style="font-size: 14px">+10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">Month over Month</span>
-              </div>
-            </div>
-            <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">Total Orders This Week</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">1000</div>
-              <div>
-                <span class="color-danger" style="font-size: 14px">-10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">Week over Week</span>
-              </div>
-            </div>
-            <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">Total Sales This Month</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">100000</div>
-              <div>
-                <span class="color-success" style="font-size: 14px">+10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">Month over Month</span>
-              </div>
-            </div>
-            <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">Total Sales This Week</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">50000</div>
-              <div>
-                <span class="color-danger" style="font-size: 14px">-10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">Week over Week</span>
-              </div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="20">
-          <div style="padding: 10px;border-left:1px solid #DCDFE6">
-            <el-date-picker
-              style="float: right;z-index: 1"
-              size="small"
-              v-model="orderCountDate"
-              type="daterange"
-              align="right"
-              unlink-panels
-              range-separator="to"
-              start-placeholder="Start Date"
-              end-placeholder="End Date"
-              @change="handleDate
-
-Change"
-              :picker-options="pickerOptions">
-            </el-date-picker>
-            <div>
-              <ve-line
-                :data="chartData"
-                :legend-visible="false"
-                :loading="loading"
-                :data-empty="dataEmpty"
-                :settings="chartSettings"></ve-line>
-            </div>
-          </div>
-        </el-col>
       </el-row>
     </div> -->
   </div>
