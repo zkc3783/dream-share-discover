@@ -31,7 +31,7 @@
       </el-col>
       <el-col :span="4">
           <div class="name-layout">
-            <div class="layout-title">Avg Rating</div>
+            <div class="layout-title">Avg Ratings</div>
             <div class="content-box center-content">
               {{ this.avgRate }}
             </div>

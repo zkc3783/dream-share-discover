@@ -144,7 +144,7 @@
       mapOutputData(item) {
         return {
           UserName: item.username,
-          Password: item.password
+          UserPassword: item.password
         };
       },
       checkValid() {

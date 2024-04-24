@@ -2,5 +2,12 @@
     "StoreName": "XIAOMI",
     "StoreLocation": "100,200",
     "AvgRate": 0.5,
-    "Feedback": ["Great service and fast delivery!", "Product quality has improved significantly."]
+    "Feedback": [{
+        "Comment":"Great service and fast delivery!",
+        "Rating": 9
+        },{
+            "Comment":"Product quality has improved significantly.",
+            "Rating": 9
+        }
+    ]
 }

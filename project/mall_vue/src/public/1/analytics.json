@@ -1,4 +1,11 @@
 {
-    "SelectedComments": ["Poor service and slow delivery!", "Product quality has decreased significantly."],
+    "SelectedComments": [{
+        "Comment":"Poor service and slow delivery!",
+        "Rating": 2
+        },{
+            "Comment":"Product quality has decreased significantly.",
+            "Rating": 2
+        }
+    ],
     "OverallAdvices": ["Focus on customer service to enhance satisfaction.", "Consider expanding the product line."]
 }
