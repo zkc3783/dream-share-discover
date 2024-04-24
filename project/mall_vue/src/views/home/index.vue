@@ -3,28 +3,33 @@
   <div>
     <h1>Welcome, {{this.$store.state.user.name }}!</h1>
   </div>
-  <el-row gutter="20">
-    <el-col :span="12">
-      <div v-if="this.$store.state.user.globalVariable === 0">
-        <div class="advice-layout">
-          <div class="layout-title">Username</div>
-          <div class="content-box">
-            {{this.$store.state.user.name }}
+  <div v-if="this.$store.state.user.globalVariable === 0">
+    <el-row gutter="20" type="flex" align="stretch">
+      <el-col :span="20">
+          <div class="name-layout">
+            <div class="layout-title">Store Name</div>
+            <div class="content-box">
+              <el-row :gutter="24">
+                <el-col :span="21">
+                  <el-input v-model="storeName" placeholder="Enter store name"></el-input>
+                </el-col>
+                <el-col :span="2">
+                  <el-button class="edit-link" type="primary" @click="editStoreName">Edit</el-button>
+                </el-col>
+              </el-row>
+            </div>
           </div>
-        </div>
-      </div>
-    </el-col>
-    <el-col :span="12">
-      <div v-if="this.$store.state.user.globalVariable === 0">
-        <div class="advice-layout">
-          <div class="layout-title">Avg Rate</div>
-          <div class="content-box">
-            0
+      </el-col>
+      <el-col :span="4">
+          <div class="name-layout">
+            <div class="layout-title">Avg Rating</div>
+            <div class="content-box center-content">
+              0.5
+            </div>
           </div>
-        </div>
-      </div>
-    </el-col>
-  </el-row>
+      </el-col>
+    </el-row>
+  </div>
   <div v-if="this.$store.state.user.globalVariable === 0">
     <!-- Feedbacks Section -->
     <div class="advice-layout">
@@ -247,10 +252,21 @@
     margin-top: 20px;
     border: 1px solid #DCDFE6;
   }
+  .name-layout {
+    min-height: 130px;
+    margin-top: 20px;
+    border: 1px solid #DCDFE6;
+  }
 
   .content-box {
     padding: 20px;
     border-top: 1px solid #DCDFE6;
+  }
+
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .content-item {
