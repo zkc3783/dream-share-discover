@@ -21,11 +21,16 @@ router.beforeEach((to, from, next) => {
     NProgress.done()
   }
   else if (getToken()) {
-    if (to.path === '/login') 
+    if (to.path === '/login'&&from.path === '/register') 
     {
-      next({ path: '/' })
+      next()
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
     } 
+    else if (to.path === '/login') 
+      {
+        next({ path: '/' })
+        NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
+      } 
     else 
     {
       if (store.getters.roles.length === 0) {
