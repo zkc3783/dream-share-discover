@@ -7,14 +7,23 @@
     <el-row gutter="20" type="flex" align="stretch">
       <el-col :span="20">
           <div class="name-layout">
-            <div class="layout-title">Store Name</div>
+            <div class="layout-title">Store Info</div>
             <div class="content-box">
               <el-row :gutter="24">
-                <el-col :span="21">
+                <el-col :span="12">
+                  <div style="display: flex; align-items: center;">
+                  <label for="storeName" style="margin-right: 8px;">Name</label>
                   <el-input v-model="storeName" placeholder="Enter store name"></el-input>
+                  </div>
+                </el-col>
+                <el-col :span="9">
+                  <div style="display: flex; align-items: center;">
+                  <label for="storeName" style="margin-right: 8px;">Location</label>
+                  <el-input v-model="storeLocation" placeholder="Enter location"></el-input>
+                  </div>
                 </el-col>
                 <el-col :span="2">
-                  <el-button class="edit-link" type="primary" @click="editStoreName">Edit</el-button>
+                  <el-button class="edit-link" type="primary" @click="edit">Edit</el-button>
                 </el-col>
               </el-row>
             </div>
@@ -24,7 +33,7 @@
           <div class="name-layout">
             <div class="layout-title">Avg Rating</div>
             <div class="content-box center-content">
-              0.5
+              {{ this.avgRate }}
             </div>
           </div>
       </el-col>
@@ -34,10 +43,12 @@
     <!-- Feedbacks Section -->
     <div class="advice-layout">
       <div class="layout-title">Feedbacks</div>
-      <div class="content-box">
         <!-- Example -->
-        <div class="content-item">"Great service and fast delivery!"</div>
-        <div class="content-item">"Product quality has improved significantly."</div>
+        <div class="content-box">
+        <!-- 动态生成每条反馈的 div -->
+        <div class="content-item" v-for="item in this.feedback" :key="item">
+          "{{ item }}"
+        </div>
       </div>
     </div>
   </div>
@@ -47,8 +58,8 @@
       <div class="layout-title">Selected Comments</div>
       <div class="content-box">
         <!-- Example -->
-        <div class="content-item">"Great service and fast delivery!"</div>
-        <div class="content-item">"Product quality has improved significantly."</div>
+        <div class="content-item">"Poor service and slow delivery!"</div>
+        <div class="content-item">"Product quality has decreased significantly."</div>
       </div>
     </div>
   </div>
@@ -130,9 +141,13 @@
       getData(){
         if(this.$store.state.user.globalVariable === 0) {
           const blob = new Blob([JSON.stringify({"UserName": this.$store.state.user.name})],
-                                  {type: 'application/json'});
+                                {type: 'application/json'});
           window.open(URL.createObjectURL(blob));
-          this.storeName = require('@/public/1/storeinfo.json')["StoreName"];
+          let res = require('@/public/1/store.json')
+          this.storeName = res["StoreName"];
+          this.storeLocation = res["StoreLocation"];
+          this.avgRate = res["AvgRate"];
+          this.feedback = res["Feedback"];
         }
         setTimeout(() => {
           this.chartData = {
@@ -152,8 +167,10 @@
           this.loading = false
         }, 1000)
       },
-      editStoreName() {
-        const blob = new Blob([JSON.stringify({"UserName":this.$store.state.user.name, "StoreName":this.storeName})],
+      edit() {
+        const blob = new Blob([JSON.stringify({"UserName":this.$store.state.user.name,
+                                              "StoreName":this.storeName,
+                                              "StoreLocation":this.storeLocation})],
                               {type: 'application/json'});
         window.open(URL.createObjectURL(blob));
       },
