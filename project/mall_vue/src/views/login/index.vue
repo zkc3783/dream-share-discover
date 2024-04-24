@@ -115,9 +115,41 @@
           this.pwdType = 'password'
         }
       },
+      mapOutputData(item) {
+        return {
+          UserName: item.username,
+          Password: item.password
+        };
+      },
+      checkValid() {
+          //数据库
+          const blob = new Blob([JSON.stringify(this.mapOutputData(this.loginForm))],
+                                {type: 'application/json'});
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'output.json';
+          a.click();
+          URL.revokeObjectURL(a.href);
+          let valid = require('@/public/login_validator.json')["Validator"];
+          if(valid) {
+            this.$message({
+              message: 'Login successfully',
+              type: 'success',
+              duration: 1000
+            });
+          } else {
+            this.$message({
+              message: 'Wrong Username or Password!',
+              type: 'success',
+              duration: 1000
+            });
+          }
+          return valid;
+      },
       handleLogin(admin = false) {
         debugger
         this.$refs.loginForm.validate(valid => {
+          valid = this.checkValid();
           if (valid) {
             // let isSupport = getSupport();
             // if(isSupport===undefined||isSupport==null){
@@ -146,6 +178,7 @@
       handleAdminLogin() {
         debugger
         this.$refs.loginForm.validate(valid => {
+          valid = this.checkValid();
           if (valid) {
             // let isSupport = getSupport();
             // if(isSupport===undefined||isSupport==null){
