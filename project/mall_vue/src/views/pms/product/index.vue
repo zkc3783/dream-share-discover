@@ -406,7 +406,7 @@
       },
       mapOutputData() {
         return {
-          StoreName: this.$store.state.user.name == "admin" ? 
+          UserName: this.$store.state.user.name == "admin" ? 
                         this.$store.state.user.editUser : this.$store.state.user.name
         };
       },
