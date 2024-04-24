@@ -38,9 +38,6 @@
           v-model="value.description"
           type="textarea"></el-input>
       </el-form-item>
-      <el-form-item label="Store ID:" prop="storeid">
-        <el-input v-model="value.storeid"></el-input>
-      </el-form-item>
       <!-- <el-form-item label="Market Price:">
         <el-input v-model="value.originalPrice"></el-input>
       </el-form-item>
@@ -98,8 +95,7 @@
           price: [
             {required: true, message: 'Please enter the product price', trigger: 'blur'},
             {validator: this.checkPositiveInteger, trigger: 'blur'}
-          ],
-          storeid: [{required: true, message: 'Please enter the store id', trigger: 'blur'}],
+          ]
         }
       };
     },

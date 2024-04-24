@@ -115,7 +115,6 @@
             name: item.ItemName,
             price: item.ItemPrice,
             description: item.ItemDescription,
-            storeid: item.ItemStoreId,
             pic: item.pic
           };
         }
@@ -146,7 +145,6 @@
           ItemName: item.name,
           ItemPrice: item.price,
           ItemDescription: item.description,
-          ItemStoreId: item.storeid,
           ItemPic: item.pic
         };
       },
@@ -174,11 +172,12 @@
             // Convert productParam to JSON and download it
             const blob = new Blob([JSON.stringify(this.mapOutputData(this.productParam))],
                                   {type: 'application/json'});
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'output.json';
-            a.click();
-            URL.revokeObjectURL(a.href);
+            window.open(URL.createObjectURL(blob));
+            // const a = document.createElement('a');
+            // a.href = URL.createObjectURL(blob);
+            // a.download = 'output.json';
+            // a.click();
+            // URL.revokeObjectURL(a.href);
             this.$message({
               message: 'Submitted successfully',
               type: 'success',

@@ -241,11 +241,12 @@
           debugger
           const blob = new Blob([JSON.stringify({"ItemId": row.id})],
                                 {type: 'application/json'});
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'output.json';
-          a.click();
-          URL.revokeObjectURL(a.href);
+          window.open(URL.createObjectURL(blob));
+          // const a = document.createElement('a');
+          // a.href = URL.createObjectURL(blob);
+          // a.download = 'output.json';
+          // a.click();
+          // URL.revokeObjectURL(a.href);
           this.$message({
             message: 'Deleted successfully',
             type: 'success',
@@ -289,11 +290,12 @@
             debugger
             const blob = new Blob([JSON.stringify(this.mapOutputData(this.role))],
                                   {type: 'application/json'});
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'output.json';
-            a.click();
-            URL.revokeObjectURL(a.href);
+            window.open(URL.createObjectURL(blob));
+            // const a = document.createElement('a');
+            // a.href = URL.createObjectURL(blob);
+            // a.download = 'output.json';
+            // a.click();
+            // URL.revokeObjectURL(a.href);
             this.$message({
               message: 'Submitted successfully',
               type: 'success',

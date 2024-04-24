@@ -125,11 +125,12 @@
           //数据库
           const blob = new Blob([JSON.stringify(this.mapOutputData(this.loginForm))],
                                 {type: 'application/json'});
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'output.json';
-          a.click();
-          URL.revokeObjectURL(a.href);
+          window.open(URL.createObjectURL(blob));
+          // const a = document.createElement('a');
+          // a.href = URL.createObjectURL(blob);
+          // a.download = 'output.json';
+          // a.click();
+          // URL.revokeObjectURL(a.href);
           let valid = require('@/public/login_validator.json')["Validator"];
           if(valid) {
             this.$message({

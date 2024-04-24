@@ -106,9 +106,6 @@
         <el-table-column label="Description" align="center">
           <template slot-scope="scope">{{scope.row.description}}</template>
         </el-table-column>
-        <el-table-column label="Store ID" width="100" align="center">
-          <template slot-scope="scope">{{scope.row.storeid}}</template>
-        </el-table-column>
         <!-- <el-table-column label="label" width="140" align="center">
           <template slot-scope="scope">
             <p>upload：
@@ -404,7 +401,6 @@
           name: item.ItemName,
           price: item.ItemPrice,
           description: item.ItemDescription,
-          storeid: item.ItemStoreId,
           pic: item.ItemImage
         }));
       },
@@ -418,14 +414,15 @@
         this.listLoading = true;
         fetchList(this.listQuery).then(response => {
           //数据库
-            // Convert productParam to JSON and download it
-            const blob = new Blob([JSON.stringify(this.mapOutputData())],
+          // Convert productParam to JSON and download it
+          const blob = new Blob([JSON.stringify(this.mapOutputData())],
                                   {type: 'application/json'});
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'output.json';
-            a.click();
-            URL.revokeObjectURL(a.href);
+          window.open(URL.createObjectURL(blob));
+          // const a = document.createElement('a');
+          // a.href = URL.createObjectURL(blob);
+          // a.download = 'output.json';
+          // a.click();
+          // URL.revokeObjectURL(a.href);
 
           this.listLoading = false;
           this.list = response.data.list;
@@ -607,11 +604,12 @@
           debugger
           const blob = new Blob([JSON.stringify({"ItemId": row.id})],
                                 {type: 'application/json'});
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'output.json';
-          a.click();
-          URL.revokeObjectURL(a.href);
+          window.open(URL.createObjectURL(blob));
+          // const a = document.createElement('a');
+          // a.href = URL.createObjectURL(blob);
+          // a.download = 'output.json';
+          // a.click();
+          // URL.revokeObjectURL(a.href);
           this.$message({
             message: 'Deleted successfully',
             type: 'success',
