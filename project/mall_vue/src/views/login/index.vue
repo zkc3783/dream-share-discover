@@ -139,8 +139,8 @@
             });
           } else {
             this.$message({
-              message: 'Wrong Username or Password!',
-              type: 'success',
+              message: 'Wrong username or password!',
+              type: 'error',
               duration: 1000
             });
           }
