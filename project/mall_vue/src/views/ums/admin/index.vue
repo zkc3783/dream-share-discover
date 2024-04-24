@@ -392,7 +392,7 @@
           this.list = response.data.list;
           this.total = response.data.total;
           //数据库
-          this.list = this.mapInputData(require('@/public/customer.json'));
+          this.list = this.mapInputData(require('@/public/1/customer.json'));
           this.total = this.list.length;
           debugger
         });

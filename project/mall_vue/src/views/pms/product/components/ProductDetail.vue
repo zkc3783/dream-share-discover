@@ -100,7 +100,7 @@
         getProduct(this.$route.query.id).then(response=>{
           //数据库
           this.productParam=response.data;
-          this.productParam=this.mapInputData(require('@/public/xiaomi.json'), parseInt(this.$route.query.id));
+          this.productParam=this.mapInputData(require('@/public/1/xiaomi.json'), parseInt(this.$route.query.id));
           let tmp = this.productParam;
           debugger
         });

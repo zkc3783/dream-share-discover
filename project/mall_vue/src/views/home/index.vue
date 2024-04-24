@@ -2,24 +2,57 @@
   <div class="app-container">
   <div>
     <h1>Welcome, {{this.$store.state.user.name }}!</h1>
-  </div >
+  </div>
+  <el-row gutter="20">
+    <el-col :span="12">
+      <div v-if="this.$store.state.user.globalVariable === 0">
+        <div class="advice-layout">
+          <div class="layout-title">Username</div>
+          <div class="content-box">
+            {{this.$store.state.user.name }}
+          </div>
+        </div>
+      </div>
+    </el-col>
+    <el-col :span="12">
+      <div v-if="this.$store.state.user.globalVariable === 0">
+        <div class="advice-layout">
+          <div class="layout-title">Avg Rate</div>
+          <div class="content-box">
+            0
+          </div>
+        </div>
+      </div>
+    </el-col>
+  </el-row>
   <div v-if="this.$store.state.user.globalVariable === 0">
-    <!-- Selected Comments Section -->
-    <div class="comments-layout">
-      <div class="layout-title">Selected Comments</div>
+    <!-- Feedbacks Section -->
+    <div class="advice-layout">
+      <div class="layout-title">Feedbacks</div>
       <div class="content-box">
-        <!-- Example comments -->
+        <!-- Example -->
         <div class="content-item">"Great service and fast delivery!"</div>
         <div class="content-item">"Product quality has improved significantly."</div>
       </div>
     </div>
   </div>
-  <div v-else-if = "this.$store.state.user.globalVariable === 1"> 
+  <div v-if="this.$store.state.user.globalVariable === 1">
+    <!-- Selected Comments Section -->
+    <div class="advice-layout">
+      <div class="layout-title">Selected Comments</div>
+      <div class="content-box">
+        <!-- Example -->
+        <div class="content-item">"Great service and fast delivery!"</div>
+        <div class="content-item">"Product quality has improved significantly."</div>
+      </div>
+    </div>
+  </div>
+  <div v-if = "this.$store.state.user.globalVariable === 1"> 
     <!-- Overall Advice Section -->
     <div class="advice-layout">
       <div class="layout-title">Overall Advice</div>
       <div class="content-box">
-        <!-- Example advice -->
+        <!-- Example -->
         <div class="content-item">"Focus on customer service to enhance satisfaction."</div>
         <div class="content-item">"Consider expanding the product line."</div>
       </div>

@@ -428,7 +428,7 @@
           this.list = response.data.list;
           this.total = response.data.total;
           //数据库
-          this.list = this.mapInputData(require('@/public/xiaomi.json'));
+          this.list = this.mapInputData(require('@/public/1/xiaomi.json'));
           this.total = this.list.length;
           debugger
         });

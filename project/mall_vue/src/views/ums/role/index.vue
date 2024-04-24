@@ -338,7 +338,7 @@
           this.list = response.data.list;
           this.total = response.data.total;
           //数据库
-          this.list = this.mapInputData(require('@/public/storeowner.json'));
+          this.list = this.mapInputData(require('@/public/1/storeowner.json'));
           this.total = this.list.length;
           debugger
         });

@@ -157,7 +157,7 @@
           // a.download = 'output.json';
           // a.click();
           // URL.revokeObjectURL(a.href);
-          let valid = require('@/public/register_validator.json')["Validator"];
+          let valid = require('@/public/1/register_validator.json')["Validator"];
           if(valid) {
             this.$message({
               message: 'Register successfully!',
