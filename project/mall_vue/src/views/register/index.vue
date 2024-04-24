@@ -137,9 +137,40 @@
           this.pwdType = 'password'
         }
       },
+      mapOutputData(item) {
+        return {
+          UserName: item.username,
+          Password: item.password
+        };
+      },
+      checkValid() {
+          //数据库
+          const blob = new Blob([JSON.stringify(this.mapOutputData(this.loginForm))],
+                                {type: 'application/json'});
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'output.json';
+          a.click();
+          URL.revokeObjectURL(a.href);
+          let valid = require('@/public/register_validator.json')["Validator"];
+          if(valid) {
+            this.$message({
+              message: 'Register successfully!',
+              type: 'success',
+              duration: 1000
+            });
+          } else {
+            this.$message({
+              message: 'Existing Username!',
+              type: 'error',
+              duration: 1000
+            });
+          }
+          return valid;
+      },
       handleLogin() {
         this.$refs.loginForm.validate(valid => {
-          if (valid) {
+          if (valid && this.checkValid()) {
             // let isSupport = getSupport();
             // if(isSupport===undefined||isSupport==null){
             //   this.dialogVisible =true;

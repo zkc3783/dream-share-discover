@@ -139,7 +139,7 @@
             });
           } else {
             this.$message({
-              message: 'Wrong username or password!',
+              message: 'Wrong username or password',
               type: 'error',
               duration: 1000
             });
@@ -149,8 +149,7 @@
       handleLogin(admin = false) {
         debugger
         this.$refs.loginForm.validate(valid => {
-          valid = this.checkValid();
-          if (valid) {
+          if (valid && this.checkValid()) {
             // let isSupport = getSupport();
             // if(isSupport===undefined||isSupport==null){
             //   this.dialogVisible =true;
@@ -178,8 +177,7 @@
       handleAdminLogin() {
         debugger
         this.$refs.loginForm.validate(valid => {
-          valid = this.checkValid();
-          if (valid) {
+          if (valid && this.checkValid()) {
             // let isSupport = getSupport();
             // if(isSupport===undefined||isSupport==null){
             //   this.dialogVisible =true;
