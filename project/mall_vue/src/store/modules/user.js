@@ -13,10 +13,21 @@ function getGlobalVariableFromLocalStorage() {
   }
 }
 
+function getNameFromLocalStorage() {
+  // 检查localStorage中是否有name
+  if (localStorage.getItem('name')) {
+    // 如果有，返回localStorage中的值
+    return localStorage.getItem('name');
+  } else {
+    // 如果没有，返回默认值
+    return '';
+  }
+}
+
 const user = {
   state: {
     token: getToken(),
-    name: '',
+    name: getNameFromLocalStorage(),
     avatar: '',
     roles: [],
     globalVariable:getGlobalVariableFromLocalStorage()
@@ -28,6 +39,7 @@ const user = {
     },
     SET_NAME: (state, name) => {
       state.name = name
+      localStorage.setItem('name', name);
     },
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar
@@ -47,7 +59,8 @@ const user = {
       debugger
       const usernamess = 'admin'
       const passwordss = 'macro123'
-      //username = userInfo.username.trim()
+      const nowusername = userInfo.username.trim()
+      commit('SET_NAME', nowusername)
       return new Promise((resolve, reject) => {
         login(usernamess, passwordss).then(response => {
           let localtoken = require('@/public/logintoken.json')
@@ -74,7 +87,7 @@ const user = {
           } else {
             reject('getInfo: roles must be a non-null array !')
           }
-          commit('SET_NAME', data.username)
+          //commit('SET_NAME', data.username)
           commit('SET_AVATAR', data.icon)
           debugger
           resolve(response)//then can get the response
