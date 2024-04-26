@@ -135,9 +135,9 @@ Here you'll find links to teams responsible for different aspects of our project
 
 | Team Name       | Link                                             | Project Focus                 |
 |-----------------|--------------------------------------------------|-------------------------------|
-| Brave Ones      | https://github.com/Divpeter/DSD2024.github.io | Android app                   |
+| Brave Ones      | https://github.com/Divpeter/DSD2024.github.io | WeChat mini-program                   |
 | Backrooms       | https://github.com/Irodixy/Backrooms_dsd2024 | Database                      |
-| Rock House      | https://github.com/zhouyuheng2003/DSD2024-rock-house | WeChat mini-program           |
+| Rock House      | https://github.com/zhouyuheng2003/DSD2024-rock-house | Android app           |
 | Better Call Li  | https://github.com/baconjlu/better-call-Li | Algorithm                     |
 
 Explore these links to see the diverse and innovative components our friends are developing for urban explorers worldwide!

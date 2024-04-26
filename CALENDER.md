@@ -23,8 +23,8 @@ Scheduled System design: active, 03-16, 21d
 section Implementation
 Our Implementation: crit, 04-01, 23d
 Scheduled Implementation: active, 04-06, 14d
-Our Test: crit, 04-22, 12d
-Scheduled Test: active, 04-20, 14d
+Our Test: crit, 04-22, 5d
+Scheduled Test: active, 04-20, 7d
 ```
 
 ## 20240422 We finished coding our front-end UI and deployed our web application for easy access!
