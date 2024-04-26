@@ -154,7 +154,8 @@
   const defaultListQuery = {
     pageNum: 1,
     pageSize: 5,
-    keyword: null
+    keyword: null,
+    storekeyword: null
   };
   const defaultRole = {
     id: null,
