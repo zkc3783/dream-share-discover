@@ -77,6 +77,7 @@ const user = {
       const passwordss = 'macro123'
       const nowusername = userInfo.username.trim()
       commit('SET_NAME', nowusername)
+      debugger
       return new Promise((resolve, reject) => {
         login(usernamess, passwordss).then(response => {
           let localtoken = require('@/public/logintoken.json')
@@ -86,10 +87,30 @@ const user = {
           commit('SET_TOKEN', tokenStr)
           resolve()
         }).catch(error => {
+          debugger
           reject(error)
         })
       })
     },
+
+/* login(usernamess, passwordss).then(response => {
+  // 这个函数会在 login 成功时调用
+  handleSuccess(response);
+}).catch(error => {
+  // 这个函数会在 login 失败时调用
+  // 在这里，我们返回一个默认的成功响应
+  handleSuccess({ status: 'success', message: 'Default success response' });
+});
+
+function handleSuccess(response) {
+  let localtoken = require('@/public/logintoken.json')
+  const data = localtoken.data
+  const tokenStr = data.tokenHead+data.token
+  setToken(tokenStr)
+  commit('SET_TOKEN', tokenStr)
+  resolve()
+  在这个示例中，无论 login 函数是否真的成功，handleSuccess 函数都会被调用，因此它会看起来像是始终成功。
+} */
 
     // 获取用户信息
     GetInfo({ commit, state }) {
