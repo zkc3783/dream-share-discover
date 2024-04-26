@@ -21,7 +21,8 @@
       <div style="margin-top: 15px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="Input Search:">
-            <el-input v-model="listQuery.keyword" class="input-width" placeholder="Username" clearable></el-input>
+            <el-input style="width: 203px; margin-right: 5px" v-model="listQuery.keyword" class="input-width" placeholder="Username" clearable></el-input>
+            <el-input style="width: 203px" v-model="listQuery.storekeyword" class="input-width" placeholder="Store Name" clearable></el-input>
           </el-form-item>
         </el-form>
       </div>
@@ -341,6 +342,9 @@
           this.list = this.mapInputData(require('@/public/1/storeowner.json'));
           if (this.listQuery.keyword) {
             this.list = this.list.filter(item => item.name.includes(this.listQuery.keyword));
+          }
+          if (this.listQuery.storekeyword) {
+            this.list = this.list.filter(item => item.storename.includes(this.listQuery.storekeyword));
           }
           this.total = this.list.length;
           debugger
