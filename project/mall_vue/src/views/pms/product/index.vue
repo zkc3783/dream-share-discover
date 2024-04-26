@@ -22,8 +22,6 @@
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="Input Search: ">
             <el-input style="width: 203px; margin-right: 5px" v-model="listQuery.keyword" placeholder="Name"></el-input>
-          </el-form-item>
-          <el-form-item label="Input Search: ">
             <el-input style="width: 203px" v-model="listQuery.descriptionkeyword" placeholder="Description"></el-input>
           </el-form-item>
           <!-- <el-form-item label="">
