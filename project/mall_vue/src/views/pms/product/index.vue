@@ -6,16 +6,16 @@
         <span>Filter and Search</span>
         <el-button
           style="float: right"
+          @click="handleResetSearch()"
+          size="small">
+          Reset
+        </el-button>
+        <el-button
+          style="float: right;margin-right: 15px"
           @click="handleSearchList()"
           type="primary"
           size="small">
           Search
-        </el-button>
-        <el-button
-          style="float: right;margin-right: 15px"
-          @click="handleResetSearch()"
-          size="small">
-          Reset
         </el-button>
       </div>
       <div style="margin-top: 15px">
