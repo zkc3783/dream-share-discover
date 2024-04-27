@@ -149,7 +149,7 @@
             }).then(response => {
               return response.json();  // 解析 JSON 数据
             }).then(data => {
-              if (data.success && this.loginForm.username != "admin") {
+              if (data.MatchToken && this.loginForm.username != "admin") {
                 this.$message({
                   message: 'Login successfully',
                   type: 'success',
@@ -199,7 +199,7 @@
             }).then(response => {
               return response.json();  // 解析 JSON 数据
             }).then(data => {
-              if (data.success && this.loginForm.username == "admin") {
+              if (data.MatchToken && this.loginForm.username == "admin") {
                 this.$message({
                   message: 'Login successfully',
                   type: 'success',

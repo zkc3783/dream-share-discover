@@ -37,11 +37,11 @@ server.post('/Interface18', (req, res) => {
   console.log(req.body)
   if (users[username] && users[username] == password) {
     res.json({
-      success: true
+      MatchToken: true
     });
   } else {
     res.json({
-      success: false
+      MatchToken: false
     });
   }
 });
