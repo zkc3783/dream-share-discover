@@ -55,7 +55,8 @@
 <script>
   import {isvalidUsername} from '@/utils/validate';
   import {setSupport,getSupport,setCookie,getCookie} from '@/utils/support';
-  import login_center_bg from '@/assets/images/login_center_bg.png'
+  import login_center_bg from '@/assets/images/login_center_bg.png';
+  import axios from 'axios';
 
   export default {
     name: 'login',
@@ -121,85 +122,111 @@
           UserPassword: item.password
         };
       },
-      checkValid() {
+      async checkValid() {  // No longer used
           //数据库
-          const blob = new Blob([JSON.stringify(this.mapOutputData(this.loginForm))],
-                                {type: 'application/json'});
-          window.open(URL.createObjectURL(blob));
-          // const a = document.createElement('a');
-          // a.href = URL.createObjectURL(blob);
-          // a.download = 'output.json';
-          // a.click();
-          // URL.revokeObjectURL(a.href);
-          let valid = require('@/public/1/login_validator.json')["Validator"];
-          if(valid) {
-            this.$message({
-              message: 'Login successfully',
-              type: 'success',
-              duration: 1000
-            });
-          } else {
-            this.$message({
-              message: 'Wrong username or password',
-              type: 'error',
-              duration: 1000
-            });
-          }
-          return valid;
+          
+          // const blob = new Blob([JSON.stringify(this.mapOutputData(this.loginForm))],
+          //                       {type: 'application/json'});
+          // window.open(URL.createObjectURL(blob));
+          // let valid = require('@/public/1/login_validator.json')["Validator"];
+
+          // 发送 POST 请求到登录验证 API
       },
       handleLogin(admin = false) {
         debugger
         this.$refs.loginForm.validate(valid => {
-          if (valid && this.checkValid()) {
-            // let isSupport = getSupport();
-            // if(isSupport===undefined||isSupport==null){
-            //   this.dialogVisible =true;
-            //   return;
-            // }
-            const loadingKey = admin ? 'adminloading' : 'loading';
-            this[loadingKey] = true;
-            this.$store.dispatch('Login', this.loginForm).then(() => {
-              this.loading = false;
-              setCookie("username",this.loginForm.username,15);
-              setCookie("password",this.loginForm.password,15);
-              
-              //this.updateGlobalVariable_for_mall();
-              let test = this.$globalVariable;
-              this.$router.push({path: '/shopper'})
-            }).catch(() => {
-              this.loading = false
-            })
+          if (valid) {
+            fetch('http://127.0.0.1:3000/api/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                username: this.loginForm.username,
+                password: this.loginForm.password
+              })
+            }).then(response => {
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              if (data.success && this.loginForm.username != "admin") {
+                this.$message({
+                  message: 'Login successfully',
+                  type: 'success',
+                  duration: 1000
+                });
+                const loadingKey = admin ? 'adminloading' : 'loading';
+                this[loadingKey] = true;
+                this.$store.dispatch('Login', this.loginForm).then(() => {
+                  this.loading = false;
+                  setCookie("username",this.loginForm.username,15);
+                  setCookie("password",this.loginForm.password,15);
+                  
+                  //this.updateGlobalVariable_for_mall();
+                  let test = this.$globalVariable;
+                  this.$router.push({path: '/shopper'})
+                });
+              } else {
+                this.$message({
+                  message: 'Wrong username or password',
+                  type: 'error',
+                  duration: 1000
+                });
+              }
+            }).catch(error => {
+              console.error('Error during login validation:', error);
+              this.$message.error('Server error');
+            });
           } else {
             console.log('error submit!!');
-            return false
           }
-        })
+        });
       },
       handleAdminLogin() {
         debugger
         this.$refs.loginForm.validate(valid => {
-          if (valid && this.checkValid()) {
-            // let isSupport = getSupport();
-            // if(isSupport===undefined||isSupport==null){
-            //   this.dialogVisible =true;
-            //   return;
-            // }
-            this.adminloading = true;
-            this.$store.dispatch('Login', this.loginForm).then(() => {
-              this.adminloading = false;
-              setCookie("username",this.loginForm.username,15);
-              setCookie("password",this.loginForm.password,15);
-              //this.updateGlobalVariable_for_admin();
-              let test = this.$globalVariable;
-              this.$router.push({path: '/manager'})
-            }).catch(() => {
-              this.adminloading = false;
+          if (valid) {
+            fetch('http://127.0.0.1:3000/api/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                username: this.loginForm.username,
+                password: this.loginForm.password
+              })
+            }).then(response => {
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              if (data.success && this.loginForm.username == "admin") {
+                this.$message({
+                  message: 'Login successfully',
+                  type: 'success',
+                  duration: 1000
+                });
+                this.adminloading = true;
+                this.$store.dispatch('Login', this.loginForm).then(() => {
+                  this.adminloading = false;
+                  setCookie("username", this.loginForm.username, 15);
+                  setCookie("password", this.loginForm.password, 15);
+                  this.$router.push({ path: '/manager' });
+                }).catch(() => {
+                  this.adminloading = false;
+                });
+              } else {
+                this.$message({
+                  message: 'Wrong username or password',
+                  type: 'error',
+                  duration: 1000
+                });
+              }
+            }).catch(error => {
+              console.error('Error during login validation:', error);
+              this.$message.error('Server error');
             });
           } else {
             console.log('error submit!!');
-            return false
           }
-        })
+        });
       },
       handleTry(){
         debugger

@@ -28,22 +28,20 @@ const json = {
 };
 
 const users = {
-  'admin': 'macro123'
+  'admin': 'admin',
+  'test': 'test'
 };
 
 server.post('/api/login', (req, res) => {
   const { username, password } = req.body;
   console.log(req.body)
-  if (users[username] && users[username] === password) {
+  if (users[username] && users[username] == password) {
     res.json({
-      success: true,
-      message: 'Login',
-      token: 'some-jwt-token-here' // 通常，你会在这里生成一个 JWT 或其他类型的 token
+      success: true
     });
   } else {
-    res.status(401).json({
-      success: false,
-      message: 'Wrong username or password'
+    res.json({
+      success: false
     });
   }
 });
