@@ -408,7 +408,7 @@
       },
       mapOutputData() {
         return {
-          UserName: this.$store.state.user.name == "admin" ? 
+          username: this.$store.state.user.name == "admin" ? 
                         this.$store.state.user.editUser : this.$store.state.user.name
         };
       },
@@ -417,28 +417,39 @@
         fetchList(this.listQuery).then(response => {
           //数据库
           // Convert productParam to JSON and download it
-          const blob = new Blob([JSON.stringify(this.mapOutputData())],
-                                  {type: 'application/json'});
-          window.open(URL.createObjectURL(blob));
-          // const a = document.createElement('a');
-          // a.href = URL.createObjectURL(blob);
-          // a.download = 'output.json';
-          // a.click();
-          // URL.revokeObjectURL(a.href);
+          // const blob = new Blob([JSON.stringify(this.mapOutputData())],
+          //                         {type: 'application/json'});
+          // window.open(URL.createObjectURL(blob));
 
           this.listLoading = false;
-          this.list = response.data.list;
-          this.total = response.data.total;
+          // this.list = response.data.list;
+          // this.total = response.data.total;
           //数据库
-          this.list = this.mapInputData(require('@/public/1/xiaomi.json'));
-          if (this.listQuery.keyword) {
-            this.list = this.list.filter(item => item.name.includes(this.listQuery.keyword));
-          }
-          if (this.listQuery.descriptionkeyword) {
-            this.list = this.list.filter(item => item.description.includes(this.listQuery.descriptionkeyword));
-          }
-          this.total = this.list.length;
+          // this.list = this.mapInputData(require('@/public/1/xiaomi.json'));
           debugger
+          fetch('http://127.0.0.1:3000/Interface29', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(this.mapOutputData())
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              this.list = this.mapInputData(data.ItemData)
+              debugger
+              if (this.listQuery.keyword) {
+                this.list = this.list.filter(item => item.name.includes(this.listQuery.keyword));
+              }
+              if (this.listQuery.descriptionkeyword) {
+                this.list = this.list.filter(item => item.description.includes(this.listQuery.descriptionkeyword));
+              }
+              this.total = this.list.length;
+              debugger
+            }).catch(error => {
+              this.$message.error('Server error');
+            });
         });
       },
       getBrandList() {
