@@ -134,9 +134,10 @@
       },
       handleLogin(admin = false) {
         debugger
+        // 数据库
         this.$refs.loginForm.validate(valid => {
           if (valid) {
-            fetch('http://127.0.0.1:3000/api/login', {
+            fetch('http://127.0.0.1:3000/Interface18', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -183,6 +184,7 @@
       },
       handleAdminLogin() {
         debugger
+        // 数据库
         this.$refs.loginForm.validate(valid => {
           if (valid) {
             fetch('http://127.0.0.1:3000/api/login', {

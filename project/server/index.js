@@ -32,7 +32,7 @@ const users = {
   'test': 'test'
 };
 
-server.post('/api/login', (req, res) => {
+server.post('/Interface18', (req, res) => {
   const { username, password } = req.body;
   console.log(req.body)
   if (users[username] && users[username] == password) {
