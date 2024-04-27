@@ -636,7 +636,13 @@
               debugger
               return response.json();  // 解析 JSON 数据
             }).then(data => {
+              this.$message({
+                message: 'Deleted successfully',
+                type: 'success',
+                duration: 1000
+              });
             }).catch(error => {
+              console.error('Error during deletion:', error);
               this.$message.error('Server error');
             });
           // const a = document.createElement('a');
@@ -644,11 +650,7 @@
           // a.download = 'output.json';
           // a.click();
           // URL.revokeObjectURL(a.href);
-          this.$message({
-            message: 'Deleted successfully',
-            type: 'success',
-            duration: 1000
-          });
+          
           // let ids = [];
           // ids.push(row.id);
           // this.updateDeleteStatus(1,ids);

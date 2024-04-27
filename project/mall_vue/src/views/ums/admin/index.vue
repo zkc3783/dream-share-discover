@@ -271,23 +271,27 @@
           //数据库
           debugger
           fetch('http://127.0.0.1:3000/Interface22', {
-            method: 'DELETE',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              ItemId: row.id
-            })
-          }).then(() => {
-            this.$message({
-              message: 'Deleted successfully',
-              type: 'success',
-              duration: 1000
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(
+                {"UserId": row.id}
+              )
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              this.$message({
+                message: 'Deleted successfully',
+                type: 'success',
+                duration: 1000
+              });
+            }).catch(error => {
+              console.error('Error during deletion:', error);
+              this.$message.error('Server error');
             });
-          }).catch(error => {
-            console.error('Error during deletion:', error);
-            this.$message.error('Server error');
-          });
+          
           //const blob = new Blob([JSON.stringify({"ItemId": row.id})],
           //                      {type: 'application/json'});
           //window.open(URL.createObjectURL(blob));

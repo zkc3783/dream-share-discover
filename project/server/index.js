@@ -83,26 +83,22 @@ server.post('/Interfac30', (req, res) => {
 });
 
 
-server.delete('/Interface22', (req, res) => {
-  const { ItemId } = req.body;
+server.post('/Interface22', (req, res) => {
+  const { UserId } = req.body;
   console.log(req.body)
-  // 在这里，你需要实现删除操作
-  // 假设你已经有一个名为 deleteItem 的函数，它接收一个 ID 作为参数，并删除对应的项
-  //deleteItem(ItemId);
-  console.log(ItemId)
-  // 由于你不需要返回任何数据，你可以直接结束响应
-  res.end();
+  console.log(UserId)
+  res.json(
+    {}
+  );
 });
 
-server.delete('/Interface25', (req, res) => {
-  const { ItemId } = req.body;
+server.post('/Interface25', (req, res) => {
+  const { UserId } = req.body;
   console.log(req.body)
-  // 在这里，你需要实现删除操作
-  // 假设你已经有一个名为 deleteItem 的函数，它接收一个 ID 作为参数，并删除对应的项
-  //deleteItem(ItemId);
-  console.log(ItemId)
-  // 由于你不需要返回任何数据，你可以直接结束响应
-  res.end();
+  console.log(UserId)
+  res.json(
+    {}
+  )
 });
 
 server.post('/Interface26', (req, res) => {

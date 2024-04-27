@@ -249,15 +249,18 @@
           // a.download = 'output.json';
           // a.click();
           // URL.revokeObjectURL(a.href);
-        fetch('http://127.0.0.1:3000/Interface25', {
-              method: 'DELETE',
+          fetch('http://127.0.0.1:3000/Interface25', {
+              method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({
-                ItemId: row.id
-              })
-            }).then(() => {
+              body: JSON.stringify(
+                {"UserId": row.id}
+              )
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
               this.$message({
                 message: 'Deleted successfully',
                 type: 'success',
