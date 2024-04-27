@@ -116,18 +116,10 @@ server.get('*', function (request, response, next) {
 }) */
 
 
-
 server.post('/Interface18', (req, res) => {
   const { username, password } = req.body;
   console.log(req.body)
-  if (users[username] && users[username] == password) {
-    res.json({
+  res.json({
       MatchToken: true
     });
-  } else {
-    res.json({
-      MatchToken: false
-    });
-  }
 });
-

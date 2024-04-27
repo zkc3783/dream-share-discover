@@ -151,12 +151,42 @@
           //数据库
           const blob = new Blob([JSON.stringify(this.mapOutputData(this.loginForm))],
                                 {type: 'application/json'});
-          window.open(URL.createObjectURL(blob));
+          //window.open(URL.createObjectURL(blob));
           // const a = document.createElement('a');
           // a.href = URL.createObjectURL(blob);
           // a.download = 'output.json';
           // a.click();
           // URL.revokeObjectURL(a.href);
+
+          //数据库
+          /* mapOutputData(item) {
+          return {
+            UserName: item.username,
+            UserPassword: item.password
+          };
+          }, */
+          fetch('http://127.0.0.1:3000/Interface18', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              UserName: this.registerForm.username,
+              UserPassWord: this.registerForm.password,
+            })
+          }).then(response => {
+            return response.json();  // 解析 JSON 数据
+          }).then(data => {
+            if (data.MatchToken) {
+              valid = true;
+            } else {
+              valid = false;
+            }
+          }).catch(error => {
+            console.error('Error during registration:', error);
+            this.$message.error('Server error');
+          })
+          debugger
           let valid = require('@/public/1/register_validator.json')["Validator"];
           if(valid) {
             this.$message({
@@ -174,22 +204,54 @@
           return valid;
       },
       handleLogin() {
+        debugger
         this.$refs.loginForm.validate(valid => {
-          if (valid && this.checkValid()) {
+          if (valid) {
             // let isSupport = getSupport();
             // if(isSupport===undefined||isSupport==null){
             //   this.dialogVisible =true;
             //   return;
             // }
-            this.loading = true;
-            this.$store.dispatch('Login', this.loginForm).then(() => {
+            debugger
+            fetch('http://127.0.0.1:3000/Interface18', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                UserName: this.loginForm.username,
+                UserPassWord: this.loginForm.password,
+              })
+            }).then(response => {
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              if (data.MatchToken) {
+                this.$message({
+                  message: 'Register successfully',
+                  type: 'success',
+                  duration: 1000
+                });
+                this.loading = true;
+              this.$store.dispatch('Login', this.loginForm).then(() => {
               this.loading = false;
               setCookie("username",this.loginForm.username,15);
               setCookie("password",this.loginForm.password,15);
               this.$router.push({path: '/login'})
             }).catch(() => {
               this.loading = false
-            })
+            });
+              } else {
+                this.$message({
+                  message: 'Register failed',
+                  type: 'error',
+                  duration: 1000
+                });
+              }
+            }).catch(error => {
+              console.error('Error during registration:', error);
+              this.$message.error('Server error');
+            });
+
           } else {
             console.log('error submit!!');
             return false
