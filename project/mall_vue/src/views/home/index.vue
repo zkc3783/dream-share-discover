@@ -179,12 +179,34 @@
         if(this.$store.state.user.globalVariable === 0) {
           const blob = new Blob([JSON.stringify({"UserName": this.$store.state.user.name})],
                                 {type: 'application/json'});
-          window.open(URL.createObjectURL(blob));
-          let res = require('@/public/1/store.json')
-          this.storeName = res["StoreName"];
-          this.storeLocation = res["StoreLocation"];
-          this.avgRate = res["AvgRate"];
-          this.feedback = res["Feedback"];
+          //window.open(URL.createObjectURL(blob));
+          //let res = require('@/public/1/store.json')
+          debugger
+          fetch('http://127.0.0.1:3000/Interface27', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              UserName: this.$store.state.user.name
+            })
+          }).then(response => {
+            debugger
+            return response.json();  // 解析 JSON 数据
+          }).then(data => {
+            this.storeName = data["StoreName"];
+            this.storeLocation = data["StoreLocation"];
+            this.avgRate = data["AvgRate"];
+            this.feedback = data["Feedback"];
+          }).catch(error => {
+            console.error('Error during fetching data:', error);
+            this.$message.error('Server error');
+          });
+          debugger
+          //this.storeName = res["StoreName"];
+          //this.storeLocation = res["StoreLocation"];
+          //this.avgRate = res["AvgRate"];
+          //this.feedback = res["Feedback"];
         } else {
           let res = require('@/public/1/analytics.json')
           this.selectedComments = res["SelectedComments"];
@@ -218,12 +240,27 @@
                                                 "StoreName":this.storeName,
                                                 "StoreLocation":this.storeLocation})],
                                 {type: 'application/json'});
-          window.open(URL.createObjectURL(blob));
-          this.$message({
+          //window.open(URL.createObjectURL(blob));
+          fetch('http://127.0.0.1:3000/Interface28', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              UserName: this.$store.state.user.name,
+              StoreName: this.storeName,
+              StoreLocation: this.storeLocation
+            })
+          }).then(() => {
+            this.$message({
               message: 'Updated successfully',
               type: 'success',
               duration: 1000
             });
+          }).catch(error => {
+            console.error('Error during updating:', error);
+            this.$message.error('Server error');
+          });
         });
       },
     }

@@ -270,19 +270,38 @@
         }).then(() => {
           //数据库
           debugger
-          const blob = new Blob([JSON.stringify({"ItemId": row.id})],
-                                {type: 'application/json'});
-          window.open(URL.createObjectURL(blob));
+          fetch('http://127.0.0.1:3000/Interface22', {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              ItemId: row.id
+            })
+          }).then(() => {
+            this.$message({
+              message: 'Deleted successfully',
+              type: 'success',
+              duration: 1000
+            });
+          }).catch(error => {
+            console.error('Error during deletion:', error);
+            this.$message.error('Server error');
+          });
+          //const blob = new Blob([JSON.stringify({"ItemId": row.id})],
+          //                      {type: 'application/json'});
+          //window.open(URL.createObjectURL(blob));
           // const a = document.createElement('a');
           // a.href = URL.createObjectURL(blob);
           // a.download = 'output.json';
           // a.click();
           // URL.revokeObjectURL(a.href);
-          this.$message({
+          /*this.$message({
             message: 'Deleted successfully',
             type: 'success',
             duration: 1000
-          });
+          }); */
+          
           // deleteAdmin(row.id).then(response => {
           //   this.$message({
           //     type: 'success',
