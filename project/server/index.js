@@ -54,6 +54,80 @@ server.post('/Interface19', (req, res) => {
   }
 });
 
+server.post('/Interface20', (req, res) => {
+  const { } = req.body;
+  console.log(req.body)
+  res.json(
+    {
+      UserData:
+        [
+          {
+              "UserId":1,
+              "UserName":"YongqiZhu",
+              "UserPassword":"123456",
+              "Birthday":"2003-03-05",
+              "Interests":"tabletennis", 
+              "Email":"YongqiZhu@gmail.com"
+          },
+          {
+              "UserId":2,
+              "UserName":"Miao",
+              "UserPassword":"miao11",
+              "Birthday":"2003-04-21",
+              "Interests":"Japanese", 
+              "Email":"Miaochen@qq.com"
+          },
+          {
+              "UserId":3,
+              "UserName":"xyy",
+              "UserPassword":"chenh",
+              "Birthday":"2004-01-08",
+              "Interests":"philosophy", 
+              "Email":"huanchen@qq.com"
+          },    
+          {
+              "UserId":4,
+              "UserName":"Jason",
+              "UserPassword":"Jason",
+              "Birthday":"2003-01-10",
+              "Interests":"F1", 
+              "Email":"Jason@qq.com"
+          }
+        ]
+    }
+  )
+  return 
+});
+
+server.post('/Interface23', (req, res) => {
+  const { } = req.body;
+  console.log(req.body)
+  res.json(
+    {
+      UserData:
+        [
+          {
+              "UserId": 10,
+              "UserName":"LEIJUN",
+              "UserPassword": "123456",
+              "StoreName":"XIAOMI",
+              "StoreLocation": "100,200",
+              "AvgRate": 9.0
+          },
+          {
+              "UserId": 110,
+              "UserName":"MAHUATENG",
+              "UserPassword": "654321",
+              "StoreName":"TENGXUN",
+              "StoreLocation": "50,100",
+              "AvgRate": 8.0
+          }
+        ]
+    }
+  )
+  return 
+});
+
 server.post('/Interface29', (req, res) => {
   const { UserName } = req.body;
   console.log(req.body)
@@ -81,7 +155,54 @@ server.post('/Interface29', (req, res) => {
   return 
 });
 
-server.post('/Interfac30', (req, res) => {
+server.post('/Interface21', (req, res) => {
+  const { UserId, UserName, UserPassword, UserBirth, Interests, Email } = req.body;
+  console.log(req.body)
+  console.log(UserId)
+  res.json(
+    {}
+  );
+});
+
+server.post('/Interface24', (req, res) => {
+  const { UserId, UserName, UserPassword, StoreName, StoreLocation, AvgRate } = req.body;
+  console.log(req.body)
+  console.log(UserId)
+  res.json(
+    {}
+  );
+});
+
+server.post('/Interface23', (req, res) => {
+  const { } = req.body;
+  console.log(req.body)
+  res.json(
+    {
+      UserData:
+        [
+          {
+              "UserId": 10,
+              "UserName":"LEIJUN",
+              "UserPassword": "123456",
+              "StoreName":"XIAOMI",
+              "StoreLocation": "100,200",
+              "AvgRate": 9.0
+          },
+          {
+              "UserId": 110,
+              "UserName":"MAHUATENG",
+              "UserPassword": "654321",
+              "StoreName":"TENGXUN",
+              "StoreLocation": "50,100",
+              "AvgRate": 8.0
+          }
+        ]
+    }
+  )
+  return 
+});
+
+server.post('/Interface30', (req, res) => {
   const { ItemId, ItemName, ItemPrice, ItemDescription, ItemImage } = req.body;
   console.log(req.body)
   console.log(ItemId)
@@ -158,19 +279,3 @@ server.post('/Interface28', (req, res) => {
   // 由于你不需要返回任何数据，你可以直接结束响应
   res.end();
 });
-
-server.post('*', function (request, response, next) {
-  // console.log(request)
-  console.log(request.body)
-  next()
-}, function (request, response) {
-  response.send(json)
-})
-
-server.get('*', function (request, response, next) {
-  // console.log(request)
-  console.log(request.body)
-  next()
-}, function (request, response) {
-  response.send(json)
-})

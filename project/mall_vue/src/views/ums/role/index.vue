@@ -306,19 +306,40 @@
           {
             //数据库  
             debugger
-            const blob = new Blob([JSON.stringify(this.mapOutputData(this.role))],
-                                  {type: 'application/json'});
-            window.open(URL.createObjectURL(blob));
+            // const blob = new Blob([JSON.stringify(this.mapOutputData(this.role))],
+            //                       {type: 'application/json'});
+            // window.open(URL.createObjectURL(blob));
+            fetch('http://127.0.0.1:3000/Interface24', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(
+                this.mapOutputData(this.role)
+              )
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              this.$message({
+                message: 'Submitted successfully',
+                type: 'success',
+                duration: 1000
+              });
+            }).catch(error => {
+              console.error('Error during updating:', error);
+              this.$message.error('Server error');
+            });
             // const a = document.createElement('a');
             // a.href = URL.createObjectURL(blob);
             // a.download = 'output.json';
             // a.click();
             // URL.revokeObjectURL(a.href);
-            this.$message({
-              message: 'Submitted successfully',
-              type: 'success',
-              duration: 1000
-            });
+            // this.$message({
+            //   message: 'Submitted successfully',
+            //   type: 'success',
+            //   duration: 1000
+            // });
             // createRole(this.role).then(response => {
             //   this.$message({
             //     message: 'Added successfully!',
@@ -353,17 +374,33 @@
         this.listLoading = true;
         fetchList(this.listQuery).then(response => {
           this.listLoading = false;
-          this.list = response.data.list;
-          this.total = response.data.total;
+          // this.list = response.data.list;
+          // this.total = response.data.total;
           //数据库
-          this.list = this.mapInputData(require('@/public/1/storeowner.json'));
-          if (this.listQuery.keyword) {
-            this.list = this.list.filter(item => item.name.includes(this.listQuery.keyword));
-          }
-          if (this.listQuery.storekeyword) {
-            this.list = this.list.filter(item => item.storename.includes(this.listQuery.storekeyword));
-          }
-          this.total = this.list.length;
+          // this.list = this.mapInputData(require('@/public/1/storeowner.json'));
+          fetch('http://127.0.0.1:3000/Interface23', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({})
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              this.list = this.mapInputData(data.UserData)
+              debugger
+              if (this.listQuery.keyword) {
+                this.list = this.list.filter(item => item.name.includes(this.listQuery.keyword));
+              }
+              if (this.listQuery.storekeyword) {
+                this.list = this.list.filter(item => item.storename.includes(this.listQuery.storekeyword));
+              }
+              this.total = this.list.length;
+              debugger
+            }).catch(error => {
+              this.$message.error('Server error');
+            });
           debugger
         });
       }

@@ -326,8 +326,8 @@
           UserName: item.username,
           UserPassword: item.password,
           UserBirth: item.birthday,
-          UserInterests: item.interests,
-          UserEmail: item.email
+          Interests: item.interests,
+          Email: item.email
         };
       },
       handleDialogConfirm() {
@@ -348,21 +348,43 @@
           // }
           // else
           {
-            //数据库  
+            //数据库
             debugger
-            const blob = new Blob([JSON.stringify(this.mapOutputData(this.admin))],
-                                  {type: 'application/json'});
-            window.open(URL.createObjectURL(blob));
+            fetch('http://127.0.0.1:3000/Interface21', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(
+                this.mapOutputData(this.admin)
+              )
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              this.$message({
+                message: 'Submitted successfully',
+                type: 'success',
+                duration: 1000
+              });
+            }).catch(error => {
+              console.error('Error during updating:', error);
+              this.$message.error('Server error');
+            });
+
+            // const blob = new Blob([JSON.stringify(this.mapOutputData(this.admin))],
+            //                       {type: 'application/json'});
+            // window.open(URL.createObjectURL(blob));
             // const a = document.createElement('a');
             // a.href = URL.createObjectURL(blob);
             // a.download = 'output.json';
             // a.click();
             // URL.revokeObjectURL(a.href);
-            this.$message({
-              message: 'Submitted successfully',
-              type: 'success',
-              duration: 1000
-            });
+            // this.$message({
+            //   message: 'Submitted successfully',
+            //   type: 'success',
+            //   duration: 1000
+            // });
             // createAdmin(this.admin).then(response => {
             //   this.$message({
             //     message: 'Added successfully!',
@@ -412,14 +434,30 @@
         this.listLoading = true;
         fetchList(this.listQuery).then(response => {
           this.listLoading = false;
-          this.list = response.data.list;
-          this.total = response.data.total;
+          // this.list = response.data.list;
+          // this.total = response.data.total;
           //数据库
-          this.list = this.mapInputData(require('@/public/1/customer.json'));
-          if (this.listQuery.keyword) {
-            this.list = this.list.filter(item => item.username.includes(this.listQuery.keyword));
-          }
-          this.total = this.list.length;
+          // this.list = this.mapInputData(require('@/public/1/customer.json'));
+          fetch('http://127.0.0.1:3000/Interface20', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({})
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              this.list = this.mapInputData(data.UserData)
+              debugger
+              if (this.listQuery.keyword) {
+                this.list = this.list.filter(item => item.username.includes(this.listQuery.keyword));
+              }
+              this.total = this.list.length;
+              debugger
+            }).catch(error => {
+              this.$message.error('Server error');
+            });
           debugger
         });
       },

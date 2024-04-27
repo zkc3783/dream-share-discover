@@ -187,7 +187,7 @@
                 duration: 1000
               });
             }).catch(error => {
-              console.error('Error during deletion:', error);
+              console.error('Error during updating:', error);
               this.$message.error('Server error');
             });
             // Convert productParam to JSON and download it
