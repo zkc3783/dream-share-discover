@@ -116,12 +116,6 @@
           this.pwdType = 'password'
         }
       },
-      mapOutputData(item) {
-        return {
-          UserName: item.username,
-          UserPassword: item.password
-        };
-      },
       async checkValid() {  // No longer used
           //数据库
           
@@ -143,8 +137,8 @@
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                username: this.loginForm.username,
-                password: this.loginForm.password
+                UserName: this.loginForm.username,
+                UserPassWord: this.loginForm.password
               })
             }).then(response => {
               return response.json();  // 解析 JSON 数据
@@ -193,8 +187,8 @@
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                username: this.loginForm.username,
-                password: this.loginForm.password
+                UserName: this.loginForm.username,
+                UserPassWord: this.loginForm.password
               })
             }).then(response => {
               return response.json();  // 解析 JSON 数据

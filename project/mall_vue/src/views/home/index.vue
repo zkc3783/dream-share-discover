@@ -162,7 +162,6 @@
     mounted() { // 用于动态调节Feedback和SelectedComments表列宽度
       this.calculateColumnWidths();
       window.addEventListener('resize', this.calculateColumnWidths); // 确保响应式
-      this.getData();
     },
     beforeDestroy() {
       window.removeEventListener('resize', this.calculateColumnWidths); // 清理事件监听

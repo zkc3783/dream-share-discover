@@ -33,9 +33,9 @@ const users = {
 };
 
 server.post('/Interface18', (req, res) => {
-  const { username, password } = req.body;
+  const { UserName, UserPassWord } = req.body;
   console.log(req.body)
-  if (users[username] && users[username] == password) {
+  if (users[UserName] && users[UserName] == UserPassWord) {
     res.json({
       MatchToken: true
     });
@@ -47,7 +47,7 @@ server.post('/Interface18', (req, res) => {
 });
 
 server.post('/Interface29', (req, res) => {
-  const { username } = req.body;
+  const { UserName } = req.body;
   console.log(req.body)
   res.json(
     {
@@ -72,6 +72,16 @@ server.post('/Interface29', (req, res) => {
   )
   return 
 });
+
+server.post('/Interfac30', (req, res) => {
+  const { ItemId } = req.body;
+  console.log(req.body)
+  console.log(ItemId)
+  res.json(
+    {}
+  );
+});
+
 
 server.delete('/Interface22', (req, res) => {
   const { ItemId } = req.body;
@@ -129,7 +139,7 @@ server.post('/Interface27', (req, res) => {
         "Rating": 9
         },{
             "Comment":"Product quality has improved significantly.",
-            "Rating": 900
+            "Rating": 9
         }
     ]
   });
