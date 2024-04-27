@@ -145,7 +145,7 @@
           ItemName: item.name,
           ItemPrice: item.price,
           ItemDescription: item.description,
-          ItemPic: item.pic
+          ItemImage: item.pic
         };
       },
       finishCommit(isEdit) {
