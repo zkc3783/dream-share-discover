@@ -73,6 +73,78 @@ server.post('/Interface29', (req, res) => {
   return 
 });
 
+server.delete('/Interface22', (req, res) => {
+  const { ItemId } = req.body;
+  console.log(req.body)
+  // 在这里，你需要实现删除操作
+  // 假设你已经有一个名为 deleteItem 的函数，它接收一个 ID 作为参数，并删除对应的项
+  //deleteItem(ItemId);
+  console.log(ItemId)
+  // 由于你不需要返回任何数据，你可以直接结束响应
+  res.end();
+});
+
+server.delete('/Interface25', (req, res) => {
+  const { ItemId } = req.body;
+  console.log(req.body)
+  // 在这里，你需要实现删除操作
+  // 假设你已经有一个名为 deleteItem 的函数，它接收一个 ID 作为参数，并删除对应的项
+  //deleteItem(ItemId);
+  console.log(ItemId)
+  // 由于你不需要返回任何数据，你可以直接结束响应
+  res.end();
+});
+
+server.post('/Interface26', (req, res) => {
+  const { } = req.body;
+  console.log(req.body)
+  // 在这里，你需要根据 UserName 查找相应的数据
+  // 假设你已经有一个名为 findUser 的函数，它接收一个用户名作为参数，并返回对应的数据
+  //const userData = findUser(UserName);
+  res.json({
+    "SelectedComments": [{
+      "Comment":"Poor service and slow delivery!",
+      "Rating": 2
+      },{
+          "Comment":"Product quality has decreased significantly.",
+          "Rating": 2
+      }
+  ],
+  "OverallAdvices": ["Focus on customer service to enhance satisfaction.", "Consider expanding the product line."]
+  });
+});
+
+server.post('/Interface27', (req, res) => {
+  const { UserName } = req.body;
+  console.log(req.body)
+  // 在这里，你需要根据 UserName 查找相应的数据
+  // 假设你已经有一个名为 findUser 的函数，它接收一个用户名作为参数，并返回对应的数据
+  //const userData = findUser(UserName);
+  res.json({
+    StoreName: "XIAOMI",
+    StoreLocation: "100,200",
+    AvgRate: 9.00000,
+    Feedback: [{
+        "Comment":"Great service and fast delivery!",
+        "Rating": 9
+        },{
+            "Comment":"Product quality has improved significantly.",
+            "Rating": 900
+        }
+    ]
+  });
+});
+
+server.post('/Interface28', (req, res) => {
+  const { UserName, StoreName, StoreLocation } = req.body;
+  console.log(req.body)
+  // 在这里，你需要实现删除操作
+  // 假设你已经有一个名为 deleteItem 的函数，它接收一个 ID 作为参数，并删除对应的项
+  //  updateUser(UserName, { StoreName, StoreLocation });
+  // 由于你不需要返回任何数据，你可以直接结束响应
+  res.end();
+});
+
 server.post('*', function (request, response, next) {
   // console.log(request)
   console.log(request.body)

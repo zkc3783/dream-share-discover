@@ -129,6 +129,12 @@
       return {
         commentWidth: 0,
         ratingWidth: 0,
+        storeName: '', // 商店名称
+        storeLocation: '', // 商店位置
+        avgRate: 0, // 平均评分
+        feedback: [], // 反馈信息数组
+        selectedComments: [], // 被选中的评论
+        overallAdvices: [], // 总体建议
         nameid:state => state.user.name,
         pickerOptions: {
           shortcuts: [{
@@ -156,6 +162,7 @@
     mounted() { // 用于动态调节Feedback和SelectedComments表列宽度
       this.calculateColumnWidths();
       window.addEventListener('resize', this.calculateColumnWidths); // 确保响应式
+      this.getData();
     },
     beforeDestroy() {
       window.removeEventListener('resize', this.calculateColumnWidths); // 清理事件监听
@@ -208,27 +215,45 @@
           //this.avgRate = res["AvgRate"];
           //this.feedback = res["Feedback"];
         } else {
-          let res = require('@/public/1/analytics.json')
-          this.selectedComments = res["SelectedComments"];
-          this.overallAdvices = res["OverallAdvices"];
+          // let res = require('@/public/1/analytics.json')
+          // this.selectedComments = res["SelectedComments"];
+          // this.overallAdvices = res["OverallAdvices"];
+          fetch('http://127.0.0.1:3000/Interface26', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+            })
+          }).then(response => {
+            debugger
+            return response.json();  // 解析 JSON 数据
+          }).then(data => {
+            this.selectedComments = data["SelectedComments"];
+            this.overallAdvices = data["OverallAdvices"];
+          }).catch(error => {
+            console.error('Error during fetching data:', error);
+            this.$message.error('Server error');
+          });
+          debugger
         }
-        setTimeout(() => {
-          this.chartData = {
-            columns: ['date', 'orderCount','orderAmount'],
-            rows: []
-          };
-          for(let i=0;i<DATA_FROM_BACKEND.rows.length;i++){
-            let item=DATA_FROM_BACKEND.rows[i];
-            let currDate=str2Date(item.date);
-            let start=this.orderCountDate[0];
-            let end=this.orderCountDate[1];
-            if(currDate.getTime()>=start.getTime()&&currDate.getTime()<=end.getTime()){
-              this.chartData.rows.push(item);
-            }
-          }
-          this.dataEmpty = false;
-          this.loading = false
-        }, 1000)
+        // setTimeout(() => {
+        //   this.chartData = {
+        //     columns: ['date', 'orderCount','orderAmount'],
+        //     rows: []
+        //   };
+        //   for(let i=0;i<DATA_FROM_BACKEND.rows.length;i++){
+        //     let item=DATA_FROM_BACKEND.rows[i];
+        //     let currDate=str2Date(item.date);
+        //     let start=this.orderCountDate[0];
+        //     let end=this.orderCountDate[1];
+        //     if(currDate.getTime()>=start.getTime()&&currDate.getTime()<=end.getTime()){
+        //       this.chartData.rows.push(item);
+        //     }
+        //   }
+        //   this.dataEmpty = false;
+        //   this.loading = false
+        // }, 1000)
       },
       edit() {
         this.$confirm('Do you want to update your store info?', 'Tip', {
