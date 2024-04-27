@@ -74,7 +74,7 @@ server.post('/Interface29', (req, res) => {
 });
 
 server.post('/Interfac30', (req, res) => {
-  const { ItemId } = req.body;
+  const { ItemId, ItemName, ItemPrice, ItemDescription, ItemImage } = req.body;
   console.log(req.body)
   console.log(ItemId)
   res.json(
