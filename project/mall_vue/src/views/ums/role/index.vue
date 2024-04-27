@@ -388,7 +388,7 @@
               debugger
               return response.json();  // 解析 JSON 数据
             }).then(data => {
-              this.list = this.mapInputData(data.UserData)
+              this.list = this.mapInputData(data.StoreData)
               debugger
               if (this.listQuery.keyword) {
                 this.list = this.list.filter(item => item.name.includes(this.listQuery.keyword));

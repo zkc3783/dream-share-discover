@@ -624,7 +624,7 @@
           // const blob = new Blob([JSON.stringify({"ItemId": row.id})],
           //                       {type: 'application/json'});
           // window.open(URL.createObjectURL(blob));
-          fetch('http://127.0.0.1:3000/Interface30', {
+          fetch('http://127.0.0.1:3000/Interface31', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
