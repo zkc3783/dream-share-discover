@@ -169,20 +169,41 @@
           {
             debugger
             //数据库
+            fetch('http://127.0.0.1:3000/Interface30', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(
+                this.mapOutputData(this.productParam)
+              )
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              this.$message({
+                message: 'Submitted successfully',
+                type: 'success',
+                duration: 1000
+              });
+            }).catch(error => {
+              console.error('Error during deletion:', error);
+              this.$message.error('Server error');
+            });
             // Convert productParam to JSON and download it
-            const blob = new Blob([JSON.stringify(this.mapOutputData(this.productParam))],
-                                  {type: 'application/json'});
-            window.open(URL.createObjectURL(blob));
+            // const blob = new Blob([JSON.stringify(this.mapOutputData(this.productParam))],
+            //                       {type: 'application/json'});
+            // window.open(URL.createObjectURL(blob));
             // const a = document.createElement('a');
             // a.href = URL.createObjectURL(blob);
             // a.download = 'output.json';
             // a.click();
             // URL.revokeObjectURL(a.href);
-            this.$message({
-              message: 'Submitted successfully',
-              type: 'success',
-              duration: 1000
-            });
+            // this.$message({
+            //   message: 'Submitted successfully',
+            //   type: 'success',
+            //   duration: 1000
+            // });
             // createProduct().then(response=>{
             //   this.$message({
             //     type: 'success',
