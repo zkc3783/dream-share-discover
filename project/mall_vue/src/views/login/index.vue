@@ -131,7 +131,7 @@
         // 数据库
         this.$refs.loginForm.validate(valid => {
           if (valid) {
-            fetch('http://127.0.0.1:3000/Interface19', {
+            fetch(this.$store.state.user.globalURL+'/Interface19', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -181,7 +181,7 @@
         // 数据库
         this.$refs.loginForm.validate(valid => {
           if (valid) {
-            fetch('http://127.0.0.1:3000/Interface19', {
+            fetch(this.$store.state.user.globalURL+'/Interface19', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

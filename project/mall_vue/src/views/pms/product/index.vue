@@ -427,7 +427,7 @@
           //数据库
           // this.list = this.mapInputData(require('@/public/1/xiaomi.json'));
           debugger
-          fetch('http://127.0.0.1:3000/Interface29', {
+          fetch(this.$store.state.user.globalURL+'/Interface29', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -624,7 +624,7 @@
           // const blob = new Blob([JSON.stringify({"ItemId": row.id})],
           //                       {type: 'application/json'});
           // window.open(URL.createObjectURL(blob));
-          fetch('http://127.0.0.1:3000/Interface31', {
+          fetch(this.$store.state.user.globalURL+'/Interface31', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

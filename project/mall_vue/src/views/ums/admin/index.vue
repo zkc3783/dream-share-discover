@@ -273,7 +273,7 @@
         }).then(() => {
           //数据库
           debugger
-          fetch('http://127.0.0.1:3000/Interface22', {
+          fetch(this.$store.state.user.globalURL+'/Interface22', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -354,7 +354,7 @@
           {
             //数据库
             debugger
-            fetch('http://127.0.0.1:3000/Interface21', {
+            fetch(this.$store.state.user.globalURL+'/Interface21', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -443,7 +443,7 @@
           // this.total = response.data.total;
           //数据库
           // this.list = this.mapInputData(require('@/public/1/customer.json'));
-          fetch('http://127.0.0.1:3000/Interface20', {
+          fetch(this.$store.state.user.globalURL+'/Interface20', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

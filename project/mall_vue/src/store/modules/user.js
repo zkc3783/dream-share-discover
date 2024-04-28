@@ -43,6 +43,7 @@ const user = {
     roles: [],
     globalVariable:getGlobalVariableFromLocalStorage(),
     editUser:  geteditUserFromLocalStorage(),  
+    globalURL: 'http://127.0.0.1:3000'//set global URL http://127.0.0.1:3000 globalURL
   },
 
   mutations: {
