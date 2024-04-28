@@ -19,26 +19,6 @@ server.listen(port, function(){
     console.log('Server running at http://127.0.0.1:3000/');
 });
 
-let account = {
-  'admin': {
-    "UserId": 0,
-    "UserName":"admin",
-    "UserPassWord": "admin"
-  },
-  'test': {
-    "UserId": 1,
-    "UserName":"test",
-    "UserPassWord": "test"
-  },
-  'LEIJUN': {
-    "UserId": 10,
-    "UserName":"LEIJUN",
-    "UserPassWord": "123456",
-    "StoreName":"XIAOMI",
-    "StoreLocation": "100,200"
-  }
-};
-
 let customer = {
   1: {
       "UserId":1,
@@ -75,6 +55,11 @@ let customer = {
 }
 
 let store = {
+  0: {
+      "UserId": 0,
+      "UserName":"admin",
+      "UserPassword": "admin"
+  },
   10: {
     "UserId": 10,
     "UserName":"LEIJUN",
@@ -96,7 +81,11 @@ let store = {
     "UserPassword": "654321",
     "StoreName":"TENGXUN",
     "StoreLocation": "50,100",
-    "AvgRate": 8.0
+    "AvgRate": 8.0,
+    "Feedback": [{
+      "Comment":"QQ is so cool.",
+      "Rating": 8
+    }]
   }
 }
 
@@ -114,19 +103,31 @@ let analysis = {
 
 let IDcount = 1000
 
+
+function checkRegister(userName) {
+  for (let key in store) {
+    if (store[key].UserName == userName) {
+      return true;
+    }
+  }
+  return false;
+}
+
 server.post('/Interface18', (req, res) => { // Register
   const { UserName, UserPassWord } = req.body;
   console.log(req.body)
   IDcount = IDcount + 1
-  if(account[UserName]) {
+  if(checkRegister(UserName)) {
     res.json({
       MatchToken: false
     });
   } else {
-    account[UserName] = {
+    store[IDcount] = {
       "UserId": IDcount,
       "UserName": UserName,
-      "UserPassWord": UserPassWord
+      "UserPassword": UserPassWord,
+      "AvgRate": "/",
+      "Feedback": []
     }
     res.json({
         MatchToken: true
@@ -134,10 +135,22 @@ server.post('/Interface18', (req, res) => { // Register
   }
 });
 
+
+function checkLogin(userName, userPassword) {
+  for (let key in store) {
+    console.log(store[key].UserName)
+    console.log(store[key].UserPassword)
+    if (store[key].UserName == userName && store[key].UserPassword == userPassword) {
+      return true;
+    }
+  }
+  return false;
+}
+
 server.post('/Interface19', (req, res) => { // Login
   const { UserName, UserPassWord } = req.body;
   console.log(req.body)
-  if (account[UserName] && account[UserName]["UserPassWord"] == UserPassWord) {
+  if (checkLogin(UserName, UserPassWord)) {
     res.json({
       MatchToken: true
     });
@@ -221,22 +234,26 @@ server.post('/Interface26', (req, res) => { // Check Analysis
   res.json(analysis);
 });
 
+function getStoreByUserName(userName) {
+  for (let key in store) {
+    if (store[key].UserName === userName) {
+      return {
+        StoreName: store[key].StoreName,
+        StoreLocation: store[key].StoreLocation,
+        AvgRate: store[key].AvgRate,
+        Feedback: store[key].Feedback
+      };
+    }
+  }
+  return null; // 如果找不到指定的 UserName，返回 null
+}
+
 server.post('/Interface27', (req, res) => { // Check Store Info
   const { UserName } = req.body;
   console.log(req.body)
-  res.json({
-    StoreName: "XIAOMI",
-    StoreLocation: "100,200",
-    AvgRate: 9.00000,
-    Feedback: [{
-        "Comment":"Great service and fast delivery!",
-        "Rating": 9
-        },{
-            "Comment":"Product quality has improved significantly.",
-            "Rating": 9
-        }
-    ]
-  });
+  res.json(
+    getStoreByUserName(UserName)
+  );
 });
 
 server.post('/Interface28', (req, res) => { // Update Store Info
