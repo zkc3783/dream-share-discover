@@ -133,8 +133,9 @@ function checkRegister(userName) {
 }
 
 server.post('/Interface18', (req, res) => { // Register
+  console.log('Interface18')
   const { UserName, UserPassword } = req.body;
-  console.log(req.body)
+  console.log('Receiving request:', req.body)
   IDcount = IDcount + 1
   if(checkRegister(UserName)) {
     const response ={
@@ -171,8 +172,9 @@ function checkLogin(userName, userPassword) {
 }
 
 server.post('/Interface19', (req, res) => { // Login
+  console.log('Interface19')
   const { UserName, UserPassword } = req.body;
-  console.log(req.body)
+  console.log('Receiving request:', req.body)
   if (checkLogin(UserName, UserPassword)) {
     const response ={
       MatchToken: true
@@ -189,8 +191,9 @@ server.post('/Interface19', (req, res) => { // Login
 });
 
 server.post('/Interface20', (req, res) => { //Check userData
+  console.log('Interface20')
   const { } = req.body;
-  console.log(req.body)
+  console.log('Receiving request:', req.body)
   const response ={
     "UserData": Object.values(customer)
   }
@@ -199,9 +202,9 @@ server.post('/Interface20', (req, res) => { //Check userData
 });
 
 server.post('/Interface21', (req, res) => { // Update userData
+  console.log('Interface21')
   const { UserId, UserName, UserPassword, Birthday, Interests, Email } = req.body;
-  console.log(req.body)
-  console.log(UserId)
+  console.log('Receiving request:', req.body)
   customer[UserId] = req.body
   const response =
     {
@@ -211,9 +214,9 @@ server.post('/Interface21', (req, res) => { // Update userData
 });
 
 server.post('/Interface22', (req, res) => { // Delete userData
+  console.log('Interface22')
   const { UserId } = req.body;
-  console.log(req.body)
-  console.log(UserId)
+  console.log('Receiving request:', req.body)
   delete customer[UserId];
   const response =
     {}
@@ -222,8 +225,9 @@ server.post('/Interface22', (req, res) => { // Delete userData
 });
 
 server.post('/Interface23', (req, res) => { // Check storeData
+  console.log('Interface23')
   const { } = req.body;
-  console.log(req.body)
+  console.log('Receiving request:', req.body)
   const response =
     {
       "StoreData": Object.values(store).filter(item => item.UserName !== "admin")
@@ -233,9 +237,9 @@ server.post('/Interface23', (req, res) => { // Check storeData
 });
 
 server.post('/Interface24', (req, res) => { // Update storeData
+  console.log('Interface24')
   const { UserId, UserName, UserPassword, StoreName, StoreLocation} = req.body;
-  console.log(req.body)
-  console.log(UserId)
+  console.log('Receiving request:', req.body)
   if(!store[UserId])
     store[UserId] = {"UserId": UserId, "AvgRate": "/",
     "Feedback": []
@@ -252,9 +256,9 @@ server.post('/Interface24', (req, res) => { // Update storeData
 
 
 server.post('/Interface25', (req, res) => { // Delete storeData
+  console.log('Interface25')
   const { UserId } = req.body;
-  console.log(req.body)
-  console.log(UserId)
+  console.log('Receiving request:', req.body)
   delete store[UserId];
   const response =
     {}
@@ -263,8 +267,9 @@ server.post('/Interface25', (req, res) => { // Delete storeData
 });
 
 server.post('/Interface26', (req, res) => { // Check Analysis
+  console.log('Interface26')
   const { } = req.body;
-  console.log(req.body)
+  console.log('Receiving request:', req.body)
   const response =analysis
   console.log('Sending response:', response);
   res.json(response);
@@ -285,8 +290,9 @@ function getStoreByUserName(userName) {
 }
 
 server.post('/Interface27', (req, res) => { // Check Store Info
+  console.log('Interface27')
   const { UserName } = req.body;
-  console.log(req.body)
+  console.log('Receiving request:', req.body)
   const response =
     getStoreByUserName(UserName)
   console.log('Sending response:', response);
@@ -303,17 +309,19 @@ function updateStoreByUserName(userName, storeName, storeLocation) {
 }
 
 server.post('/Interface28', (req, res) => { // Update Store Info
+  console.log('Interface28')
   const { UserName, StoreName, StoreLocation } = req.body;
   updateStoreByUserName(UserName, StoreName, StoreLocation)
-  console.log(req.body)
+  console.log('Receiving request:', req.body)
   const response ={}
   console.log('Sending response:', response);
   res.json(response);
 });
 
 server.post('/Interface29', (req, res) => { // Check ItemData
+  console.log('Interface29')
   const { UserName } = req.body;
-  console.log(req.body)
+  console.log('Receiving request:', req.body)
   let response;
   if (item[UserName]) {
     response = {
@@ -329,9 +337,9 @@ server.post('/Interface29', (req, res) => { // Check ItemData
 });
 
 server.post('/Interface30', (req, res) => { // Update ItemData
+  console.log('Interface30')
   const { UserName, ItemId, ItemName, ItemPrice, ItemDescription, ItemImage } = req.body;
-  console.log(req.body)
-  console.log(ItemId)
+  console.log('Receiving request:', req.body)
   if(!item[UserName]) {
     item[UserName] = {}
   }
@@ -357,9 +365,9 @@ function deleteItem( itemId ) {
 }
 
 server.post('/Interface31', (req, res) => { // Delete ItemData
+  console.log('Interface31')
   const { ItemId } = req.body;
-  console.log(req.body)
-  console.log(ItemId)
+  console.log('Receiving request:', req.body)
   deleteItem(ItemId)
   const response =
     {}
