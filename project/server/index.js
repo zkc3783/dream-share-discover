@@ -39,6 +39,44 @@ let account = {
   }
 };
 
+let customer = {
+  "UserData":
+    {
+      1: {
+          "UserId":1,
+          "UserName":"YongqiZhu",
+          "UserPassword":"123456",
+          "Birthday":"2003-03-05",
+          "Interests":"tabletennis", 
+          "Email":"YongqiZhu@gmail.com"
+      },
+      2: {
+          "UserId":2,
+          "UserName":"Miao",
+          "UserPassword":"miao11",
+          "Birthday":"2003-04-21",
+          "Interests":"Japanese", 
+          "Email":"Miaochen@qq.com"
+      },
+      3: {
+          "UserId":3,
+          "UserName":"xyy",
+          "UserPassword":"chenh",
+          "Birthday":"2004-01-08",
+          "Interests":"philosophy", 
+          "Email":"huanchen@qq.com"
+      },    
+      4: {
+          "UserId":4,
+          "UserName":"Jason",
+          "UserPassword":"Jason",
+          "Birthday":"2003-01-10",
+          "Interests":"F1", 
+          "Email":"Jason@qq.com"
+      }
+    }
+}
+
 let IDcount = 1000
 
 server.post('/Interface18', (req, res) => { // Register
@@ -78,53 +116,19 @@ server.post('/Interface19', (req, res) => { // Login
 server.post('/Interface20', (req, res) => { //Check userData
   const { } = req.body;
   console.log(req.body)
-  res.json(
-    {
-      UserData:
-        [
-          {
-              "UserId":1,
-              "UserName":"YongqiZhu",
-              "UserPassword":"123456",
-              "Birthday":"2003-03-05",
-              "Interests":"tabletennis", 
-              "Email":"YongqiZhu@gmail.com"
-          },
-          {
-              "UserId":2,
-              "UserName":"Miao",
-              "UserPassword":"miao11",
-              "Birthday":"2003-04-21",
-              "Interests":"Japanese", 
-              "Email":"Miaochen@qq.com"
-          },
-          {
-              "UserId":3,
-              "UserName":"xyy",
-              "UserPassword":"chenh",
-              "Birthday":"2004-01-08",
-              "Interests":"philosophy", 
-              "Email":"huanchen@qq.com"
-          },    
-          {
-              "UserId":4,
-              "UserName":"Jason",
-              "UserPassword":"Jason",
-              "Birthday":"2003-01-10",
-              "Interests":"F1", 
-              "Email":"Jason@qq.com"
-          }
-        ]
-    }
-  )
+  res.json({
+    "UserData": Object.values(customer["UserData"])
+  })
 });
 
 server.post('/Interface21', (req, res) => { // Update userData
-  const { UserId, UserName, UserPassword, UserBirth, Interests, Email } = req.body;
+  const { UserId, UserName, UserPassword, Birthday, Interests, Email } = req.body;
   console.log(req.body)
   console.log(UserId)
+  customer["UserData"][UserId] = req.body
   res.json(
-    {}
+    {
+    }
   );
 });
 
@@ -132,6 +136,7 @@ server.post('/Interface22', (req, res) => { // Delete userData
   const { UserId } = req.body;
   console.log(req.body)
   console.log(UserId)
+  delete customer.UserData[UserId];
   res.json(
     {}
   );

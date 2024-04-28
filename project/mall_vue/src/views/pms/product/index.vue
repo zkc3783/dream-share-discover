@@ -645,6 +645,8 @@
               console.error('Error during deletion:', error);
               this.$message.error('Server error');
             });
+            
+          this.getList();
           // const a = document.createElement('a');
           // a.href = URL.createObjectURL(blob);
           // a.download = 'output.json';

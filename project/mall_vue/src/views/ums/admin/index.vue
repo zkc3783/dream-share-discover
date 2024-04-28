@@ -292,6 +292,7 @@
               this.$message.error('Server error');
             });
           
+          this.getList();
           //const blob = new Blob([JSON.stringify({"ItemId": row.id})],
           //                      {type: 'application/json'});
           //window.open(URL.createObjectURL(blob));
@@ -325,7 +326,7 @@
           UserId: item.id,
           UserName: item.username,
           UserPassword: item.password,
-          UserBirth: item.birthday,
+          Birthday: item.birthday,
           Interests: item.interests,
           Email: item.email
         };
@@ -371,7 +372,7 @@
               console.error('Error during updating:', error);
               this.$message.error('Server error');
             });
-
+            this.getList();
             // const blob = new Blob([JSON.stringify(this.mapOutputData(this.admin))],
             //                       {type: 'application/json'});
             // window.open(URL.createObjectURL(blob));
