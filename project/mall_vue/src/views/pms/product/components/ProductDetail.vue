@@ -95,13 +95,29 @@
         showStatus: [true, false]
       }
     },
-    created(){
+    created(){  // 进行修改时预留的数据
       if(this.isEdit){
         getProduct(this.$route.query.id).then(response=>{
           //数据库
           this.productParam=response.data;
-          this.productParam=this.mapInputData(require('@/public/1/xiaomi.json'), parseInt(this.$route.query.id));
-          let tmp = this.productParam;
+          fetch('http://127.0.0.1:3000/Interface29', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                UserName: this.$store.state.user.name == "admin" ? 
+                              this.$store.state.user.editUser : this.$store.state.user.name
+              })
+            }).then(response => {
+              debugger
+              return response.json();  // 解析 JSON 数据
+            }).then(data => {
+              this.productParam = this.mapInputData(data.ItemData, parseInt(this.$route.query.id))
+              debugger
+            }).catch(error => {
+              this.$message.error('Server error');
+            });
           debugger
         });
       }

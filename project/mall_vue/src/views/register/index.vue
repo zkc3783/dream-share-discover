@@ -147,62 +147,62 @@
           UserPassword: item.password
         };
       },
-      checkValid() {
-          //数据库
-          const blob = new Blob([JSON.stringify(this.mapOutputData(this.loginForm))],
-                                {type: 'application/json'});
-          //window.open(URL.createObjectURL(blob));
-          // const a = document.createElement('a');
-          // a.href = URL.createObjectURL(blob);
-          // a.download = 'output.json';
-          // a.click();
-          // URL.revokeObjectURL(a.href);
+      // checkValid() {
+      //     //数据库
+      //     const blob = new Blob([JSON.stringify(this.mapOutputData(this.loginForm))],
+      //                           {type: 'application/json'});
+      //     //window.open(URL.createObjectURL(blob));
+      //     // const a = document.createElement('a');
+      //     // a.href = URL.createObjectURL(blob);
+      //     // a.download = 'output.json';
+      //     // a.click();
+      //     // URL.revokeObjectURL(a.href);
 
-          //数据库
-          /* mapOutputData(item) {
-          return {
-            UserName: item.username,
-            UserPassword: item.password
-          };
-          }, */
-          fetch('http://127.0.0.1:3000/Interface18', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              UserName: this.registerForm.username,
-              UserPassWord: this.registerForm.password,
-            })
-          }).then(response => {
-            return response.json();  // 解析 JSON 数据
-          }).then(data => {
-            if (data.MatchToken) {
-              valid = true;
-            } else {
-              valid = false;
-            }
-          }).catch(error => {
-            console.error('Error during registration:', error);
-            this.$message.error('Server error');
-          })
-          debugger
-          let valid = require('@/public/1/register_validator.json')["Validator"];
-          if(valid) {
-            this.$message({
-              message: 'Register successfully!',
-              type: 'success',
-              duration: 1000
-            });
-          } else {
-            this.$message({
-              message: 'Existing Username!',
-              type: 'error',
-              duration: 1000
-            });
-          }
-          return valid;
-      },
+      //     //数据库
+      //     /* mapOutputData(item) {
+      //     return {
+      //       UserName: item.username,
+      //       UserPassword: item.password
+      //     };
+      //     }, */
+      //     fetch('http://127.0.0.1:3000/Interface18', {
+      //       method: 'POST',
+      //       headers: {
+      //         'Content-Type': 'application/json'
+      //       },
+      //       body: JSON.stringify({
+      //         UserName: this.registerForm.username,
+      //         UserPassWord: this.registerForm.password,
+      //       })
+      //     }).then(response => {
+      //       return response.json();  // 解析 JSON 数据
+      //     }).then(data => {
+      //       if (data.MatchToken) {
+      //         valid = true;
+      //       } else {
+      //         valid = false;
+      //       }
+      //     }).catch(error => {
+      //       console.error('Error during registration:', error);
+      //       this.$message.error('Server error');
+      //     })
+      //     debugger
+      //     let valid = require('@/public/1/register_validator.json')["Validator"];
+      //     if(valid) {
+      //       this.$message({
+      //         message: 'Register successfully!',
+      //         type: 'success',
+      //         duration: 1000
+      //       });
+      //     } else {
+      //       this.$message({
+      //         message: 'Existing Username!',
+      //         type: 'error',
+      //         duration: 1000
+      //       });
+      //     }
+      //     return valid;
+      // },
       handleLogin() {
         debugger
         this.$refs.loginForm.validate(valid => {
