@@ -141,6 +141,8 @@
       },
       mapOutputData(item) {
         return {
+          UserName: this.$store.state.user.name == "admin" ? 
+                        this.$store.state.user.editUser : this.$store.state.user.name,
           ItemId: item.id,
           ItemName: item.name,
           ItemPrice: item.price,
