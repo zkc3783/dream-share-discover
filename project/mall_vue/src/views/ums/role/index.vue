@@ -113,7 +113,7 @@
                ref="roleForm"
                label-width="150px" size="small">
         <el-form-item label="ID:">
-          <el-input v-model="role.id" style="width: 250px"></el-input>
+          <el-input v-model="role.id" :disabled="isEdit" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Username:">
           <el-input v-model="role.name" style="width: 250px"></el-input>

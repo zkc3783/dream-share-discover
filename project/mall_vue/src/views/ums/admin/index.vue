@@ -111,6 +111,9 @@
       <el-form :model="admin"
                ref="adminForm"
                label-width="150px" size="small">
+        <el-form-item label="ID:">
+          <el-input v-model="admin.id" :disabled="isEdit" style="width: 250px"></el-input>
+        </el-form-item>
         <el-form-item label="Username:">
           <el-input v-model="admin.username" style="width: 250px"></el-input>
         </el-form-item>

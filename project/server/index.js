@@ -40,41 +40,76 @@ let account = {
 };
 
 let customer = {
-  "UserData":
-    {
-      1: {
-          "UserId":1,
-          "UserName":"YongqiZhu",
-          "UserPassword":"123456",
-          "Birthday":"2003-03-05",
-          "Interests":"tabletennis", 
-          "Email":"YongqiZhu@gmail.com"
-      },
-      2: {
-          "UserId":2,
-          "UserName":"Miao",
-          "UserPassword":"miao11",
-          "Birthday":"2003-04-21",
-          "Interests":"Japanese", 
-          "Email":"Miaochen@qq.com"
-      },
-      3: {
-          "UserId":3,
-          "UserName":"xyy",
-          "UserPassword":"chenh",
-          "Birthday":"2004-01-08",
-          "Interests":"philosophy", 
-          "Email":"huanchen@qq.com"
-      },    
-      4: {
-          "UserId":4,
-          "UserName":"Jason",
-          "UserPassword":"Jason",
-          "Birthday":"2003-01-10",
-          "Interests":"F1", 
-          "Email":"Jason@qq.com"
-      }
+  1: {
+      "UserId":1,
+      "UserName":"YongqiZhu",
+      "UserPassword":"123456",
+      "Birthday":"2003-03-05",
+      "Interests":"tabletennis", 
+      "Email":"YongqiZhu@gmail.com"
+  },
+  2: {
+      "UserId":2,
+      "UserName":"Miao",
+      "UserPassword":"miao11",
+      "Birthday":"2003-04-21",
+      "Interests":"Japanese", 
+      "Email":"Miaochen@qq.com"
+  },
+  3: {
+      "UserId":3,
+      "UserName":"xyy",
+      "UserPassword":"chenh",
+      "Birthday":"2004-01-08",
+      "Interests":"philosophy", 
+      "Email":"huanchen@qq.com"
+  },    
+  4: {
+      "UserId":4,
+      "UserName":"Jason",
+      "UserPassword":"Jason",
+      "Birthday":"2003-01-10",
+      "Interests":"F1", 
+      "Email":"Jason@qq.com"
+  }
+}
+
+let store = {
+  10: {
+    "UserId": 10,
+    "UserName":"LEIJUN",
+    "UserPassword": "123456",
+    "StoreName":"XIAOMI",
+    "StoreLocation": "100,200",
+    "AvgRate": 9.0,
+    "Feedback": [{
+      "Comment":"Great service and fast delivery!",
+      "Rating": 9
+    },{
+        "Comment":"Product quality has improved significantly.",
+        "Rating": 9
+    }]
+  },
+  110: {
+    "UserId": 110,
+    "UserName":"MAHUATENG",
+    "UserPassword": "654321",
+    "StoreName":"TENGXUN",
+    "StoreLocation": "50,100",
+    "AvgRate": 8.0
+  }
+}
+
+let analysis = {
+  "SelectedComments": [{
+    "Comment":"Poor service and slow delivery!",
+    "Rating": 2
+    },{
+        "Comment":"Product quality has decreased significantly.",
+        "Rating": 2
     }
+  ],
+  "OverallAdvices": ["Focus on customer service to enhance satisfaction.", "Consider expanding the product line."]
 }
 
 let IDcount = 1000
@@ -117,7 +152,7 @@ server.post('/Interface20', (req, res) => { //Check userData
   const { } = req.body;
   console.log(req.body)
   res.json({
-    "UserData": Object.values(customer["UserData"])
+    "UserData": Object.values(customer)
   })
 });
 
@@ -125,7 +160,7 @@ server.post('/Interface21', (req, res) => { // Update userData
   const { UserId, UserName, UserPassword, Birthday, Interests, Email } = req.body;
   console.log(req.body)
   console.log(UserId)
-  customer["UserData"][UserId] = req.body
+  customer[UserId] = req.body
   res.json(
     {
     }
@@ -136,7 +171,7 @@ server.post('/Interface22', (req, res) => { // Delete userData
   const { UserId } = req.body;
   console.log(req.body)
   console.log(UserId)
-  delete customer.UserData[UserId];
+  delete customer[UserId];
   res.json(
     {}
   );
@@ -147,25 +182,7 @@ server.post('/Interface23', (req, res) => { // Check storeData
   console.log(req.body)
   res.json(
     {
-      StoreData:
-        [
-          {
-              "UserId": 10,
-              "UserName":"LEIJUN",
-              "UserPassword": "123456",
-              "StoreName":"XIAOMI",
-              "StoreLocation": "100,200",
-              "AvgRate": 9.0
-          },
-          {
-              "UserId": 110,
-              "UserName":"MAHUATENG",
-              "UserPassword": "654321",
-              "StoreName":"TENGXUN",
-              "StoreLocation": "50,100",
-              "AvgRate": 8.0
-          }
-        ]
+      "StoreData": Object.values(store)
     }
   )
 });
@@ -174,6 +191,14 @@ server.post('/Interface24', (req, res) => { // Update storeData
   const { UserId, UserName, UserPassword, StoreName, StoreLocation} = req.body;
   console.log(req.body)
   console.log(UserId)
+  if(!store[UserId])
+    store[UserId] = {"UserId": UserId, "AvgRate": "/",
+    "Feedback": []
+  };
+  store[UserId]["UserName"] = UserName;
+  store[UserId]["UserPassword"] = UserPassword;
+  store[UserId]["StoreName"] = StoreName;
+  store[UserId]["StoreLocation"] = StoreLocation;
   res.json(
     {}
   );
@@ -184,6 +209,7 @@ server.post('/Interface25', (req, res) => { // Delete storeData
   const { UserId } = req.body;
   console.log(req.body)
   console.log(UserId)
+  delete store[UserId];
   res.json(
     {}
   )
@@ -192,17 +218,7 @@ server.post('/Interface25', (req, res) => { // Delete storeData
 server.post('/Interface26', (req, res) => { // Check Analysis
   const { } = req.body;
   console.log(req.body)
-  res.json({
-    "SelectedComments": [{
-      "Comment":"Poor service and slow delivery!",
-      "Rating": 2
-      },{
-          "Comment":"Product quality has decreased significantly.",
-          "Rating": 2
-      }
-    ],
-    "OverallAdvices": ["Focus on customer service to enhance satisfaction.", "Consider expanding the product line."]
-    });
+  res.json(analysis);
 });
 
 server.post('/Interface27', (req, res) => { // Check Store Info
