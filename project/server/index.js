@@ -133,7 +133,7 @@ function checkRegister(userName) {
 }
 
 server.post('/Interface18', (req, res) => { // Register
-  const { UserName, UserPassWord } = req.body;
+  const { UserName, UserPassword } = req.body;
   console.log(req.body)
   IDcount = IDcount + 1
   if(checkRegister(UserName)) {
@@ -144,7 +144,7 @@ server.post('/Interface18', (req, res) => { // Register
     store[IDcount] = {
       "UserId": IDcount,
       "UserName": UserName,
-      "UserPassword": UserPassWord,
+      "UserPassword": UserPassword,
       "AvgRate": "/",
       "Feedback": []
     }
@@ -167,9 +167,9 @@ function checkLogin(userName, userPassword) {
 }
 
 server.post('/Interface19', (req, res) => { // Login
-  const { UserName, UserPassWord } = req.body;
+  const { UserName, UserPassword } = req.body;
   console.log(req.body)
-  if (checkLogin(UserName, UserPassWord)) {
+  if (checkLogin(UserName, UserPassword)) {
     res.json({
       MatchToken: true
     });

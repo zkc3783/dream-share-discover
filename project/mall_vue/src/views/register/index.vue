@@ -172,7 +172,7 @@
       //       },
       //       body: JSON.stringify({
       //         UserName: this.registerForm.username,
-      //         UserPassWord: this.registerForm.password,
+      //         UserPassword: this.registerForm.password,
       //       })
       //     }).then(response => {
       //       return response.json();  // 解析 JSON 数据
@@ -220,7 +220,7 @@
               },
               body: JSON.stringify({
                 UserName: this.loginForm.username,
-                UserPassWord: this.loginForm.password,
+                UserPassword: this.loginForm.password,
               })
             }).then(response => {
               return response.json();  // 解析 JSON 数据
