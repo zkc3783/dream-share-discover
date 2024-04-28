@@ -106,7 +106,7 @@ let IDcount = 1000
 
 function checkRegister(userName) {
   for (let key in store) {
-    if (store[key].UserName == userName) {
+    if (store[key].UserName === userName) {
       return true;
     }
   }
@@ -140,7 +140,7 @@ function checkLogin(userName, userPassword) {
   for (let key in store) {
     console.log(store[key].UserName)
     console.log(store[key].UserPassword)
-    if (store[key].UserName == userName && store[key].UserPassword == userPassword) {
+    if (store[key].UserName === userName && store[key].UserPassword === userPassword) {
       return true;
     }
   }
@@ -256,8 +256,18 @@ server.post('/Interface27', (req, res) => { // Check Store Info
   );
 });
 
+function updateStoreByUserName(userName, storeName, storeLocation) {
+  for (let key in store) {
+    if (store[key].UserName === userName) {
+      store[key].StoreName = storeName
+      store[key].StoreLocation = storeLocation
+    }
+  }
+}
+
 server.post('/Interface28', (req, res) => { // Update Store Info
   const { UserName, StoreName, StoreLocation } = req.body;
+  updateStoreByUserName(UserName, StoreName, StoreLocation)
   console.log(req.body)
   res.json({})
 });
