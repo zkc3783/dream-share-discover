@@ -332,6 +332,7 @@
               console.error('Error during updating:', error);
               this.$message.error('Server error');
             });
+            this.dialogVisible = false;
             this.getList();
             // const a = document.createElement('a');
             // a.href = URL.createObjectURL(blob);

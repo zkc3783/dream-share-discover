@@ -208,6 +208,7 @@
               console.error('Error during updating:', error);
               this.$message.error('Server error');
             });
+            this.$router.push({path:'/pms/product'});
             // Convert productParam to JSON and download it
             // const blob = new Blob([JSON.stringify(this.mapOutputData(this.productParam))],
             //                       {type: 'application/json'});
