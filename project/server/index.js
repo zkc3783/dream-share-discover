@@ -145,7 +145,7 @@ server.post('/Interface23', (req, res) => {
 });
 
 server.post('/Interface24', (req, res) => {
-  const { UserId, UserName, UserPassword, StoreName, StoreLocation, AvgRate } = req.body;
+  const { UserId, UserName, UserPassword, StoreName, StoreLocation} = req.body;
   console.log(req.body)
   console.log(UserId)
   res.json(
