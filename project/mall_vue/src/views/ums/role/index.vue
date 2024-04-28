@@ -249,7 +249,7 @@
           // a.download = 'output.json';
           // a.click();
           // URL.revokeObjectURL(a.href);
-          fetch('http://127.0.0.1:3000/Interface25', {
+          fetch(this.$store.state.user.globalURL+'/Interface25', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -311,7 +311,7 @@
             // const blob = new Blob([JSON.stringify(this.mapOutputData(this.role))],
             //                       {type: 'application/json'});
             // window.open(URL.createObjectURL(blob));
-            fetch('http://127.0.0.1:3000/Interface24', {
+            fetch(this.$store.state.user.globalURL+'/Interface24', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -382,7 +382,7 @@
           // this.total = response.data.total;
           //数据库
           // this.list = this.mapInputData(require('@/public/1/storeowner.json'));
-          fetch('http://127.0.0.1:3000/Interface23', {
+          fetch(this.$store.state.user.globalURL+'/Interface23', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

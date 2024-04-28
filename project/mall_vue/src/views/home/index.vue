@@ -188,7 +188,7 @@
           //window.open(URL.createObjectURL(blob));
           //let res = require('@/public/1/store.json')
           debugger
-          fetch('http://127.0.0.1:3000/Interface27', {
+          fetch(this.$store.state.user.globalURL+'/Interface27', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -217,7 +217,7 @@
           // let res = require('@/public/1/analytics.json')
           // this.selectedComments = res["SelectedComments"];
           // this.overallAdvices = res["OverallAdvices"];
-          fetch('http://127.0.0.1:3000/Interface26', {
+          fetch(this.$store.state.user.globalURL+'/Interface26', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -265,7 +265,7 @@
                                                 "StoreLocation":this.storeLocation})],
                                 {type: 'application/json'});
           //window.open(URL.createObjectURL(blob));
-          fetch('http://127.0.0.1:3000/Interface28', {
+          fetch(this.$store.state.user.globalURL+'/Interface28', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
