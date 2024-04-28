@@ -294,17 +294,26 @@ server.post('/Interface28', (req, res) => { // Update Store Info
 server.post('/Interface29', (req, res) => { // Check ItemData
   const { UserName } = req.body;
   console.log(req.body)
-  res.json(
+  if(item[UserName]) {
+    res.json(
     {
       "ItemData": Object.values(item[UserName])
-    }
-  )
+    })
+  } else {
+    res.json({
+      "ItemData": []
+    })
+  }
+  
 });
 
 server.post('/Interface30', (req, res) => { // Update ItemData
   const { UserName, ItemId, ItemName, ItemPrice, ItemDescription, ItemImage } = req.body;
   console.log(req.body)
   console.log(ItemId)
+  if(!item[UserName]) {
+    item[UserName] = {}
+  }
   item[UserName][ItemId] = {
     "ItemId": ItemId,
     "ItemName": ItemName,
