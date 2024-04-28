@@ -19,31 +19,52 @@ server.listen(port, function(){
     console.log('Server running at http://127.0.0.1:3000/');
 });
 
-const json = {
-  "code": 200,
-  "data": {
-      "tokenHead": "Bearer ",
-      "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE3MTM4OTE5ODQ5MDUsImV4cCI6MTcxNDQ5Njc4NH0.juEKtV97mwokEPOCEll9oSeCHbRqQq7Z7uMftxcpfGe-0oP-5uNfVWh0vhlsUsCA6gBCJBno0lHVyjLa0DSvBQ"
+let account = {
+  'admin': {
+    "UserId": 0,
+    "UserName":"admin",
+    "UserPassWord": "admin"
+  },
+  'test': {
+    "UserId": 1,
+    "UserName":"test",
+    "UserPassWord": "test"
+  },
+  'LEIJUN': {
+    "UserId": 10,
+    "UserName":"LEIJUN",
+    "UserPassWord": "123456",
+    "StoreName":"XIAOMI",
+    "StoreLocation": "100,200"
   }
 };
 
-const users = {
-  'admin': 'admin',
-  'test': 'test'
-};
+let IDcount = 1000
 
-server.post('/Interface18', (req, res) => {
-  const { username, password } = req.body;
-  console.log(req.body)
-  res.json({
-      MatchToken: true
-    });
-});
-
-server.post('/Interface19', (req, res) => {
+server.post('/Interface18', (req, res) => { // Register
   const { UserName, UserPassWord } = req.body;
   console.log(req.body)
-  if (users[UserName] && users[UserName] == UserPassWord) {
+  IDcount = IDcount + 1
+  if(account[UserName]) {
+    res.json({
+      MatchToken: false
+    });
+  } else {
+    account[UserName] = {
+      "UserId": IDcount,
+      "UserName": UserName,
+      "UserPassWord": UserPassWord
+    }
+    res.json({
+        MatchToken: true
+    });
+  }
+});
+
+server.post('/Interface19', (req, res) => { // Login
+  const { UserName, UserPassWord } = req.body;
+  console.log(req.body)
+  if (account[UserName] && account[UserName]["UserPassWord"] == UserPassWord) {
     res.json({
       MatchToken: true
     });
@@ -54,7 +75,7 @@ server.post('/Interface19', (req, res) => {
   }
 });
 
-server.post('/Interface20', (req, res) => {
+server.post('/Interface20', (req, res) => { //Check userData
   const { } = req.body;
   console.log(req.body)
   res.json(
@@ -98,7 +119,7 @@ server.post('/Interface20', (req, res) => {
   )
 });
 
-server.post('/Interface21', (req, res) => {
+server.post('/Interface21', (req, res) => { // Update userData
   const { UserId, UserName, UserPassword, UserBirth, Interests, Email } = req.body;
   console.log(req.body)
   console.log(UserId)
@@ -107,7 +128,7 @@ server.post('/Interface21', (req, res) => {
   );
 });
 
-server.post('/Interface22', (req, res) => {
+server.post('/Interface22', (req, res) => { // Delete userData
   const { UserId } = req.body;
   console.log(req.body)
   console.log(UserId)
@@ -116,7 +137,7 @@ server.post('/Interface22', (req, res) => {
   );
 });
 
-server.post('/Interface23', (req, res) => {
+server.post('/Interface23', (req, res) => { // Check storeData
   const { } = req.body;
   console.log(req.body)
   res.json(
@@ -144,7 +165,7 @@ server.post('/Interface23', (req, res) => {
   )
 });
 
-server.post('/Interface24', (req, res) => {
+server.post('/Interface24', (req, res) => { // Update storeData
   const { UserId, UserName, UserPassword, StoreName, StoreLocation} = req.body;
   console.log(req.body)
   console.log(UserId)
@@ -154,7 +175,7 @@ server.post('/Interface24', (req, res) => {
 });
 
 
-server.post('/Interface25', (req, res) => {
+server.post('/Interface25', (req, res) => { // Delete storeData
   const { UserId } = req.body;
   console.log(req.body)
   console.log(UserId)
@@ -163,7 +184,7 @@ server.post('/Interface25', (req, res) => {
   )
 });
 
-server.post('/Interface26', (req, res) => {
+server.post('/Interface26', (req, res) => { // Check Analysis
   const { } = req.body;
   console.log(req.body)
   res.json({
@@ -179,7 +200,7 @@ server.post('/Interface26', (req, res) => {
     });
 });
 
-server.post('/Interface27', (req, res) => {
+server.post('/Interface27', (req, res) => { // Check Store Info
   const { UserName } = req.body;
   console.log(req.body)
   res.json({
@@ -197,13 +218,13 @@ server.post('/Interface27', (req, res) => {
   });
 });
 
-server.post('/Interface28', (req, res) => {
+server.post('/Interface28', (req, res) => { // Update Store Info
   const { UserName, StoreName, StoreLocation } = req.body;
   console.log(req.body)
   res.json({})
 });
 
-server.post('/Interface29', (req, res) => {
+server.post('/Interface29', (req, res) => { // Check ItemData
   const { UserName } = req.body;
   console.log(req.body)
   res.json(
@@ -229,7 +250,7 @@ server.post('/Interface29', (req, res) => {
   )
 });
 
-server.post('/Interface30', (req, res) => {
+server.post('/Interface30', (req, res) => { // Update ItemData
   const { ItemId, ItemName, ItemPrice, ItemDescription, ItemImage } = req.body;
   console.log(req.body)
   console.log(ItemId)
@@ -238,7 +259,7 @@ server.post('/Interface30', (req, res) => {
   );
 });
 
-server.post('/Interface31', (req, res) => {
+server.post('/Interface31', (req, res) => { // Delete ItemData
   const { ItemId } = req.body;
   console.log(req.body)
   console.log(ItemId)

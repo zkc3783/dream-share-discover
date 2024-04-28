@@ -242,7 +242,7 @@
             });
               } else {
                 this.$message({
-                  message: 'Register failed',
+                  message: 'Existing Username',
                   type: 'error',
                   duration: 1000
                 });
