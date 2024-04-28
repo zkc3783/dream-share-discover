@@ -214,7 +214,7 @@ server.post('/Interface23', (req, res) => { // Check storeData
   console.log(req.body)
   res.json(
     {
-      "StoreData": Object.values(store)
+      "StoreData": Object.values(store).filter(item => item.UserName !== "admin")
     }
   )
 });
