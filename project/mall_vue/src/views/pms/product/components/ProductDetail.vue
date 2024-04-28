@@ -21,7 +21,7 @@
 </template>
 <script>
   import ProductInfoDetail from './ProductInfoDetail';
-  import ProductSaleDetail from './ProductSaleDetail';
+  //import ProductSaleDetail from './ProductSaleDetail';
   import ProductAttrDetail from './ProductAttrDetail';
   import {createProduct,getProduct,updateProduct} from '@/api/product';
 
@@ -96,7 +96,8 @@
       }
     },
     created(){  // 进行修改时预留的数据
-      if(this.isEdit){
+      if(this.isEdit)
+      {
         getProduct(this.$route.query.id).then(response=>{
           //数据库
           this.productParam=response.data;
@@ -163,7 +164,7 @@
           ItemName: item.name,
           ItemPrice: item.price,
           ItemDescription: item.description,
-          ItemImage: item.pic
+          ItemImage: item.pic 
         };
       },
       finishCommit(isEdit) {

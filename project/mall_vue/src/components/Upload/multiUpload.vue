@@ -7,15 +7,14 @@
       :on-remove="handleRemove"
       :on-success="handleUploadSuccess"
       :on-preview="handlePreview"
-      :limit="maxCount"
+      :limit="1"
       :on-exceed="handleExceed"
     >
-    
-      <i class="el-icon-plus"></i>
-        
+      <i class="el-icon-plus"></i>  
     </el-upload>
+
     <el-dialog :visible.sync="dialogVisible">
-      <img width="100%" :src="dialogImageUrl" alt="">
+      <img width="100%" :src="dialogImageBase64" alt="">
     </el-dialog>
   </div>
 </template>
@@ -23,29 +22,21 @@
   //魔改版
   export default {
     name: 'multiUpload',
-    props: {
-      // 图片Base64数据数组
-      value: Array,
-      //最大上传图片数量
-      maxCount:{
-        type:Number,
-        default:1
-      }
-    },
+    props: { value: Array, },
+
     data() {
       return {
         dialogVisible: false,
-        dialogImageUrl:null,
+        dialogImageBase64: null,
       };
     },
     computed: {
       fileList() {
+        //console.log(this.value); // 打印日志查看传入的图片数据
         return this.value.map(imgBase64 => ({ url: imgBase64 }));
       },
-      alreadyUploaded() {
-        return this.fileList.length >= 1; // 如果已经上传了至少一张图片，则返回 true
-      }
     },
+    
     methods: {
       emitInput(fileList) {
         this.$emit('input', fileList.map(file => file.url));
@@ -55,7 +46,7 @@
       },
       handlePreview(file) {
         this.dialogVisible = true;
-        this.dialogImageUrl = file.url;
+        this.dialogImageBase64 = file.url;
       },
       beforeUpload(file) {
         const reader = new FileReader();
@@ -67,18 +58,9 @@
           this.emitInput(this.fileList);
         };
         return false; // 阻止文件的默认上传行为
-      },
-      handleUploadSuccess(res, file) {
-        let url = this.dataObj.host + '/' + this.dataObj.dir + '/' + file.name;
-        if(!this.useOss){
-          url = res.data.url;
-        }
-        this.fileList.push({name: file.name,url:url});
-        this.emitInput(this.fileList);
-      },
+      }, 
       handleExceed(files, fileList) {
         this.$message({
-          // message: '最多只能上传'+this.maxCount+'张图片',
           message: 'You can only submit one image',
           type: 'warning',
           duration:1000
