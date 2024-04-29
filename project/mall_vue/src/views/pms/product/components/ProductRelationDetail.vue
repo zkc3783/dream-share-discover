@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div style="margin-top: 50px">
     <el-form :model="value"
              ref="productRelationForm"
@@ -142,4 +142,4 @@
 
 <style scoped>
 
-</style>
+</style> -->

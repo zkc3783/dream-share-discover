@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div style="margin-top: 50px">
     <el-form :model="value" ref="productSaleForm" label-width="120px" class="form-inner-container" size="small">
       <el-form-item label="赠送积分：">
@@ -303,4 +303,4 @@
   .littleMargin {
     margin-top: 10px;
   }
-</style>
+</style> -->
