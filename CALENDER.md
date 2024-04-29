@@ -23,6 +23,7 @@ Scheduled System design: active, 03-16, 21d
 section Implementation
 Our Implementation: crit, 04-01, 23d
 Scheduled Implementation: active, 04-06, 14d
+section Testing
 Our Test: crit, 04-22, 7d
 Scheduled Test: active, 04-20, 7d
 ```
