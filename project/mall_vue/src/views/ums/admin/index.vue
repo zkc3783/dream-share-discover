@@ -109,15 +109,16 @@
       :visible.sync="dialogVisible"
       width="40%">
       <el-form :model="admin"
+               :rules="rules" 
                ref="adminForm"
                label-width="150px" size="small">
-        <el-form-item label="ID:">
+        <el-form-item label="ID:"  prop="id">
           <el-input v-model="admin.id" :disabled="isEdit" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Username:">
+        <el-form-item label="Username:" prop="username">
           <el-input v-model="admin.username" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Birthday:">
+        <el-form-item label="Birthday:" prop="birthday">
           <el-input v-model="admin.birthday" style="width: 250px"></el-input>
         </el-form-item>
         <el-form-item label="Interests:">
@@ -132,7 +133,7 @@
         <el-form-item label="Email:">
           <el-input v-model="admin.email" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Password:">
+        <el-form-item label="Password:" prop="password">
           <el-input v-model="admin.password"  type="password" style="width: 250px"></el-input>
         </el-form-item>
         <!-- <el-form-item label="Note:">
@@ -207,7 +208,24 @@
         allocDialogVisible: false,
         allocRoleIds:[],
         allRoleList:[],
-        allocAdminId:null
+        allocAdminId:null,
+        rules: {
+          id: [
+            { required: true, message: 'Please input ID', trigger: 'blur' },
+            { type: 'integer', message: 'ID must be a positive integer', trigger: 'blur', min: 1 }
+          ],
+          username: [
+            { required: true, message: 'Please input Username', trigger: 'blur' },
+          ],
+          birthday: [
+            { required: true, message: 'Please input Birthday', trigger: 'blur' },
+            { pattern: /^\d{4}-\d{2}-\d{2}$/, message: 'Birthday must be in YYYY-MM-DD format', trigger: 'blur'}
+          ],
+          password: [
+            { required: true, message: 'Please input Password', trigger: 'blur' },
+            { min: 3, message: 'Password must be at least 3 characters long', trigger: 'blur' }
+          ]
+        },
       }
     },
     created() {
@@ -340,6 +358,7 @@
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
+
           // if (this.isEdit) {
           //   updateAdmin(this.admin.id,this.admin).then(response => {
           //     this.$message({
@@ -351,7 +370,8 @@
           //   })
           // }
           // else
-          {
+          this.$refs.adminForm.validate((valid) => {
+            if (valid) {
             //数据库
             debugger
             fetch(this.$store.state.user.globalURL+'/Interface21', {
@@ -398,7 +418,10 @@
             //   this.dialogVisible =false;
             //   this.getList();
             // })
-          }
+          } else {
+            console.log('error submit!!');
+            return false;
+          }});
         })
       },
       handleAllocDialogConfirm(){

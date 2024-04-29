@@ -46,7 +46,7 @@
         <el-table-column label="Store Name" align="center">
           <template slot-scope="scope">{{scope.row.storename}}</template>
         </el-table-column>
-        <el-table-column label="Location" width="160" align="center">
+        <el-table-column label="Location" width="240" align="center">
           <template slot-scope="scope">{{scope.row.location}}</template>
         </el-table-column>
         <el-table-column label="Avg Rate"  width="100" align="center">
@@ -110,21 +110,22 @@
       :visible.sync="dialogVisible"
       width="40%">
       <el-form :model="role"
+               :rules="rules"
                ref="roleForm"
                label-width="150px" size="small">
-        <el-form-item label="ID:">
+        <el-form-item label="ID:" prop="id">
           <el-input v-model="role.id" :disabled="isEdit" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Username:">
+        <el-form-item label="Username:" prop="name">
           <el-input v-model="role.name" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Store Name:">
+        <el-form-item label="Store Name:" prop="storename">
           <el-input v-model="role.storename" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Password:">
+        <el-form-item label="Password:" prop="password">
           <el-input v-model="role.password" type="password" style="width: 250px"></el-input>
         </el-form-item>
-        <el-form-item label="Location:">
+        <el-form-item label="Location:" prop="location">
           <el-input v-model="role.location" style="width: 250px"></el-input>
         </el-form-item>
         <!-- <el-form-item label="Description:">
@@ -174,7 +175,30 @@
         listLoading: false,
         dialogVisible: false,
         role: Object.assign({}, defaultRole),
-        isEdit: false
+        isEdit: false,
+        rules: {
+          id: [
+            { required: true, message: 'Please input ID', trigger: 'blur' },
+            { type: 'integer', message: 'ID must be a positive integer', trigger: 'blur', min: 1 }
+          ],
+          name: [
+            { required: true, message: 'Please input Username', trigger: 'blur' },
+          ],
+          storename: [
+            { required: true, message: 'Please input Store Name', trigger: 'blur' },
+          ],
+          password: [
+            { required: true, message: 'Please input Password', trigger: 'blur' },
+            { min: 3, message: 'Password must be at least 3 characters long', trigger: 'blur' }
+          ],
+          location: [
+            { 
+              pattern: /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/,
+              message: 'Location must be two numbers separated by a comma',
+              trigger: 'blur'
+            }
+          ],
+        }
       }
     },
     created() {
