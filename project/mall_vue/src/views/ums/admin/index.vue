@@ -212,7 +212,7 @@
         rules: {
           id: [
             { required: true, message: 'Please input ID', trigger: 'blur' },
-            { type: 'integer', message: 'ID must be a positive integer', trigger: 'blur', min: 1 }
+            { pattern: /^[1-9]\d*$/, message: 'ID must be a positive integer', trigger: 'blur' }
           ],
           username: [
             { required: true, message: 'Please input Username', trigger: 'blur' },
