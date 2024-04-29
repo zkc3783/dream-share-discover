@@ -10,16 +10,16 @@
             <div class="layout-title">Store Info</div>
             <div class="content-box">
               <el-row :gutter="24">
-                <el-col :span="12">
+                <el-col :span="9">
                   <div style="display: flex; align-items: center;">
                   <label for="storeName" style="margin-right: 8px;">Name</label>
                   <el-input v-model="storeName" placeholder="Enter store name"></el-input>
                   </div>
                 </el-col>
-                <el-col :span="9">
+                <el-col :span="12">
                   <div style="display: flex; align-items: center;">
                   <label for="storeName" style="margin-right: 8px;"> Location </label>
-                  <el-input v-model="storeLocation" placeholder="Enter location"></el-input>
+                  <el-input v-model="storeLocation" placeholder="Enter location (latitude,longitude)"></el-input>
                   </div>
                 </el-col>
                 <el-col :span="2">
@@ -38,6 +38,11 @@
           </div>
       </el-col>
     </el-row>
+  </div>
+  <div v-if="this.$store.state.user.globalVariable === 0">
+    <div class="location-query" @click="showLocationPrompt">
+      Don't know where am I?
+    </div>
   </div>
   <div v-if="this.$store.state.user.globalVariable === 0">
     <!-- Feedbacks Section -->
@@ -135,6 +140,8 @@
         feedback: [], // 反馈信息数组
         selectedComments: [], // 被选中的评论
         overallAdvices: [], // 总体建议
+        showInput: false,  // 控制输入框显示
+        userAddress: '',   // 存储用户输入的地址
         nameid:state => state.user.name,
         pickerOptions: {
           shortcuts: [{
@@ -287,6 +294,41 @@
           });
         });
       },
+      showLocationPrompt() {
+        this.$prompt('Please enter a structured address:', 'Location', {
+          confirmButtonText: 'Confirm',
+          cancelButtonText: 'Cancel',
+          inputPlaceholder: 'Address (e.g., China,Jilin,Changchun,Qianjindajie,2699)'
+        }).then(({ value }) => {
+          console.log('Entered Address:', value); // 显示输入的地址
+          this.fetchLocation(value);
+        }).catch(() => {
+          // 处理取消操作
+        });
+      },
+      fetchLocation(address) {
+        const key = 'ead31bdc09ecdd9f72511bae25e7c54e'; // 使用你的API Key
+        const url = `https://restapi.amap.com/v3/geocode/geo?address=${encodeURIComponent(address)}&output=JSON&key=${key}`;
+
+        fetch(url).then(response => {
+          return response.json();
+        }).then(data => {
+          if (data.status === '1' && data.geocodes.length > 0) {
+            const location = data.geocodes[0].location; // 获取经纬度字符串，格式为"经度,纬度"
+            const coordinates = location.split(','); // 分割为数组["经度","纬度"]
+            const reversedCoordinates = `${coordinates[1]},${coordinates[0]}`; // 反转为"纬度,经度"
+            this.storeLocation = reversedCoordinates; // 将反转后的坐标存入storeLocation
+            console.log('Reversed Location:', reversedCoordinates); // 输出纬度和经度
+            this.$message.success('Successfully found your location! Please click on \'Edit\' to save your update.');
+          } else {
+            console.error('Geocoding failed:', data.info);
+            this.$message.error('Geocoding failed: ' + data.info);
+          }
+        }).catch(error => {
+          console.error('API request failed:', error);
+          this.$message.error('Server error during geocoding');
+        });
+      }
     }
   }
 </script>
@@ -413,5 +455,11 @@
   .content-item {
     padding: 10px;
     border-bottom: 1px solid #EBEEF5;
+  }
+
+  .location-query {
+    padding: 10px;
+    color: #409EFF; /* 蓝色文字 */
+    cursor: pointer;
   }
 </style>

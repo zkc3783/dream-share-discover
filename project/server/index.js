@@ -65,7 +65,7 @@ let store = {
     "UserName":"LEIJUN",
     "UserPassword": "123456",
     "StoreName":"XIAOMI",
-    "StoreLocation": "100,200",
+    "StoreLocation": "30.4981807,114.5086413",
     "AvgRate": 9.0,
     "Feedback": [{
       "Comment":"Great service and fast delivery!",
@@ -80,7 +80,7 @@ let store = {
     "UserName":"MAHUATENG",
     "UserPassword": "654321",
     "StoreName":"TENGXUN",
-    "StoreLocation": "50,100",
+    "StoreLocation": "22.5458116,113.9411541",
     "AvgRate": 8.0,
     "Feedback": [{
       "Comment":"QQ is so cool.",
