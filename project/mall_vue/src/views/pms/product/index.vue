@@ -437,15 +437,18 @@
               debugger
               return response.json();  // 解析 JSON 数据
             }).then(data => {
-              this.list = this.mapInputData(data.ItemData)
+              let filteredData = this.mapInputData(data.ItemData)
               debugger
               if (this.listQuery.keyword) {
-                this.list = this.list.filter(item => item.name.includes(this.listQuery.keyword));
+                filteredData = filteredData.filter(item => item.name.includes(this.listQuery.keyword));
               }
               if (this.listQuery.descriptionkeyword) {
-                this.list = this.list.filter(item => item.description.includes(this.listQuery.descriptionkeyword));
+                filteredData = filteredData.filter(item => item.description.includes(this.listQuery.descriptionkeyword));
               }
-              this.total = this.list.length;
+              this.total = filteredData.length;
+              const start = (this.listQuery.pageNum - 1) * this.listQuery.pageSize;
+              const end = start + this.listQuery.pageSize;
+              this.list = filteredData.slice(start, end);
               debugger
             }).catch(error => {
               this.$message.error('Server error');

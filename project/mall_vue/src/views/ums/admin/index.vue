@@ -100,7 +100,7 @@
         layout="total, sizes,prev, pager, next,jumper"
         :current-page.sync="listQuery.pageNum"
         :page-size="listQuery.pageSize"
-        :page-sizes="[10,15,20]"
+        :page-sizes="[5,10,15]"
         :total="total">
       </el-pagination>
     </div>
@@ -476,12 +476,16 @@
               debugger
               return response.json();  // 解析 JSON 数据
             }).then(data => {
-              this.list = this.mapInputData(data.UserData)
+              let filteredData = this.mapInputData(data.UserData);
               debugger
               if (this.listQuery.keyword) {
-                this.list = this.list.filter(item => item.username.includes(this.listQuery.keyword));
+                filteredData = filteredData.filter(item => item.username.includes(this.listQuery.keyword));
               }
-              this.total = this.list.length;
+              this.total = filteredData.length;
+
+              const start = (this.listQuery.pageNum - 1) * this.listQuery.pageSize;
+              const end = start + this.listQuery.pageSize;
+              this.list = filteredData.slice(start, end);
               debugger
             }).catch(error => {
               this.$message.error('Server error');

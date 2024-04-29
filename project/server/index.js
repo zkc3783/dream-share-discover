@@ -75,6 +75,118 @@ let store = {
         "Rating": 9
     }]
   },
+  11: {
+    "UserId": 11,
+    "UserName":"user11",
+    "UserPassword": "password11",
+    "StoreName":"yifu building",
+    "StoreLocation": "43.8311978,125.2881350",
+    "AvgRate": 9.0,
+    "Feedback": [{
+    "Comment":"Great exam!",
+    "Rating": 4
+    }]
+  },
+
+  12: {
+      "UserId": 12,
+      "UserName":"user12",
+      "UserPassword": "password12",
+      "StoreName":"RiXin building",
+      "StoreLocation": "43.8278974,125.2829697",
+      "AvgRate": 9.0,
+      "Feedback": [{
+      "Comment":"Great service and fast delivery!",
+      "Rating": 9
+      },{
+          "Comment":"Product quality has improved significantly.",
+          "Rating": 9
+      }]
+  },
+
+  13: {
+      "UserId": 13,
+      "UserName":"user13",
+      "UserPassword": "code_1x123s",
+      "StoreName":"hamburger",
+      "StoreLocation": "43.8340754,125.2743190",
+      "AvgRate": 8.0,
+      "Feedback": [{
+      "Comment":"QQ is rtey cool.",
+      "Rating": 8
+      }]
+  },
+
+  14: {
+      "UserId": 14,
+      "UserName":"user14",
+      "UserPassword": "codpowfgddshfe_1x43",
+      "StoreName":"tea",
+      "StoreLocation": "43.8324302,125.2704159",
+      "AvgRate": 8.0,
+      "Feedback": [{
+      "Comment":"QQ sdfsad so cool.",
+      "Rating": 8
+      }]
+  },
+
+  15: {
+      "UserId": 15,
+      "UserName":"user15",
+      "UserPassword": "passwfgjord15",
+      "StoreName":"coffee",
+      "StoreLocation": "43.8279169,125.2830191",
+      "AvgRate": 9.0,
+      "Feedback": []
+  },
+  16: {
+      "UserId": 16,
+      "UserName":"user16",
+      "UserPassword": "pashsword16",
+      "StoreName":"SuperMarket",
+      "StoreLocation": "43.8266454,125.2967183°",
+      "AvgRate": "/",
+      "Feedback": [{
+      "Comment":"Great!",
+      "Rating": 4
+      }]
+  },
+
+  17: {
+      "UserId": 17,
+      "UserName":"user17",
+      "UserPassword": "passwofghrd17",
+      "StoreName":"Wine & Cigarette",
+      "StoreLocation": "43.8278323,125.2980837",
+      "AvgRate": "8",
+      "Feedback": []
+  },
+
+  18: {
+      "UserId": 18,
+      "UserName":"user18",
+      "UserPassword": "codgfhe_18",
+      "StoreName":"Fried Chicken",
+      "StoreLocation": "43.8308304,125.2991796",
+      "AvgRate": 4.01,
+      "Feedback": [{
+      "Comment":"QQ is rtey cool.",
+      "Rating": 8
+      }]
+  },
+
+  19: {
+      "UserId": 19,
+      "UserName":"user19",
+      "UserPassword": "SuperMarket",
+      "StoreName":"tea",
+      "StoreLocation": "43.8334869,125.2944500",
+      "AvgRate": 8.8,
+      "Feedback": [{
+      "Comment":"QQ so cool.",
+      "Rating": 8
+      }]
+  },
   110: {
     "UserId": 110,
     "UserName":"MAHUATENG",

@@ -416,15 +416,23 @@
               debugger
               return response.json();  // 解析 JSON 数据
             }).then(data => {
-              this.list = this.mapInputData(data.StoreData)
+              // this.list = this.mapInputData(data.StoreData)
+               // 先过滤数据
+              let filteredData = this.mapInputData(data.StoreData);
               debugger
               if (this.listQuery.keyword) {
-                this.list = this.list.filter(item => item.name.includes(this.listQuery.keyword));
+                filteredData = filteredData.filter(item => item.name.includes(this.listQuery.keyword));
               }
               if (this.listQuery.storekeyword) {
-                this.list = this.list.filter(item => item.storename.includes(this.listQuery.storekeyword));
+                filteredData = filteredData.filter(item => item.storename.includes(this.listQuery.storekeyword));
               }
-              this.total = this.list.length;
+              // 更新总数量
+              this.total = filteredData.length;
+
+               // 应用分页逻辑
+              const start = (this.listQuery.pageNum - 1) * this.listQuery.pageSize;
+              const end = start + this.listQuery.pageSize;
+              this.list = filteredData.slice(start, end);
               debugger
             }).catch(error => {
               this.$message.error('Server error');
