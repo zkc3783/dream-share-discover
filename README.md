@@ -10,11 +10,11 @@ Stay tuned for updates, announcements, and exciting news about our projects!
 
 ### 20240428 We finished our unit testing!
 
-We are now finished the testing of our web application unit, and preparing for our mid-term presentation tomorrow!
+We are now finished the testing of our web application unit, and preparing for our mid-term presentation tomorrow! The test report were put [**here**](./project/testing/TestReport%20v1.0.pdf).
 
 ### 20240422 We finished coding our front-end UI and deployed our web application for easy access!
 
-We are now finished coding the user interfaces of our web application, also deployed our web application [**here**](https://dsd.zkc1.xyz:3783), so that anyone can access our system and login.
+We are now finished coding the user interfaces of our web application, also deployed our web application [**here**](http://zkc1.xyz:3784), so that anyone can access our system and login.
 
 ### 20240412 We started coding our project!
 
