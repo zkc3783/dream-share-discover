@@ -14,9 +14,9 @@ server.use(bodyParser.json())
 
 server.use(cors());
 
-server.listen(port, function(){
+server.listen(port,"0.0.0.0", function(){
     console.log(`Server is running on port ${port}`);
-    console.log('Server running at http://127.0.0.1:3000/');
+    console.log('Server running at http://0.0.0.0:3000/');
 });
 
 let customer = {
