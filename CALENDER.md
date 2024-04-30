@@ -30,7 +30,7 @@ Scheduled Test: active, 04-20, 7d
 
 ## 20240429 We finished the first iteration!
 
-We are thrilled to anounce that we finished the first iteration! We also made a instruction to run the code [**here**](./project/implementation/README.md). Feel free to check it our if needed. Till now, all the iteration 1 related files are put in the [**project**](./project/) folder.
+We are thrilled to anounce that we finished the first iteration! We put our ppt during presentation [**here**](./project/ppt/DSD_midterm.pdf), and made a instruction to run the code [**here**](./project/implementation/README.md). Feel free to check it our if needed. Till now, all the iteration 1 related files are put in the [**project**](./project/) folder.
 
 ## 20240428 We finished our unit testing!
 
