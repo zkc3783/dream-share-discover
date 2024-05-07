@@ -53,9 +53,9 @@ The project entails the development of an integrated digital ecosystem comprisin
 | Web Login | Allows store owners to access their dashboard for managing their store's profile and items. |
 | Check Store Info | Display store information to store owner. Including store name, location, average rate, feedback. |
 | Update Store Info | Allow store owners to edit their store data, including user name, store name and store location.|
-| Check ItemData | Display item data in current store to store owner. |
-| Update ItemData | Allow store owners to add a new item or edit the data of an existing item. Item data includes id, name, price, descriptions and image. |
-| Delete ItemData | Allow store owners to delete an item. |
+| Check Item Data | Display item data in current store to store owner. |
+| Update Item Data | Allow store owners to add a new item or edit the data of an existing item. Item data includes id (not editable after created for store owner), name, price, descriptions and image. |
+| Delete Item Data | Allow store owners to delete an item. |
 
 
 ### 3.3 Administrator Server
@@ -74,6 +74,9 @@ The project entails the development of an integrated digital ecosystem comprisin
 | Check Store Data | Display all store data to current administrator. | 
 | Update Store Data | Allow administrators to edit store data or add a new store. Store data includes storeid, username and password of its owner, store name and location  |
 | Delete Store Data | Allow administrators to delete store data. |
+| Check Item Data | Display item data from a store to administrators. |
+| Update Item Data | Allow administrators to add a new item or edit the data of an existing item in any store. Item data includes id, name, price, descriptions and image. |
+| Delete Item Data | Allow administrators to delete an item in a store. |
 | Check Analysis | Allows administrators to access comprehensive analytics, including user comments and overall advice. |
 
 ## 4. Use Case
