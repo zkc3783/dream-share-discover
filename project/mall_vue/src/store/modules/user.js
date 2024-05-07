@@ -81,7 +81,8 @@ const user = {
       debugger
       return new Promise((resolve, reject) => {
         login(usernamess, passwordss).then(response => {
-          let localtoken = require('@/public/logintoken.json')
+          // let localtoken = require('@/public/logintoken.json')
+          let localtoken = response
           const data = localtoken.data
           const tokenStr = data.tokenHead+data.token
           setToken(tokenStr)

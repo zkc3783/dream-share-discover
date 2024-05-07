@@ -23,19 +23,24 @@ Scheduled System design: active, 03-16, 21d
 section Implementation
 Our Implementation: crit, 04-01, 23d
 Scheduled Implementation: active, 04-06, 14d
-Our Test: crit, 04-22, 5d
+section Testing
+Our Test: crit, 04-22, 7d
 Scheduled Test: active, 04-20, 7d
 ```
 
+## 20240429 We finished the first iteration!
+
+We are thrilled to anounce that we finished the first iteration! We put our ppt during presentation [**here**](./project/ppt/DSD_midterm.pdf), and made a instruction to run the code [**here**](./project/implementation/README.md). Feel free to check it our if needed. Till now, all the iteration 1 related files are put in the [**project**](./project/) folder.
+
 ## 20240428 We finished our unit testing!
 
-We are now finished the testing of our web application unit, and preparing for our mid-term presentation tomorrow!
+We are now finished the testing of our web application unit, and preparing for our mid-term presentation tomorrow! The test report were put [**here**](./project/testing/TestReport%20v1.0.pdf).
 
 ## 20240422 We finished coding our front-end UI and deployed our web application for easy access!
 
-We are now finished coding the user interfaces of our web application, also deployed our web application [**here**](https://dsd.zkc1.xyz:3783), so that anyone can access our system and login.
+We are now finished coding the user interfaces of our web application, also deployed our web application [**here**](http://zkc1.xyz:3784), so that anyone can access our system and login.
 
-## 20240412 We started coding our project!
+## 20240412 We started coding our project! (Not Used)
 
 We started coding our project! Checking our latest progress by a few screenshots [**here**](./project/implementation). Codes are temporarily put [**here**](./project/mall_vue/). Now there are a few things due to be updated.
 

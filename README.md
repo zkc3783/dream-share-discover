@@ -8,22 +8,17 @@ Our team's focus is on the **web application**, while we also have our partners 
 
 Stay tuned for updates, announcements, and exciting news about our projects!
 
+### 20240429 We finished the first iteration!
+
+We are thrilled to anounce that we finished the first iteration! We put our ppt during presentation [**here**](./project/ppt/DSD_midterm.pdf), and made a instruction to run the code [**here**](./project/implementation/README.md). Feel free to check it our if needed. Till now, all the iteration 1 related files are put in the [**project**](./project/) folder.
+
 ### 20240428 We finished our unit testing!
 
-We are now finished the testing of our web application unit, and preparing for our mid-term presentation tomorrow!
+We are now finished the testing of our web application unit, and preparing for our mid-term presentation tomorrow! The test report were put [**here**](./project/testing/TestReport%20v1.0.pdf).
 
 ### 20240422 We finished coding our front-end UI and deployed our web application for easy access!
 
-We are now finished coding the user interfaces of our web application, also deployed our web application [**here**](https://dsd.zkc1.xyz:3783), so that anyone can access our system and login.
-
-### 20240412 We started coding our project!
-
-We started coding our project! Checking our latest progress by a few screenshots [**here**](./project/implementation). Codes are temporarily put [**here**](./project/mall_vue/). Now there are a few things due to be updated.
-
-- Add a register portal.
-- Add "location" in store info.
-- Add "comment" in feedback.
-- Make login panel selective of store owner login and admin login.
+We are now finished coding the user interfaces of our web application, also deployed our web application [**here**](http://zkc1.xyz:3784), so that anyone can access our system and login.
 
 ### 20240407 We renewed our Gantt chart referencing Brave Ones!
 

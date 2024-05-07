@@ -53,7 +53,10 @@
           brandId: [{required: true, message: 'Please select product brand', trigger: 'blur'}],
           description: [{required: true, message: 'Please enter product description', trigger: 'blur'}],
           requiredProp: [{required: true, message: 'This field is required', trigger: 'blur'}],
-          id: [{required: true, message: 'Please enter the product id', trigger: 'blur'}],
+          id: [
+            {required: true, message: 'Please enter the product id', trigger: 'blur'},
+            { pattern: /^[1-9]\d*$/, message: 'ID must be a positive integer', trigger: 'blur' }
+          ],
           price: [
             {required: true, message: 'Please enter the product price', trigger: 'blur'},
             {validator: this.checkPositiveInteger, trigger: 'blur'}
