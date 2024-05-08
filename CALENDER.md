@@ -28,6 +28,10 @@ Our Test: crit, 04-22, 7d
 Scheduled Test: active, 04-20, 7d
 ```
 
+## 20240507 We started the second iteration and updated our requirement analysis!
+
+We updated our requirement analysis file and put it [**here**](./project/requirement-analysis/Software%20Requirements%20Specification%20v1.4.md). The updates are about part 3, Functional Requirements where we reclarified the actions of store owners and administrator.
+
 ## 20240429 We finished the first iteration!
 
 We are thrilled to anounce that we finished the first iteration! We put our ppt during presentation [**here**](./project/ppt/DSD_midterm.pdf), and made a instruction to run the code [**here**](./project/implementation/README.md). Feel free to check it our if needed. Till now, all the iteration 1 related files are put in the [**project**](./project/) folder.
