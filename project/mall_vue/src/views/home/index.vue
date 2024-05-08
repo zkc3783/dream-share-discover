@@ -44,6 +44,27 @@
       Don't know where am I?
     </div>
   </div>
+  <el-dialog
+    title="Select Location"
+    :visible.sync="isMapVisible"
+    width="60%">
+    <map-container @location-selected="updateLocation"></map-container>
+    <span slot="footer" class="dialog-footer">
+      <el-row>
+        <el-col :span="16">
+          <div style="text-align: left;">Click the map to get coordinates: {{ storeLocationTemp }}</div>
+        </el-col>
+        <el-col :span="8">
+          <div style="text-align: right;">
+            <el-button @click="isMapVisible = false">Cancel</el-button>
+            <el-button type="primary" @click="confirmLocation">Confirm</el-button>
+          </div>
+        </el-col>
+      </el-row>
+    </span>
+
+
+  </el-dialog>
   <div v-if="this.$store.state.user.globalVariable === 0">
     <!-- Feedbacks Section -->
     <div class="advice-layout">
@@ -117,7 +138,7 @@
   import img_home_order from '@/assets/images/home_order.png';
   import img_home_today_amount from '@/assets/images/home_today_amount.png';
   import img_home_yesterday_amount from '@/assets/images/home_yesterday_amount.png';
-  
+  import MapContainer from "./MapContainer.vue";
   
   
   
@@ -128,6 +149,9 @@
     ]
   };
   export default {
+    components: {
+      MapContainer
+    },
     name: 'home',
     data() {
       debugger
@@ -136,12 +160,14 @@
         ratingWidth: 0,
         storeName: '', // 商店名称
         storeLocation: '', // 商店位置
+        storeLocationTemp: '', // 临时存储，Confirm后存入storeLocation
         avgRate: 0, // 平均评分
         feedback: [], // 反馈信息数组
         selectedComments: [], // 被选中的评论
         overallAdvices: [], // 总体建议
         showInput: false,  // 控制输入框显示
         userAddress: '',   // 存储用户输入的地址
+        isMapVisible: false, // 显示地图
         nameid:state => state.user.name,
         pickerOptions: {
           shortcuts: [{
@@ -294,40 +320,53 @@
           });
         });
       },
-      showLocationPrompt() {
-        this.$prompt('Please enter a structured address:', 'Location', {
-          confirmButtonText: 'Confirm',
-          cancelButtonText: 'Cancel',
-          inputPlaceholder: 'Address (e.g., China,Jilin,Changchun,Qianjindajie,2699)'
-        }).then(({ value }) => {
-          console.log('Entered Address:', value); // 显示输入的地址
-          this.fetchLocation(value);
-        }).catch(() => {
-          // 处理取消操作
-        });
-      },
-      fetchLocation(address) {
-        const key = 'ead31bdc09ecdd9f72511bae25e7c54e'; // 使用你的API Key
-        const url = `https://restapi.amap.com/v3/geocode/geo?address=${encodeURIComponent(address)}&output=JSON&key=${key}`;
+      // showLocationPrompt() {
+      //   this.$prompt('Please enter a structured address:', 'Location', {
+      //     confirmButtonText: 'Confirm',
+      //     cancelButtonText: 'Cancel',
+      //     inputPlaceholder: 'Address (e.g., China,Jilin,Changchun,Qianjindajie,2699)'
+      //   }).then(({ value }) => {
+      //     console.log('Entered Address:', value); // 显示输入的地址
+      //     this.fetchLocation(value);
+      //   }).catch(() => {
+      //     // 处理取消操作
+      //   });
+      // },
+      // fetchLocation(address) {
+      //   const key = 'ead31bdc09ecdd9f72511bae25e7c54e'; // 使用你的API Key
+      //   const url = `https://restapi.amap.com/v3/geocode/geo?address=${encodeURIComponent(address)}&output=JSON&key=${key}`;
 
-        fetch(url).then(response => {
-          return response.json();
-        }).then(data => {
-          if (data.status === '1' && data.geocodes.length > 0) {
-            const location = data.geocodes[0].location; // 获取经纬度字符串，格式为"经度,纬度"
-            const coordinates = location.split(','); // 分割为数组["经度","纬度"]
-            const reversedCoordinates = `${coordinates[1]},${coordinates[0]}`; // 反转为"纬度,经度"
-            this.storeLocation = reversedCoordinates; // 将反转后的坐标存入storeLocation
-            console.log('Reversed Location:', reversedCoordinates); // 输出纬度和经度
-            this.$message.success('Successfully found your location! Please click on \'Edit\' to save your update.');
-          } else {
-            console.error('Geocoding failed:', data.info);
-            this.$message.error('Geocoding failed: ' + data.info);
-          }
-        }).catch(error => {
-          console.error('API request failed:', error);
-          this.$message.error('Server error during geocoding');
-        });
+      //   fetch(url).then(response => {
+      //     return response.json();
+      //   }).then(data => {
+      //     if (data.status === '1' && data.geocodes.length > 0) {
+      //       const location = data.geocodes[0].location; // 获取经纬度字符串，格式为"经度,纬度"
+      //       const coordinates = location.split(','); // 分割为数组["经度","纬度"]
+      //       const reversedCoordinates = `${coordinates[1]},${coordinates[0]}`; // 反转为"纬度,经度"
+      //       this.storeLocation = reversedCoordinates; // 将反转后的坐标存入storeLocation
+      //       console.log('Reversed Location:', reversedCoordinates); // 输出纬度和经度
+      //       this.$message.success('Successfully found your location! Please click on \'Edit\' to save your update.');
+      //     } else {
+      //       console.error('Geocoding failed:', data.info);
+      //       this.$message.error('Geocoding failed: ' + data.info);
+      //     }
+      //   }).catch(error => {
+      //     console.error('API request failed:', error);
+      //     this.$message.error('Server error during geocoding');
+      //   });
+      // }
+      showLocationPrompt() {
+        this.isMapVisible = true;  // 显示地图
+      },
+      updateLocation(coordinates) {
+        this.storeLocationTemp = coordinates;  // Update the storeLocation with the new latitude and longitude 
+      },
+      confirmLocation() {
+        console.log('Location confirmed:', this.storeLocation);
+        this.storeLocation = this.storeLocationTemp;
+        this.$message.success('Successfully found your location! Please click on \'Edit\' to save your update.');
+        this.isMapVisible = false;
+        // You can also perform additional actions here, such as saving the data to a server or further processing
       }
     }
   }
@@ -459,4 +498,6 @@
     color: #409EFF; /* 蓝色文字 */
     cursor: pointer;
   }
+
+  
 </style>
