@@ -7,37 +7,38 @@
     <div class="name-layout">
       <div class="layout-title">Store Info</div>
       <div class="content-box">
-        <el-row :gutter="24">
-          <el-col :span="7">
-            <div style="display: flex; align-items: center;">
-            <label for="storeName" style="margin-right: 8px;">Name</label>
-            <el-input v-model="storeName" placeholder="Enter store name"></el-input>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div style="display: flex; align-items: center;">
-            <label for="storeName" style="margin-right: 8px;">Location</label>
-            <el-input v-model="storeLocation" placeholder="Enter location (latitude,longitude)"></el-input>
-            </div>
-          </el-col>
-          <el-col :span="6">
-            <div style="display: flex; align-items: center;">
-            <label for="storeName" style="margin-right: 8px;">Floor</label>
-            <el-input v-model="storeFloor" placeholder="Enter store floor"></el-input>
-            </div>
-          </el-col>
-          <el-col :span="2">
-            <el-button class="edit-link" type="primary" @click="edit" style="margin-left: 8px;">Edit</el-button>
-          </el-col>
-        </el-row>
+        <el-form ref="editForm" :model="$data" :rules="rules" label-position="right">
+          <el-row :gutter="24">
+            <el-col :span="7">
+              <el-form-item label="Name" label-width="60px" prop="storeName">
+                <el-input v-model="storeName" placeholder="Enter store name"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="8">
+              <el-form-item label="Location" label-width="75px"  prop="storeLocation" style="margin-left: -10px">
+                <el-input v-model="storeLocation" placeholder="Enter location (lat,lng)"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="6">
+              <el-form-item label="Floor" label-width="55px"  prop="storeFloor" style="margin-left: -10px">
+                <el-input v-model="storeFloor" placeholder="Enter store floor"></el-input>
+              </el-form-item>
+            </el-col>
+            <el-col :span="3">
+              <!-- Optional: Any additional buttons or content can go here -->
+              <el-button class="edit-link" type="primary" @click="edit" style="margin-left: 10px">Edit</el-button>
+            </el-col>
+          </el-row>
+        </el-form>
       </div>
+      <!-- <div v-if="this.$store.state.user.globalVariable === 0"> -->
+        <div class="location-query" @click="showLocationPrompt" style="margin-top:-30px; margin-left: 10px">
+          Don't know where am I?
+        </div>
+      <!-- </div> -->
     </div>
   </div>
-  <div v-if="this.$store.state.user.globalVariable === 0">
-    <div class="location-query" @click="showLocationPrompt">
-      Don't know where am I?
-    </div>
-  </div>
+  
   <el-dialog
     title="Select Location"
     :visible.sync="isMapVisible"
@@ -68,13 +69,12 @@
           <el-table-column
             prop="Comment"
             label="Comment"
-            :width="commentWidth"
             >
           </el-table-column>
           <el-table-column
             prop="Rating"
             :label="`Rating (Avg: ${this.avgRate})`"
-            :width="ratingWidth"
+            :width="180"
             >
           </el-table-column>
         </el-table>
@@ -91,13 +91,12 @@
           <el-table-column
             prop="Comment"
             label="Comment"
-            :width="commentWidth"
             >
           </el-table-column>
           <el-table-column
             prop="Rating"
             label="Rating"
-            :width="ratingWidth"
+            :width="180"
             >
           </el-table-column>
         </el-table>
@@ -148,8 +147,6 @@
     data() {
       debugger
       return {
-        commentWidth: 0,
-        ratingWidth: 0,
         storeName: '', // 商店名称
         storeLocation: '', // 商店位置
         storeFloor: 1,
@@ -179,25 +176,50 @@
             }
           }]
         },
+        rules: {
+          storeName: [
+            {
+              required: true,
+              message: 'Please enter the store name',
+              trigger: 'blur'
+            }
+          ],
+          storeLocation: [
+            { 
+              required: true, 
+              message: 'Location must be two numbers separated by a comma', 
+              pattern: /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/, 
+              trigger: 'blur'
+            }
+          ],
+          storeFloor: [
+            {
+              required: true, 
+              message: 'Floor must be an integer', 
+              pattern: /^-?\d+$/, 
+              trigger: 'blur'
+            }
+          ],
+        },
       }
     },
     created(){
       this.initOrderCountDate();
       this.getData();
     },
-    mounted() { // 用于动态调节Feedback和SelectedComments表列宽度
-      this.calculateColumnWidths();
-      window.addEventListener('resize', this.calculateColumnWidths); // 确保响应式
-    },
-    beforeDestroy() {
-      window.removeEventListener('resize', this.calculateColumnWidths); // 清理事件监听
-    },
+    // mounted() { // 用于动态调节Feedback和SelectedComments表列宽度
+    //   this.calculateColumnWidths();
+    //   window.addEventListener('resize', this.calculateColumnWidths); // 确保响应式
+    // },
+    // beforeDestroy() {
+    //   window.removeEventListener('resize', this.calculateColumnWidths); // 清理事件监听
+    // },
     methods:{
-      calculateColumnWidths() {
-        const containerWidth = this.$el.querySelector('.advice-layout').clientWidth; // 或其他容器
-        this.commentWidth = containerWidth * 0.8; // 80% 宽
-        this.ratingWidth = containerWidth * 0.2; // 20% 宽
-      },
+      // calculateColumnWidths() {
+      //   const containerWidth = this.$el.querySelector('.advice-layout').clientWidth; // 或其他容器
+      //   this.commentWidth = containerWidth * 0.8; // 80% 宽
+      //   this.ratingWidth = containerWidth * 0.2; // 20% 宽
+      // },
       handleDateChange(){
         this.getData();
       },
@@ -287,6 +309,8 @@
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(() => {
+          this.$refs.editForm.validate((valid) => {
+          if (valid) {
           const blob = new Blob([JSON.stringify({"UserName":this.$store.state.user.name,
                                                 "StoreName":this.storeName,
                                                 "StoreLocation":this.storeLocation,
@@ -314,6 +338,12 @@
             console.error('Error during updating:', error);
             this.$message.error('Server error');
           });
+        } else {
+          this.$message({
+              type: 'error',
+              message: 'One or more fields have invalid entries, please check the form again'
+            });
+        }})
         });
       },
       // showLocationPrompt() {
