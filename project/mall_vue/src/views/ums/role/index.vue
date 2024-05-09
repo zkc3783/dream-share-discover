@@ -344,6 +344,8 @@
           //   })
           // }
           // else
+          this.$refs.roleForm.validate((valid) => {
+          if (valid)
           {
             //数据库  
             debugger
@@ -391,7 +393,13 @@
             //   this.dialogVisible =false;
             //   this.getList();
             // })
-          }
+          } else {
+            this.$message({
+              type: 'error',
+              message: 'One or more fields have invalid entries, please check the form again'
+            });
+            return false;
+          }})
         })
       },
       handleSelectMenu(index,row){

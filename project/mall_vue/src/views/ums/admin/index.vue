@@ -419,7 +419,10 @@
             //   this.getList();
             // })
           } else {
-            console.log('error submit!!');
+            this.$message({
+              type: 'error',
+              message: 'One or more fields have invalid entries, please check the form again'
+            });
             return false;
           }});
         })

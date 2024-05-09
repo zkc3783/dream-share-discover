@@ -73,9 +73,8 @@
             this.$emit('nextStep');
           } else {
             this.$message({
-              message: 'Validation failed',
               type: 'error',
-              duration:1000
+              message: 'One or more fields have invalid entries, please check the form again'
             });
             return false;
           }
