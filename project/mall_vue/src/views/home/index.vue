@@ -4,40 +4,34 @@
     <h1>Welcome, {{this.$store.state.user.name }}!</h1>
   </div>
   <div v-if="this.$store.state.user.globalVariable === 0">
-    <el-row gutter="20" type="flex" align="stretch">
-      <el-col :span="20">
-          <div class="name-layout">
-            <div class="layout-title">Store Info</div>
-            <div class="content-box">
-              <el-row :gutter="24">
-                <el-col :span="9">
-                  <div style="display: flex; align-items: center;">
-                  <label for="storeName" style="margin-right: 8px;">Name</label>
-                  <el-input v-model="storeName" placeholder="Enter store name"></el-input>
-                  </div>
-                </el-col>
-                <el-col :span="12">
-                  <div style="display: flex; align-items: center;">
-                  <label for="storeName" style="margin-right: 8px;"> Location </label>
-                  <el-input v-model="storeLocation" placeholder="Enter location (latitude,longitude)"></el-input>
-                  </div>
-                </el-col>
-                <el-col :span="2">
-                  <el-button class="edit-link" type="primary" @click="edit">Edit</el-button>
-                </el-col>
-              </el-row>
+    <div class="name-layout">
+      <div class="layout-title">Store Info</div>
+      <div class="content-box">
+        <el-row :gutter="24">
+          <el-col :span="7">
+            <div style="display: flex; align-items: center;">
+            <label for="storeName" style="margin-right: 8px;">Name</label>
+            <el-input v-model="storeName" placeholder="Enter store name"></el-input>
             </div>
-          </div>
-      </el-col>
-      <el-col :span="4">
-          <div class="name-layout">
-            <div class="layout-title">Avg Rate</div>
-            <div class="content-box center-content">
-              {{ this.avgRate }}
+          </el-col>
+          <el-col :span="8">
+            <div style="display: flex; align-items: center;">
+            <label for="storeName" style="margin-right: 8px;">Location</label>
+            <el-input v-model="storeLocation" placeholder="Enter location (latitude,longitude)"></el-input>
             </div>
-          </div>
-      </el-col>
-    </el-row>
+          </el-col>
+          <el-col :span="6">
+            <div style="display: flex; align-items: center;">
+            <label for="storeName" style="margin-right: 8px;">Floor</label>
+            <el-input v-model="storeFloor" placeholder="Enter store floor"></el-input>
+            </div>
+          </el-col>
+          <el-col :span="2">
+            <el-button class="edit-link" type="primary" @click="edit" style="margin-left: 8px;">Edit</el-button>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
   </div>
   <div v-if="this.$store.state.user.globalVariable === 0">
     <div class="location-query" @click="showLocationPrompt">
@@ -62,8 +56,6 @@
         </el-col>
       </el-row>
     </span>
-
-
   </el-dialog>
   <div v-if="this.$store.state.user.globalVariable === 0">
     <!-- Feedbacks Section -->
@@ -81,7 +73,7 @@
           </el-table-column>
           <el-table-column
             prop="Rating"
-            label="Rating"
+            :label="`Rating (Avg: ${this.avgRate})`"
             :width="ratingWidth"
             >
           </el-table-column>
@@ -160,8 +152,9 @@
         ratingWidth: 0,
         storeName: '', // 商店名称
         storeLocation: '', // 商店位置
+        storeFloor: 1,
         storeLocationTemp: '', // 临时存储，Confirm后存入storeLocation
-        avgRate: 0, // 平均评分
+        avgRate: '/', // 平均评分
         feedback: [], // 反馈信息数组
         selectedComments: [], // 被选中的评论
         overallAdvices: [], // 总体建议
@@ -202,8 +195,8 @@
     methods:{
       calculateColumnWidths() {
         const containerWidth = this.$el.querySelector('.advice-layout').clientWidth; // 或其他容器
-        this.commentWidth = containerWidth * 0.9; // 90% 宽
-        this.ratingWidth = containerWidth * 0.1; // 10% 宽
+        this.commentWidth = containerWidth * 0.8; // 80% 宽
+        this.ratingWidth = containerWidth * 0.2; // 20% 宽
       },
       handleDateChange(){
         this.getData();
@@ -235,6 +228,7 @@
           }).then(data => {
             this.storeName = data["StoreName"];
             this.storeLocation = data["StoreLocation"];
+            this.storeFloor = data["StoreFloor"]; // 新加入店铺楼层
             this.avgRate = data["AvgRate"];
             this.feedback = data["Feedback"];
           }).catch(error => {
@@ -295,7 +289,9 @@
         }).then(() => {
           const blob = new Blob([JSON.stringify({"UserName":this.$store.state.user.name,
                                                 "StoreName":this.storeName,
-                                                "StoreLocation":this.storeLocation})],
+                                                "StoreLocation":this.storeLocation,
+                                                "StoreFloor":this.storeFloor
+                                              })],
                                 {type: 'application/json'});
           //window.open(URL.createObjectURL(blob));
           fetch(this.$store.state.user.globalURL+'/Interface28', {

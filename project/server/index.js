@@ -66,6 +66,7 @@ let store = {
     "UserPassword": "123456",
     "StoreName":"XIAOMI",
     "StoreLocation": "30.4981807,114.5086413",
+    "StoreFloor": 1,
     "AvgRate": 9.0,
     "Feedback": [{
       "Comment":"Great service and fast delivery!",
@@ -81,6 +82,7 @@ let store = {
     "UserPassword": "password11",
     "StoreName":"yifu building",
     "StoreLocation": "43.8311978,125.2881350",
+    "StoreFloor": 1,
     "AvgRate": 9.0,
     "Feedback": [{
     "Comment":"Great exam!",
@@ -94,6 +96,7 @@ let store = {
       "UserPassword": "password12",
       "StoreName":"RiXin building",
       "StoreLocation": "43.8278974,125.2829697",
+      "StoreFloor": 1,
       "AvgRate": 9.0,
       "Feedback": [{
       "Comment":"Great service and fast delivery!",
@@ -110,6 +113,7 @@ let store = {
       "UserPassword": "code_1x123s",
       "StoreName":"hamburger",
       "StoreLocation": "43.8340754,125.2743190",
+      "StoreFloor": 1,
       "AvgRate": 8.0,
       "Feedback": [{
       "Comment":"QQ is rtey cool.",
@@ -123,6 +127,7 @@ let store = {
       "UserPassword": "codpowfgddshfe_1x43",
       "StoreName":"tea",
       "StoreLocation": "43.8324302,125.2704159",
+      "StoreFloor": 1,
       "AvgRate": 8.0,
       "Feedback": [{
       "Comment":"QQ sdfsad so cool.",
@@ -136,6 +141,7 @@ let store = {
       "UserPassword": "passwfgjord15",
       "StoreName":"coffee",
       "StoreLocation": "43.8279169,125.2830191",
+      "StoreFloor": 1,
       "AvgRate": 9.0,
       "Feedback": []
   },
@@ -145,6 +151,7 @@ let store = {
       "UserPassword": "pashsword16",
       "StoreName":"SuperMarket",
       "StoreLocation": "43.8266454,125.2967183°",
+      "StoreFloor": 1,
       "AvgRate": "/",
       "Feedback": [{
       "Comment":"Great!",
@@ -158,6 +165,7 @@ let store = {
       "UserPassword": "passwofghrd17",
       "StoreName":"Wine & Cigarette",
       "StoreLocation": "43.8278323,125.2980837",
+      "StoreFloor": 1,
       "AvgRate": "8",
       "Feedback": []
   },
@@ -168,6 +176,7 @@ let store = {
       "UserPassword": "codgfhe_18",
       "StoreName":"Fried Chicken",
       "StoreLocation": "43.8308304,125.2991796",
+      "StoreFloor": 1,
       "AvgRate": 4.01,
       "Feedback": [{
       "Comment":"QQ is rtey cool.",
@@ -181,6 +190,7 @@ let store = {
       "UserPassword": "SuperMarket",
       "StoreName":"tea",
       "StoreLocation": "43.8334869,125.2944500",
+      "StoreFloor": 1,
       "AvgRate": 8.8,
       "Feedback": [{
       "Comment":"QQ so cool.",
@@ -193,6 +203,7 @@ let store = {
     "UserPassword": "654321",
     "StoreName":"TENGXUN",
     "StoreLocation": "22.5458116,113.9411541",
+    "StoreFloor": 2,
     "AvgRate": 8.0,
     "Feedback": [{
       "Comment":"QQ is so cool.",
@@ -350,7 +361,7 @@ server.post('/Interface23', (req, res) => { // Check storeData
 
 server.post('/Interface24', (req, res) => { // Update storeData
   console.log('Interface24')
-  const { UserId, UserName, UserPassword, StoreName, StoreLocation} = req.body;
+  const { UserId, UserName, UserPassword, StoreName, StoreLocation, StoreFloor} = req.body;
   console.log('Receiving request:', req.body)
   if(!store[UserId])
     store[UserId] = {"UserId": UserId, "AvgRate": "/",
@@ -360,6 +371,7 @@ server.post('/Interface24', (req, res) => { // Update storeData
   store[UserId]["UserPassword"] = UserPassword;
   store[UserId]["StoreName"] = StoreName;
   store[UserId]["StoreLocation"] = StoreLocation;
+  store[UserId]["StoreFloor"] = StoreFloor;
   const response =
     {}
   console.log('Sending response:', response);
@@ -393,6 +405,7 @@ function getStoreByUserName(userName) {
       return {
         StoreName: store[key].StoreName,
         StoreLocation: store[key].StoreLocation,
+        StoreFloor: store[key].StoreFloor,
         AvgRate: store[key].AvgRate,
         Feedback: store[key].Feedback
       };
@@ -416,14 +429,15 @@ function updateStoreByUserName(userName, storeName, storeLocation) {
     if (store[key].UserName === userName) {
       store[key].StoreName = storeName
       store[key].StoreLocation = storeLocation
+      store[key].StoreFloor = StoreFloor
     }
   }
 }
 
 server.post('/Interface28', (req, res) => { // Update Store Info
   console.log('Interface28')
-  const { UserName, StoreName, StoreLocation } = req.body;
-  updateStoreByUserName(UserName, StoreName, StoreLocation)
+  const { UserName, StoreName, StoreLocation, StoreFloor } = req.body;
+  updateStoreByUserName(UserName, StoreName, StoreLocation, StoreFloor)
   console.log('Receiving request:', req.body)
   const response ={}
   console.log('Sending response:', response);

@@ -37,7 +37,7 @@
                 :data="list"
                 style="width: 100%;"
                 v-loading="listLoading" border>
-        <el-table-column label="ID" width="100" align="center">
+        <el-table-column label="ID" width="80" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
         <el-table-column label="Username" align="center">
@@ -46,8 +46,11 @@
         <el-table-column label="Store Name" align="center">
           <template slot-scope="scope">{{scope.row.storename}}</template>
         </el-table-column>
-        <el-table-column label="Location" width="240" align="center">
+        <el-table-column label="Location" width="220" align="center">
           <template slot-scope="scope">{{scope.row.location}}</template>
+        </el-table-column>
+        <el-table-column label="Floor" width="100" align="center">
+          <template slot-scope="scope">{{scope.row.floor}}</template>
         </el-table-column>
         <el-table-column label="Avg Rate"  width="100" align="center">
           <template slot-scope="scope">{{scope.row.avgrate}}</template>
@@ -128,6 +131,9 @@
         <el-form-item label="Location:" prop="location">
           <el-input v-model="role.location" style="width: 250px"></el-input>
         </el-form-item>
+        <el-form-item label="Floor:" prop="floor">
+          <el-input v-model="role.floor" style="width: 250px"></el-input>
+        </el-form-item>
         <!-- <el-form-item label="Description:">
           <el-input v-model="role.description"
                     type="textarea"
@@ -198,6 +204,14 @@
               trigger: 'blur'
             }
           ],
+          floor: [
+            {
+              required: true, 
+              pattern: /^-?\d+$/,
+              message: 'Floor must be an integer',
+              trigger: 'blur'
+            }
+          ]
         }
       }
     },
@@ -310,6 +324,7 @@
           UserPassword: item.password,
           StoreName: item.storename,
           StoreLocation: item.location,
+          StoreFloor: item.floor,
         };
       },
       handleDialogConfirm() {
@@ -395,6 +410,7 @@
           password: item.UserPassword,
           storename: item.StoreName,
           location: item.StoreLocation,
+          floor: item.StoreFloor,
           avgrate: item.AvgRate
         }));
       },
