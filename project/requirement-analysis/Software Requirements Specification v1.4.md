@@ -57,6 +57,7 @@ The project entails the development of an integrated digital ecosystem comprisin
 | Update Item Data | Allow store owners to add a new item or edit the data of an existing item. Item data includes id (not editable after created for store owner), name, price, descriptions and image. |
 | Delete Item Data | Allow store owners to delete an item. |
 | Get Location | Allow store owners to get their store location easily by clicking on the map |
+| Get Recommendation | Store the recommendation data delivered by database. |
 
 
 ### 3.3 Administrator Server
