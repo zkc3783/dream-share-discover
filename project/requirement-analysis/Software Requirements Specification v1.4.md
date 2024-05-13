@@ -39,6 +39,7 @@ The project entails the development of an integrated digital ecosystem comprisin
 | View Hunted List | Provide a list or collection of items the user has interacted with or saved, known as "hunted" items. |
 | View Store | Enable users to view detailed information about stores, including items available, through the app. |
 | Feedback | Collect user feedback on items and notifications to improve the recommendation algorithm and app functionality. |
+| Recommendation | Store and show the recommendation data that have been delivered by  database. |
 
 ### 3.2 Store Owner Client
 
@@ -57,7 +58,6 @@ The project entails the development of an integrated digital ecosystem comprisin
 | Update Item Data | Allow store owners to add a new item or edit the data of an existing item. Item data includes id (not editable after created for store owner), name, price, descriptions and image. |
 | Delete Item Data | Allow store owners to delete an item. |
 | Get Location | Allow store owners to get their store location easily by clicking on the map |
-| Get Recommendation | Store the recommendation data delivered by database. |
 
 
 ### 3.3 Administrator Server
@@ -96,6 +96,7 @@ Please check our use case diagram [**here**](./Use%20Case%20Diagram%20v1.3.pdf).
 | Personal and Store Information Storage | Securely store detailed records of users' personal information, preferences, store information, and item details, ensuring privacy and facilitating user and item matching. |
 | Feedback Data Recording                | Record and store user feedback on items and notifications for analysis, aiding in service improvement. |
 | Statistics and Analysis Report Storage | Store and access statistics and analysis reports of customers and stores. |
+| Recommendation Delivery | Whenever recieve recommendation data from algorithm part, deliver it back to client and store it in client side |
 
 
 ### 5.2 Algorithms Interfaces
@@ -105,6 +106,7 @@ Please check our use case diagram [**here**](./Use%20Case%20Diagram%20v1.3.pdf).
 | Interest Recommendations            | Analyze customer, store profiles and item details to make personalized recommendations, enhancing user engagement with alerts for items of interest nearby. |
 | Feedback Improvement Mechanism      | Utilize customer feedback on recommendations and items to refine the accuracy and effectiveness of matching users with their interests. |
 | Customer and Store Analysis Reports | Generate customer and store analysis reports on customer and store interactions, reducing computational burdens and aiding in personalized recommendations. |
+| Wifi Monitor | Implement the algorithm that can monitor WIFI signal to customer client. |
 
 
 ## 6. Non Functional Requirements
