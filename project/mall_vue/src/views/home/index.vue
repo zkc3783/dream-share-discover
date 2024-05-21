@@ -326,7 +326,8 @@
             body: JSON.stringify({
               UserName: this.$store.state.user.name,
               StoreName: this.storeName,
-              StoreLocation: this.storeLocation
+              StoreLocation: this.storeLocation,
+              StoreFloor: this.storeFloor
             })
           }).then(() => {
             this.$message({

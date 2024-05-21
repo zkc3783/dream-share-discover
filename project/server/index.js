@@ -424,12 +424,12 @@ server.post('/Interface27', (req, res) => { // Check Store Info
   res.json(response);
 });
 
-function updateStoreByUserName(userName, storeName, storeLocation) {
+function updateStoreByUserName(userName, storeName, storeLocation, storeFloor) {
   for (let key in store) {
     if (store[key].UserName === userName) {
       store[key].StoreName = storeName
       store[key].StoreLocation = storeLocation
-      store[key].StoreFloor = StoreFloor
+      store[key].StoreFloor = storeFloor
     }
   }
 }
