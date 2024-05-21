@@ -1,8 +1,8 @@
 # Software Requirements Specification Iteration 1, Version 1.4
 
-| Date | Author |
-| ---- | ------ |
-| March 15 | Requirement Analysts of each group, Paul(Minghao Chen) |
+| Date   | Author | Work |
+| ----   | ------ | ---- |
+| May 15 | Jason(Minghao Chen)  | Rewrite Chapter 5 |
 
 ## 1. Introduction
 
@@ -39,6 +39,7 @@ The project entails the development of an integrated digital ecosystem comprisin
 | View Hunted List | Provide a list or collection of items the user has interacted with or saved, known as "hunted" items. |
 | View Store | Enable users to view detailed information about stores, including items available, through the app. |
 | Feedback | Collect user feedback on items and notifications to improve the recommendation algorithm and app functionality. |
+| Recommendation | Store and show the recommendation data that have been delivered by  database. |
 
 ### 3.2 Store Owner Client
 
@@ -56,9 +57,10 @@ The project entails the development of an integrated digital ecosystem comprisin
 | Check Item Data | Display item data in current store to store owner. |
 | Update Item Data | Allow store owners to add a new item or edit the data of an existing item. Item data includes id (not editable after created for store owner), name, price, descriptions and image. |
 | Delete Item Data | Allow store owners to delete an item. |
+| Get Location | Allow store owners to get their store location easily by clicking on the map |
 
 
-### 3.3 Administrator Server
+### 3.3 Administrator Client
 
 * **Goal:** To ensure smooth operation and management of the app's backend processes.
 * **Summary:** The Administrator Server module, accessible via the Web Application, oversees user and store data management, handles violations, and compiles analytics for ongoing app enhancements, ensuring data integrity and supporting software improvement.
@@ -84,25 +86,31 @@ The project entails the development of an integrated digital ecosystem comprisin
 Please check our use case diagram [**here**](./Use%20Case%20Diagram%20v1.3.pdf). The use cases are corresponding to the requirements in 3. Functional Requirements.
 
 
-## 5. Software Interfaces
+## 5. Software Internal Implementation Requirements
 
-### 5.1 Database Interfaces
+
+
+### 5.1 Database Module
+* **Goal:** Store data, provide data to front-end client, communicate with algorithm module when necessary.
+
 
 | Requirement                            | Description                                                  |
 | -------------------------------------- | ------------------------------------------------------------ |
-| Database API                           | Provide APIs for the Android app, WeChat Mini Program and web application, enabling it to access, display and updates user, store, item, feedback and statistical data.<br>This includes advanced search functionalities allowing the retrieval of user information based on criteria such as age, gender, shopping history, and store information based on location, store type, or specific criteria. |
-| Personal and Store Information Storage | Securely store detailed records of users' personal information, preferences, store information, and item details, ensuring privacy and facilitating user and item matching. |
-| Feedback Data Recording                | Record and store user feedback on items and notifications for analysis, aiding in service improvement. |
-| Statistics and Analysis Report Storage | Store and access statistics and analysis reports of customers and stores. |
+| Provide API  | Provide APIs for the Android app, WeChat Mini Program and web application, enabling it to access, display and updates data. Such as user, store and item data.<br>Details are listed in Chapter 3 and interface document. |
+| Access API   | Access APIs in the algorithm module. <br>For some functions such as recommendations, the database module needs to interact with the algorithm module to obtain results. |
+| Data Storage | Securely store detailed records of users' personal information, preferences, store information, and item details, ensuring privacy and facilitating user and item matching. |
 
 
-### 5.2 Algorithms Interfaces
+### 5.2 Algorithms Module
+* **Goal:** TODO.
 
 | Requirement                         | Description                                                  |
 | ----------------------------------- | ------------------------------------------------------------ |
-| Interest Recommendations            | Analyze customer, store profiles and item details to make personalized recommendations, enhancing user engagement with alerts for items of interest nearby. |
+| Provide API  | Provide APIs for the database module, enabling it to implement some functions, such as recommendation.<br>Details are listed in interface document. |
+| Interest Recommendations   | Analyze customer, store profiles and item details to make personalized recommendations, enhancing user engagement with alerts for items of interest nearby. |
 | Feedback Improvement Mechanism      | Utilize customer feedback on recommendations and items to refine the accuracy and effectiveness of matching users with their interests. |
 | Customer and Store Analysis Reports | Generate customer and store analysis reports on customer and store interactions, reducing computational burdens and aiding in personalized recommendations. |
+| Wifi Monitor | Implement the algorithm that can monitor WIFI signal to customer client. |
 
 
 ## 6. Non Functional Requirements
