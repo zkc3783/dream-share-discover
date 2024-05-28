@@ -165,7 +165,7 @@
       //       UserPassword: item.password
       //     };
       //     }, */
-      //     fetch(this.$store.state.user.globalURL+'/Interface18', {
+      //     fetch(this.$store.state.user.globalURL+'/interface18', {
       //       method: 'POST',
       //       headers: {
       //         'Content-Type': 'application/json'
@@ -213,7 +213,7 @@
             //   return;
             // }
             debugger
-            fetch(this.$store.state.user.globalURL+'/Interface18', {
+            fetch(this.$store.state.user.globalURL+'/interface18', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

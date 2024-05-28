@@ -46,7 +46,7 @@ const storeinfo = {
   ]
 }
 
-server.delete('/Interface22', (req, res) => {
+server.delete('/interface22', (req, res) => {
   const { ItemId } = req.body;
   console.log(req.body)
   // 在这里，你需要实现删除操作
@@ -57,7 +57,7 @@ server.delete('/Interface22', (req, res) => {
   res.end();
 });
 
-server.delete('/Interface25', (req, res) => {
+server.delete('/interface25', (req, res) => {
   const { ItemId } = req.body;
   console.log(req.body)
   // 在这里，你需要实现删除操作
@@ -68,7 +68,7 @@ server.delete('/Interface25', (req, res) => {
   res.end();
 });
 
-server.post('/Interface27', (req, res) => {
+server.post('/interface27', (req, res) => {
   const { UserName } = req.body;
   console.log(req.body)
   // 在这里，你需要根据 UserName 查找相应的数据
@@ -89,7 +89,7 @@ server.post('/Interface27', (req, res) => {
   });
 });
 
-server.post('/Interface28', (req, res) => {
+server.post('/interface28', (req, res) => {
   const { UserName, StoreName, StoreLocation } = req.body;
   console.log(req.body)
   // 在这里，你需要实现删除操作
@@ -116,7 +116,7 @@ server.get('*', function (request, response, next) {
 }) */
 
 
-server.post('/Interface18', (req, res) => {
+server.post('/interface18', (req, res) => {
   const { username, password } = req.body;
   console.log(req.body)
   res.json({

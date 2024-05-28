@@ -255,8 +255,8 @@ function checkRegister(userName) {
   return false;
 }
 
-server.post('/Interface18', (req, res) => { // Register
-  console.log('Interface18')
+server.post('/interface18', (req, res) => { // Register
+  console.log('interface18')
   const { UserName, UserPassword } = req.body;
   console.log('Receiving request:', req.body)
   IDcount = IDcount + 1
@@ -294,8 +294,8 @@ function checkLogin(userName, userPassword) {
   return false;
 }
 
-server.post('/Interface19', (req, res) => { // Login
-  console.log('Interface19')
+server.post('/interface19', (req, res) => { // Login
+  console.log('interface19')
   const { UserName, UserPassword } = req.body;
   console.log('Receiving request:', req.body)
   if (checkLogin(UserName, UserPassword)) {
@@ -313,8 +313,8 @@ server.post('/Interface19', (req, res) => { // Login
   }
 });
 
-server.post('/Interface20', (req, res) => { //Check userData
-  console.log('Interface20')
+server.post('/interface20', (req, res) => { //Check userData
+  console.log('interface20')
   const { } = req.body;
   console.log('Receiving request:', req.body)
   const response ={
@@ -324,8 +324,8 @@ server.post('/Interface20', (req, res) => { //Check userData
   res.json(response);
 });
 
-server.post('/Interface21', (req, res) => { // Update userData
-  console.log('Interface21')
+server.post('/interface21', (req, res) => { // Update userData
+  console.log('interface21')
   const { UserId, UserName, UserPassword, Birthday, Interests, Email } = req.body;
   console.log('Receiving request:', req.body)
   customer[UserId] = req.body
@@ -336,8 +336,8 @@ server.post('/Interface21', (req, res) => { // Update userData
   res.json(response);
 });
 
-server.post('/Interface22', (req, res) => { // Delete userData
-  console.log('Interface22')
+server.post('/interface22', (req, res) => { // Delete userData
+  console.log('interface22')
   const { UserId } = req.body;
   console.log('Receiving request:', req.body)
   delete customer[UserId];
@@ -347,8 +347,8 @@ server.post('/Interface22', (req, res) => { // Delete userData
   res.json(response);
 });
 
-server.post('/Interface23', (req, res) => { // Check storeData
-  console.log('Interface23')
+server.post('/interface23', (req, res) => { // Check storeData
+  console.log('interface23')
   const { } = req.body;
   console.log('Receiving request:', req.body)
   const response =
@@ -359,8 +359,8 @@ server.post('/Interface23', (req, res) => { // Check storeData
   res.json(response);
 });
 
-server.post('/Interface24', (req, res) => { // Update storeData
-  console.log('Interface24')
+server.post('/interface24', (req, res) => { // Update storeData
+  console.log('interface24')
   const { UserId, UserName, UserPassword, StoreName, StoreLocation, StoreFloor} = req.body;
   console.log('Receiving request:', req.body)
   if(!store[UserId])
@@ -379,8 +379,8 @@ server.post('/Interface24', (req, res) => { // Update storeData
 });
 
 
-server.post('/Interface25', (req, res) => { // Delete storeData
-  console.log('Interface25')
+server.post('/interface25', (req, res) => { // Delete storeData
+  console.log('interface25')
   const { UserId } = req.body;
   console.log('Receiving request:', req.body)
   delete store[UserId];
@@ -390,8 +390,8 @@ server.post('/Interface25', (req, res) => { // Delete storeData
   res.json(response);
 });
 
-server.post('/Interface26', (req, res) => { // Check Analysis
-  console.log('Interface26')
+server.post('/interface26', (req, res) => { // Check Analysis
+  console.log('interface26')
   const { } = req.body;
   console.log('Receiving request:', req.body)
   const response =analysis
@@ -414,8 +414,8 @@ function getStoreByUserName(userName) {
   return null; // 如果找不到指定的 UserName，返回 null
 }
 
-server.post('/Interface27', (req, res) => { // Check Store Info
-  console.log('Interface27')
+server.post('/interface27', (req, res) => { // Check Store Info
+  console.log('interface27')
   const { UserName } = req.body;
   console.log('Receiving request:', req.body)
   const response =
@@ -434,8 +434,8 @@ function updateStoreByUserName(userName, storeName, storeLocation) {
   }
 }
 
-server.post('/Interface28', (req, res) => { // Update Store Info
-  console.log('Interface28')
+server.post('/interface28', (req, res) => { // Update Store Info
+  console.log('interface28')
   const { UserName, StoreName, StoreLocation, StoreFloor } = req.body;
   updateStoreByUserName(UserName, StoreName, StoreLocation, StoreFloor)
   console.log('Receiving request:', req.body)
@@ -444,8 +444,8 @@ server.post('/Interface28', (req, res) => { // Update Store Info
   res.json(response);
 });
 
-server.post('/Interface29', (req, res) => { // Check ItemData
-  console.log('Interface29')
+server.post('/interface29', (req, res) => { // Check ItemData
+  console.log('interface29')
   const { UserName } = req.body;
   console.log('Receiving request:', req.body)
   let response;
@@ -462,8 +462,8 @@ server.post('/Interface29', (req, res) => { // Check ItemData
   res.json(response);
 });
 
-server.post('/Interface30', (req, res) => { // Update ItemData
-  console.log('Interface30')
+server.post('/interface30', (req, res) => { // Update ItemData
+  console.log('interface30')
   const { UserName, ItemId, ItemName, ItemPrice, ItemDescription, ItemImage } = req.body;
   console.log('Receiving request:', req.body)
   if(!item[UserName]) {
@@ -490,8 +490,8 @@ function deleteItem( itemId ) {
   }
 }
 
-server.post('/Interface31', (req, res) => { // Delete ItemData
-  console.log('Interface31')
+server.post('/interface31', (req, res) => { // Delete ItemData
+  console.log('interface31')
   const { ItemId } = req.body;
   console.log('Receiving request:', req.body)
   deleteItem(ItemId)

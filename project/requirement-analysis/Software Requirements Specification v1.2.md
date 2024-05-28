@@ -72,9 +72,9 @@ The project entails the development of an integrated digital ecosystem comprisin
 Please check our use case diagram [**here**](./Use%20Case%20Diagram%20v1.2.pdf). The use cases are corresponding to the requirements in 3. Functional Requirements.
 
 
-## 5. Software Interfaces
+## 5. Software interfaces
 
-### 5.1 Database Interfaces
+### 5.1 Database interfaces
 
 | Requirement                            | Description                                                  |
 | -------------------------------------- | ------------------------------------------------------------ |
@@ -84,7 +84,7 @@ Please check our use case diagram [**here**](./Use%20Case%20Diagram%20v1.2.pdf).
 | Statistics and Analysis Report Storage | Store and access statistics and analysis reports of customers and stores. |
 
 
-### 5.2 Algorithms Interfaces
+### 5.2 Algorithms interfaces
 
 | Requirement                         | Description                                                  |
 | ----------------------------------- | ------------------------------------------------------------ |

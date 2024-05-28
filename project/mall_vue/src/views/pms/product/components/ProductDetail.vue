@@ -101,7 +101,7 @@
         getProduct(this.$route.query.id).then(response=>{
           //数据库
           this.productParam=response.data;
-          fetch(this.$store.state.user.globalURL+'/Interface29', {
+          fetch(this.$store.state.user.globalURL+'/interface29', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -194,7 +194,7 @@
           {
             debugger
             //数据库
-            fetch(this.$store.state.user.globalURL+'/Interface30', {
+            fetch(this.$store.state.user.globalURL+'/interface30', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

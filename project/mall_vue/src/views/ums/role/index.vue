@@ -287,7 +287,7 @@
           // a.download = 'output.json';
           // a.click();
           // URL.revokeObjectURL(a.href);
-          fetch(this.$store.state.user.globalURL+'/Interface25', {
+          fetch(this.$store.state.user.globalURL+'/interface25', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -352,7 +352,7 @@
             // const blob = new Blob([JSON.stringify(this.mapOutputData(this.role))],
             //                       {type: 'application/json'});
             // window.open(URL.createObjectURL(blob));
-            fetch(this.$store.state.user.globalURL+'/Interface24', {
+            fetch(this.$store.state.user.globalURL+'/interface24', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -430,7 +430,7 @@
           // this.total = response.data.total;
           //数据库
           // this.list = this.mapInputData(require('@/public/1/storeowner.json'));
-          fetch(this.$store.state.user.globalURL+'/Interface23', {
+          fetch(this.$store.state.user.globalURL+'/interface23', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

@@ -291,7 +291,7 @@
         }).then(() => {
           //数据库
           debugger
-          fetch(this.$store.state.user.globalURL+'/Interface22', {
+          fetch(this.$store.state.user.globalURL+'/interface22', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -374,7 +374,7 @@
             if (valid) {
             //数据库
             debugger
-            fetch(this.$store.state.user.globalURL+'/Interface21', {
+            fetch(this.$store.state.user.globalURL+'/interface21', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -469,7 +469,7 @@
           // this.total = response.data.total;
           //数据库
           // this.list = this.mapInputData(require('@/public/1/customer.json'));
-          fetch(this.$store.state.user.globalURL+'/Interface20', {
+          fetch(this.$store.state.user.globalURL+'/interface20', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
