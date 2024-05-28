@@ -149,7 +149,7 @@
       return {
         storeName: '', // 商店名称
         storeLocation: '', // 商店位置
-        storeFloor: 1,
+        storeFloor: '',
         storeLocationTemp: '', // 临时存储，Confirm后存入storeLocation
         avgRate: '/', // 平均评分
         feedback: [], // 反馈信息数组
