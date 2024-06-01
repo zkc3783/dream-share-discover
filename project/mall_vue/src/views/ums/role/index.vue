@@ -198,6 +198,7 @@
             { min: 3, message: 'Password must be at least 3 characters long', trigger: 'blur' }
           ],
           location: [
+            { required: true, message: 'Please input location', trigger: 'blur' },
             { 
               pattern: /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/,
               message: 'Location must be two numbers separated by a comma',
