@@ -266,42 +266,37 @@
           // let res = require('@/public/1/analytics.json')
           // this.selectedComments = res["SelectedComments"];
           // this.overallAdvices = res["OverallAdvices"];
-          fetch(this.$store.state.user.globalURL+'/interface26', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-            })
-          }).then(response => {
-            debugger
-            return response.json();  // 解析 JSON 数据
-          }).then(data => {
-            this.selectedComments = data["SelectedComments"];
-            this.overallAdvices = data["OverallAdvices"];
-          }).catch(error => {
-            console.error('Error during fetching data:', error);
-            this.$message.error('Server error');
-          });
-          debugger
-        }
-        // setTimeout(() => {
-        //   this.chartData = {
-        //     columns: ['date', 'orderCount','orderAmount'],
-        //     rows: []
-        //   };
-        //   for(let i=0;i<DATA_FROM_BACKEND.rows.length;i++){
-        //     let item=DATA_FROM_BACKEND.rows[i];
-        //     let currDate=str2Date(item.date);
-        //     let start=this.orderCountDate[0];
-        //     let end=this.orderCountDate[1];
-        //     if(currDate.getTime()>=start.getTime()&&currDate.getTime()<=end.getTime()){
-        //       this.chartData.rows.push(item);
-        //     }
-        //   }
-        //   this.dataEmpty = false;
-        //   this.loading = false
-        // }, 1000)
+           
+          this.selectedComments = [{"Comment": "Terrible experience, very unhelpful support team!", "Rating": 1}, 
+            {"Comment": "Slow delivery and poor quality products.", "Rating": 2},
+            {"Comment": "Could be better, sometimes slow response times.", "Rating": 2},
+            {"Comment": "Poor customer service, difficult to get assistance.", "Rating": 1},
+            {"Comment": "Average experience, nothing outstanding.", "Rating": 2},
+            {"Comment": "Really disappointed with the product, not as described.", "Rating": 0},
+            {"Comment": "The service is just so so, might not recommend.", "Rating": 3}];
+
+
+          this.overallAdvices = ["\nOverall, users have had a positive experience with the company, praising the support team and fast delivery. However, some users have experienced \
+              slow response times and poor customer service. One user was also disappointed with the product they received, finding it not as described."]};
+
+          // fetch(this.$store.state.user.globalURL+'/interface26', {
+          //   method: 'POST',
+          //   headers: {
+          //     'Content-Type': 'application/json'
+          //   },
+          //   body: JSON.stringify({
+          //   })
+          // }).then(response => {
+          //   debugger
+          //   return response.json();  // 解析 JSON 数据
+          // }).then(data => {
+          //   this.selectedComments = data["SelectedComments"];
+          //   this.overallAdvices = data["OverallAdvices"];
+          // }).catch(error => {
+          //   console.error('Error during fetching data:', error);
+          //   this.$message.error('Server error');
+          // });
+          //  }
       },
       edit() {
         this.$confirm('Do you want to update your store info?', 'Tip', {
